@@ -11,13 +11,16 @@
 
 <body>
     <section aria-label="Start Menu">
-        <input id="enter-name" type="text" name="enter-name" placeholder="Please enter a name">
-        <label for="enter-name">Name</label>
-        <div id="play-w-sound"></div>
-        <div id="play-w/o-sound"></div>
-        <div id="how-to-play"></div>
+        <form>
+            <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20" pattern="[A-Za-z]+"
+                placeholder="Please enter a name" required>
+            <label for="player-name">Name</label>
+                <button id="play-w-sound" type="submit">PLAY WITH SOUND</button>
+                <button id="play-w/o-sound" type="submit">PLAY WITH SOUND</button>
+                <button id="how-to-play">HOW TO PLAY</button>
+        </form>
     </section>
-    <section>
+    <section aria-label="Pentifall Game">
         <div id="score"></div>
         <canvas id="board" width="260" height="520"></canvas>
     </section>
