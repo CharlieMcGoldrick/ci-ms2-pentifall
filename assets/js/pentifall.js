@@ -12,6 +12,19 @@ let boardHeight = 520;
 const numberOfRows = 40;
 const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
+const gameCanvas = document.getElementById('game-canvas'); // Grab the game canvas
+const context = gameCanvas.getContext('2d'); // Get the context of the canvas
+
+/**
+ * Draw a cell
+ */
+function drawCell(x, y, color) {
+    context.fillStyle = color; 
+    context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+    context.strokeStyle = 'red'; // Border Colour
+    context.strokeRect( x * cellSize, y * cellSize, cellSize, cellSize);
+}
+
 
 // Pentominoes
 const tPentomino = [
@@ -126,6 +139,8 @@ const nPentominoFlipped = [
     [1, 1, 1],
     [1, 0, 0]
 ];
+
+
 
 /**
  * Start the game when one of the two buttons are clicked.
