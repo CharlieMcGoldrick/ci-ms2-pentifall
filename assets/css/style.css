@@ -15,7 +15,7 @@ body {
 }
 
 /* START MENU */
-#start-menu form {
+#start-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
