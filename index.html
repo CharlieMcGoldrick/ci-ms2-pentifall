@@ -10,22 +10,21 @@
 </head>
 
 <body>
-    <section aria-label="Start Menu">
+    <section id="start-menu" aria-label="Start Menu">
         <form>
             <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20" pattern="[A-Za-z]+"
                 placeholder="Please enter a name" required>
-            <label for="player-name">Name</label>
-                <button id="play-w-sound" type="submit">PLAY WITH SOUND</button>
-                <button id="play-w/o-sound" type="submit">PLAY WITH SOUND</button>
-                <button id="how-to-play">HOW TO PLAY</button>
+            <button id="play-w-sound" type="submit">PLAY WITH SOUND</button>
+            <button id="play-w/o-sound" type="submit">PLAY WITH SOUND</button>
+            <button id="how-to-play">HOW TO PLAY</button>
         </form>
     </section>
-    <section aria-label="Pentifall Game">
+    <section id="game-area" aria-label="Pentifall Game">
         <div id="score"></div>
         <canvas id="board" width="260" height="520"></canvas>
     </section>
 
-    <script src="assets/js/pentifall.js"></script>
+    <script type="module" src="assets/js/pentifall.js"></script>
 </body>
 
 </html>
