@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- START MENU -->
     <section id="start-menu" aria-label="Start Menu">
         <form>
             <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20" pattern="[A-Za-z]+"
@@ -19,12 +20,15 @@
             <button id="how-to-play">HOW TO PLAY</button>
         </form>
     </section>
+    <!-- GAME AREA -->
     <section id="game-area" aria-label="Pentifall Game">
-        <div id="score"></div>
+        <div id="score">0</div>
         <canvas id="board" width="260" height="520"></canvas>
     </section>
 
-    <script type="module" src="assets/js/pentifall.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/start-menu.js"></script>
+    <script src="assets/js/pentifall.js"></script>
 </body>
 
 </html>
