@@ -6,6 +6,13 @@ const playWithoutSoundBtn = document.getElementById('play-w/o-sound');
 const playerNameInput = document.getElementById('player-name'); // Capture playername for validation & end screen score display
 const errorMessageElement = document.getElementById('error-message');
 
+// Board
+let boardWidth = 260;
+let boardHeight = 520;
+const numberOfRows = 40;
+const numberOfColumns = 20;
+const cellSize = boardWidth / numberOfColumns;
+
 // Pentominoes
 const tPentomino = [
     [0, 1, 0],
@@ -131,7 +138,6 @@ function startGame() {
         startMenu.style.display = 'none';
         gameArea.style.display = 'flex';
 
-        // Game logic goes here
     } else {
         let errorMessage = '';
 
