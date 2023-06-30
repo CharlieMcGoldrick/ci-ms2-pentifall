@@ -3,7 +3,8 @@ const startMenu = document.getElementById('start-menu');
 const gameArea = document.getElementById('game-area');
 const playWithSoundBtn = document.getElementById('play-w-sound');
 const playWithoutSoundBtn = document.getElementById('play-w/o-sound');
-const playerNameInput = document.getElementById('player-name'); // Capture playername for validation & end screen score display 
+const playerNameInput = document.getElementById('player-name'); // Capture playername for validation & end screen score display
+const errorMessageElement = document.getElementById('error-message'); 
 
 /**
  * Start the game when one of the two buttons are clicked.
@@ -27,7 +28,7 @@ function startGame() {
         } else {
             errorMessage = 'Please enter a valid name!';
         }
-        console.log(errorMessage);
+        errorMessageElement.textContent = errorMessage;
     }
 }
 

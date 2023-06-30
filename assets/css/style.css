@@ -16,11 +16,28 @@ body {
 
 /* START MENU */
 #start-menu {
+    position: relative;
+    width: 260px;
+    height: 520px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px 0;
+}
+
+#player-name-container {
+    position: relative;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+#error-message {
+    position: absolute;
+    top: -25px;
+    /* Placeholder colour */
+    color: red;
 }
 
 /* GAME AREA */
