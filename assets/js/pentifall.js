@@ -4,7 +4,121 @@ const gameArea = document.getElementById('game-area');
 const playWithSoundBtn = document.getElementById('play-w-sound');
 const playWithoutSoundBtn = document.getElementById('play-w/o-sound');
 const playerNameInput = document.getElementById('player-name'); // Capture playername for validation & end screen score display
-const errorMessageElement = document.getElementById('error-message'); 
+const errorMessageElement = document.getElementById('error-message');
+
+// Pentominoes
+const tPentomino = [
+    [0, 1, 0],
+    [1, 1, 1],
+    [0, 1, 0]
+];
+
+const uPentomino = [
+    [1, 0, 1],
+    [1, 1, 1]
+];
+
+const vPentomino = [
+    [1, 0, 0],
+    [1, 0, 0],
+    [1, 1, 1]
+];
+
+const wPentomino = [
+    [1, 0, 0],
+    [1, 1, 0],
+    [0, 1, 1]
+];
+
+const xPentomino = [
+    [0, 1, 0],
+    [1, 1, 1],
+    [0, 1, 0]
+];
+
+const yPentomino = [
+    [1, 0],
+    [1, 1],
+    [1, 0],
+    [1, 0]
+];
+
+const yPentominoFlipped = [
+    [0, 1],
+    [1, 1],
+    [0, 1],
+    [0, 1]
+];
+
+const zPentomino = [
+    [1, 1, 0],
+    [0, 1, 0],
+    [0, 1, 1]
+]
+;
+const zPentominoFlipped = [
+    [0, 1, 1],
+    [0, 1, 0],
+    [1, 1, 0]
+];
+
+const fPentomino = [
+    [0, 1, 1],
+    [1, 1, 0],
+    [0, 1, 0]
+];
+
+const fPentominoFlipped = [
+    [1, 1, 0],
+    [0, 1, 1],
+    [0, 1, 0]
+];
+
+const iPentomino = [
+    [1],
+    [1],
+    [1],
+    [1],
+    [1]
+];
+
+const lPentomino = [
+    [1, 0],
+    [1, 0],
+    [1, 0],
+    [1, 1]
+];
+
+const lPentominoFlipped = [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+    [1, 1]
+];
+
+const pPentomino = [
+    [1, 1],
+    [1, 1],
+    [1, 0]
+];
+
+const pPentominoFlipped = [
+    [1, 1],
+    [1, 1],
+    [0, 1]
+];
+
+const nPentomino = [
+    [1, 0, 0],
+    [1, 1, 1],
+    [0, 0, 1]
+];
+
+const nPentominoFlipped = [
+    [0, 0, 1],
+    [1, 1, 1],
+    [1, 0, 0]
+];
 
 /**
  * Start the game when one of the two buttons are clicked.
