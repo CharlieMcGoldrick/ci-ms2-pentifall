@@ -24,6 +24,10 @@ body {
 }
 
 /* GAME AREA */
+#game-area {
+    display: none;
+}
+
 #score {
     display: block;
     color: red;
