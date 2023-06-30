@@ -1,7 +1,7 @@
 // Start Menu
 const startMenu = document.getElementById('start-menu');
 const gameArea = document.getElementById('game-area');
-const playWithSoundBtn = document.getElementById('play=w-sound');
+const playWithSoundBtn = document.getElementById('play-w-sound');
 const playWithoutSoundBtn = document.getElementById('play-w/o-sound');
 
 /**
