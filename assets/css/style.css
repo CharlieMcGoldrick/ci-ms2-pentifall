@@ -5,3 +5,19 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #a9a9a9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* START MENU */
+#start-menu form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 0;
+}
