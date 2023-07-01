@@ -161,7 +161,7 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y);
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, 'black'); // PLACEHOLDER Pentomino colour
             }
         }
     }
@@ -242,5 +242,6 @@ function startGame() {
     }
 }
 
+// START GAME WHEN BUTTON WITH OR WITHOUT SOUND IS CLICKED
 playWithSoundBtn.addEventListener('click', startGame);
 playWithoutSoundBtn.addEventListener('click', startGame);
