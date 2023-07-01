@@ -16,7 +16,7 @@ const numberOfRows = 40;
 const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
 let currentPentomino;
-let pentominoPoisition;
+let pentominoPosition;
 
 /**
  * Draw a cell.
