@@ -131,6 +131,9 @@ const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
 let currentPentomino;
 let pentominoPosition;
+let fallSpeed = 1000; // Fall speed in milliseconds. 1000 = 1 second
+let fastFallSpeed = 250; // Fall speed when the down arrow key is pressed
+let gameLoopInterval;
 
 /**
  * Draw a cell.
@@ -198,17 +201,25 @@ function initialiseGame() {
  * Moves the current pentomino down and generates a new one if necessary
  */
 function gameStep() {
-    // Update the pentomino position
-    pentominoPosition.y += 1;
-
-    // Check if the pentomino has hit the bottom of the board
-    // WILL NEED TO CHECK IF IT HITS OTHER PENTOMINOES
-    if (pentominoPosition.y + currentPentomino.length > numberOfRows) {
+    // Try to move the pentomino down
+    if (!movePentomino(0, 1)) { // If it cannot move down
+        // Add the current pentomino to the game board
+        for (let i = 0; i < currentPentomino.length; i++) {
+            for (let j = 0; j < currentPentomino[i].length; j++) {
+                if (currentPentomino[i][j]) {
+                    gameBoard[pentominoPosition.y + i][pentominoPosition.x + j] = 1;
+                }
+            }
+        }
+        // Generate a new pentomino
         generatePentomino();
     }
-
     drawBoard();
     drawPentomino();
+
+    // Restart the game loop with the new fall speed
+    clearInterval(gameLoopInterval); // Clear existing interval
+    gameLoopInterval = setInterval(gameStep, fallSpeed);
 }
 
 
@@ -227,7 +238,8 @@ function startGame() {
         initialiseGame();
 
         // Start the game loop
-        setInterval(gameStep, 1000);
+        clearInterval(gameLoopInterval); // Clear exisiting interval if any
+        gameLoopInterval = setInterval(gameStep, fallSpeed);
     } else {
         let errorMessage = '';
 
@@ -262,7 +274,7 @@ function movePentomino(dx, dy) {
 
 
 
-// Controls
+// Core Controls
 document.addEventListener('keydown', function (e) {
     switch (e.key) {
         case 37: // Left Arrow Key
@@ -272,9 +284,16 @@ document.addEventListener('keydown', function (e) {
             movePentomino(1, 0); // Move Right
             break;
         case 40: // Down Arrow Key
-            movePentomino(0, 1); // Move Down Faster
+            fallSpeed = fastFallSpeed; // Move Down Faster
             break;
         case 32: // Spacebar
             rotatePentomino(); // Rotate
+    }
+});
+
+// Event listener for fastFallSpeed reset
+document.addEventListener('keyup', function (e) {
+    if (e.key == 40) { // Down Arrow Key
+        fallspeed = 1000;
     }
 });
