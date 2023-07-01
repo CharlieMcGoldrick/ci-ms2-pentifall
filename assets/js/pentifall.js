@@ -214,8 +214,8 @@ function gameStep() {
         // Generate a new pentomino
         generatePentomino();
 
-        // If the new piece cannot move down, then the game is over
-        if (!isValidPosition(pentominoPosition.x, pentominoPosition.y + 1, currentPentomino)) {
+        // If the new piece cannot move, then the game is over
+        if (!isValidPosition(pentominoPosition.x, pentominoPosition.y, currentPentomino)) {
             clearInterval(gameLoopInterval);
             console.log("Game Over");  // Game Over logic should be implemented here.
             return;
@@ -223,13 +223,7 @@ function gameStep() {
     }
     drawBoard();
     drawPentomino();
-
-    // Restart the game loop with the new fall speed
-    clearInterval(gameLoopInterval); // Clear existing interval
-    gameLoopInterval = setInterval(gameStep, fallSpeed);
 }
-
-
 
 /**
  * Start the game when one of the two buttons are clicked.
@@ -277,7 +271,9 @@ function movePentomino(dx, dy) {
         pentominoPosition.y += dy;
         drawBoard();
         drawPentomino();
+        return true;
     }
+    return false;
 }
 
 /**
@@ -286,13 +282,13 @@ function movePentomino(dx, dy) {
 function isValidPosition(x, y, pentomino) {
     for (let i = 0; i < pentomino.length; i++) {
         for (let j = 0; j < pentomino[i].length; j++) {
-            if (pentomino[i][j] && // if this part of the pentomino exists
+            if (pentomino[i][j] && // If this part of the pentomino exists
                 (y + i < 0 || y + i >= numberOfRows || x + j < 0 || x + j >= numberOfColumns || gameBoard[y + i][x + j])) {
-                return false; // position is invalid
+                return false; // Position is invalid
             }
         }
     }
-    return true; // position is valid
+    return true; // Position is valid
 }
 
 
