@@ -12,7 +12,7 @@ let boardHeight = 520;
 const numberOfRows = 40;
 const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
-const gameCanvas = document.getElementById('game-canvas'); // Grab the game canvas
+const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 
 /**
