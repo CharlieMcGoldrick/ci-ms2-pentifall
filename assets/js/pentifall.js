@@ -40,6 +40,17 @@ function drawBoard() {
     }
 }
 
+/**
+ * Generates a new random pentomino and sets it as the current one
+ */
+function generatePentomino() {
+    // Array of pentominoes
+    const pentominoes = [tPentomino, uPentomino, vPentomino, wPentomino, xPentomino, yPentomino, zPentomino, fPentomino, iPentomino, lPentomino, pPentomino, nPentomino];
+    currentPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+
+    // Position the pentomino at the top middle of the board
+    pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
+}
 
 /**
  * Initialise the game
