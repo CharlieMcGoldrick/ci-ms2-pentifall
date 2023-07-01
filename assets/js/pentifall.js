@@ -277,23 +277,24 @@ function movePentomino(dx, dy) {
 // Core Controls
 document.addEventListener('keydown', function (e) {
     switch (e.key) {
-        case 37: // Left Arrow Key
+        case 'ArrowLeft': // Left Arrow Key
             movePentomino(-1, 0); // Move Left
             break;
-        case 39: // Right Arrow Key
+        case 'ArrowRight': // Right Arrow Key
             movePentomino(1, 0); // Move Right
             break;
-        case 40: // Down Arrow Key
+        case 'ArrowDown': // Down Arrow Key
             fallSpeed = fastFallSpeed; // Move Down Faster
             break;
-        case 32: // Spacebar
+        case ' ': // Spacebar
             rotatePentomino(); // Rotate
+            break;
     }
 });
 
 // Event listener for fastFallSpeed reset
 document.addEventListener('keyup', function (e) {
-    if (e.key == 40) { // Down Arrow Key
-        fallspeed = 1000;
+    if (e.key === 'ArrowDown') { // Down Arrow Key
+        fallSpeed = 1000;
     }
 });
