@@ -19,10 +19,28 @@ const context = gameCanvas.getContext('2d'); // Get the context of the canvas
  * Draw a cell
  */
 function drawCell(x, y, color) {
-    context.fillStyle = color; 
+    context.fillStyle = color;
     context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-    context.strokeStyle = 'red'; // Border Colour
-    context.strokeRect( x * cellSize, y * cellSize, cellSize, cellSize);
+    context.strokeStyle = 'red'; // Placeholder Border Colour
+    context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
+}
+
+/**
+ * Initialise the game
+ */
+function initialiseGame() {
+    // Create the game board as a 2D array
+    let gameBoard = new Array(numberOfRows);
+    for (let i = 0; i < numberOfRows; i++) {
+        gameBoard[i] = new Array(numberOfColumns).fill(0);
+    }
+
+    // Draw initial gameboard
+    for (let x = 0; x < numberOfColumns; x++) {
+        for (let y = 0; y < numberOfRows; y++) {
+            drawCell(x, y, gameBoard[y][x] ? 'black' : 'white'); // Placeholder Cell Colour
+        }
+    }
 }
 
 
@@ -75,7 +93,7 @@ const zPentomino = [
     [0, 1, 0],
     [0, 1, 1]
 ]
-;
+    ;
 const zPentominoFlipped = [
     [0, 1, 1],
     [0, 1, 0],
@@ -153,6 +171,8 @@ function startGame() {
         startMenu.style.display = 'none';
         gameArea.style.display = 'flex';
 
+        // Initialise the game
+        initialiseGame();
     } else {
         let errorMessage = '';
 
