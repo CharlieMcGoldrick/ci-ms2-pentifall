@@ -272,6 +272,20 @@ function movePentomino(dx, dy) {
     }
 }
 
+/**
+ * // This function checks if a given position is valid (i.e., within the game board and not overlapping with any settled cells)
+ */
+function isValidPosition(x, y, pentomino) {
+    for (let i = 0; i < pentomino.length; i++) {
+        for (let j = 0; j < pentomino[i].length; j++) {
+            if (pentomino[i][j] && // if this part of the pentomino exists
+                (y + i < 0 || y + i >= numberOfRows || x + j < 0 || x + j >= numberOfColumns || gameBoard[y + i][x + j])) {
+                return false; // position is invalid
+            }
+        }
+    }
+    return true; // position is valid
+}
 
 
 // Core Controls
