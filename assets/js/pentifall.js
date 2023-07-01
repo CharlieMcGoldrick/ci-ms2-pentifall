@@ -7,14 +7,14 @@ const playerNameInput = document.getElementById('player-name'); // Capture playe
 const errorMessageElement = document.getElementById('error-message');
 
 // Board
+const gameCanvas = document.getElementById('board'); // Grab the game canvas
+const context = gameCanvas.getContext('2d'); // Get the context of the canvas
+let gameBoard;
 let boardWidth = 260;
 let boardHeight = 520;
 const numberOfRows = 40;
 const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
-const gameCanvas = document.getElementById('board'); // Grab the game canvas
-const context = gameCanvas.getContext('2d'); // Get the context of the canvas
-let gameBoard;
 let currentPentomino;
 let pentominoPoisition;
 
@@ -29,6 +29,19 @@ function drawCell(x, y, color) {
 }
 
 /**
+ * Draw Initial Gameboard
+ */
+function drawBoard() {
+
+    for (let x = 0; x < numberOfColumns; x++) {
+        for (let y = 0; y < numberOfRows; y++) {
+            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
+        }
+    }
+}
+
+
+/**
  * Initialise the game
  */
 function initialiseGame() {
@@ -38,12 +51,7 @@ function initialiseGame() {
         gameBoard[i] = new Array(numberOfColumns).fill(0);
     }
 
-    // Draw initial gameboard
-    for (let x = 0; x < numberOfColumns; x++) {
-        for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
-        }
-    }
+    drawBoard();
 }
 
 
