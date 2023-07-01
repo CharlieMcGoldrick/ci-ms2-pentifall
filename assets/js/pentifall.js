@@ -14,6 +14,9 @@ const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
+let gameBoard;
+let currentPentomino;
+let pentominoPoisition;
 
 /**
  * Draw a cell
