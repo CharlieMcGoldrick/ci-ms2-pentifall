@@ -224,6 +224,9 @@ function startGame() {
 
         // Initialise the game
         initialiseGame();
+
+        // Start the game loop
+        setInterval(gameStep, 1000);
     } else {
         let errorMessage = '';
 
