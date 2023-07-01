@@ -6,77 +6,6 @@ const playWithoutSoundBtn = document.getElementById('play-w/o-sound');
 const playerNameInput = document.getElementById('player-name'); // Capture playername for validation & end screen score display
 const errorMessageElement = document.getElementById('error-message');
 
-// Board
-const gameCanvas = document.getElementById('board'); // Grab the game canvas
-const context = gameCanvas.getContext('2d'); // Get the context of the canvas
-let gameBoard;
-let boardWidth = 260;
-let boardHeight = 520;
-const numberOfRows = 40;
-const numberOfColumns = 20;
-const cellSize = boardWidth / numberOfColumns;
-let currentPentomino;
-let pentominoPosition;
-
-/**
- * Draw a cell.
- */
-function drawCell(x, y, color) {
-    context.fillStyle = color;
-    context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-    context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
-    context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
-}
-
-/**
- * Draw Initial Gameboard.
- */
-function drawBoard() {
-    for (let x = 0; x < numberOfColumns; x++) {
-        for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
-        }
-    }
-}
-
-function drawPentomino() {
-    for (let x = 0; x < currentPentomino[0].length; x++) {
-        for (let y = 0; y < currentPentomino.length; y++) {
-            if (currentPentomino[y][x]) {
-                // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x+x, pentominoPosition.y + y)
-            }
-        }
-    }
-}
-
-/**
- * Generates a new random pentomino and sets it as the current one.
- */
-function generatePentomino() {
-    // Array of pentominoes
-    const pentominoes = [tPentomino, uPentomino, vPentomino, wPentomino, xPentomino, yPentomino, zPentomino, fPentomino, iPentomino, lPentomino, pPentomino, nPentomino];
-    currentPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
-
-    // Position the pentomino at the top middle of the board
-    pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
-}
-
-/**
- * Initialise the game
- */
-function initialiseGame() {
-    // Create the game board as a 2D array
-    let gameBoard = new Array(numberOfRows);
-    for (let i = 0; i < numberOfRows; i++) {
-        gameBoard[i] = new Array(numberOfColumns).fill(0);
-    }
-
-    drawBoard();
-    generatePentomino();
-}
-
-
 // Pentominoes
 const tPentomino = [
     [0, 1, 0],
@@ -191,6 +120,95 @@ const nPentominoFlipped = [
     [1, 0, 0]
 ];
 
+// Board
+const gameCanvas = document.getElementById('board'); // Grab the game canvas
+const context = gameCanvas.getContext('2d'); // Get the context of the canvas
+let gameBoard;
+let boardWidth = 260;
+let boardHeight = 520;
+const numberOfRows = 40;
+const numberOfColumns = 20;
+const cellSize = boardWidth / numberOfColumns;
+let currentPentomino;
+let pentominoPosition;
+
+/**
+ * Draw a cell.
+ */
+function drawCell(x, y, color) {
+    context.fillStyle = color;
+    context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+    context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
+    context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
+}
+
+/**
+ * Draw Initial Gameboard.
+ */
+function drawBoard() {
+    for (let x = 0; x < numberOfColumns; x++) {
+        for (let y = 0; y < numberOfRows; y++) {
+            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
+        }
+    }
+}
+
+/**
+ * Draw the current pentomino
+ */
+function drawPentomino() {
+    for (let x = 0; x < currentPentomino[0].length; x++) {
+        for (let y = 0; y < currentPentomino.length; y++) {
+            if (currentPentomino[y][x]) {
+                // The cell is part of the pentomino, so draw it
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y);
+            }
+        }
+    }
+}
+
+/**
+ * Generates a new random pentomino and sets it as the current one.
+ */
+function generatePentomino() {
+    // Array of pentominoes
+    const pentominoes = [tPentomino, uPentomino, vPentomino, wPentomino, xPentomino, yPentomino, zPentomino, fPentomino, iPentomino, lPentomino, pPentomino, nPentomino];
+    currentPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+
+    // Position the pentomino at the top middle of the board
+    pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
+}
+
+/**
+ * Initialise the game
+ */
+function initialiseGame() {
+    // Create the game board as a 2D array
+    let gameBoard = new Array(numberOfRows);
+    for (let i = 0; i < numberOfRows; i++) {
+        gameBoard[i] = new Array(numberOfColumns).fill(0);
+    }
+
+    drawBoard();
+    generatePentomino();
+}
+
+/**
+ * Moves the current pentomino down and generates a new one if necessary
+ */
+function gameStep() {
+    // Update the pentomino position
+    pentominoPosition.y += 1;
+
+    // Check if the pentomino has hit the bottom of the board
+    // WILL NEED TO CHECK IF IT HITS OTHER PENTOMINOES
+    if (pentominoPosition.y + currentPentomino.length > numberOfRows) {
+        generatePentomino();
+    }
+
+    drawBoard();
+    drawPentomino();
+}
 
 
 /**
