@@ -245,3 +245,22 @@ function startGame() {
 // START GAME WHEN BUTTON WITH OR WITHOUT SOUND IS CLICKED
 playWithSoundBtn.addEventListener('click', startGame);
 playWithoutSoundBtn.addEventListener('click', startGame);
+
+// MOVEMENT
+
+// Controls
+document.addEventListener('keydown', function(e) {
+    switch (e.key) {
+        case 37: // Left Arrow Key
+            movePentomino(-1,0); // Move Left
+            break;
+        case 39: // Right Arrow Key
+            movePentomino(1, 0); // Move Right
+            break;
+        case 40: // Down Arrow Key
+            movePentomino(0,1); // Move Down Faster
+            break;
+        case 32: // Spacebar
+            rotatePentomino(); // Rotate
+    }
+});
