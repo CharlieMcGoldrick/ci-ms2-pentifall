@@ -53,5 +53,5 @@ body {
 
 #board {
     display: block;
-    border: 5px solid red;
+    border: 1px solid #545454;
 }

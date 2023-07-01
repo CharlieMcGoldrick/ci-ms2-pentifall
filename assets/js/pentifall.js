@@ -21,7 +21,7 @@ const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 function drawCell(x, y, color) {
     context.fillStyle = color;
     context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-    context.strokeStyle = 'red'; // Placeholder Border Colour
+    context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
     context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
 }
 
@@ -38,7 +38,7 @@ function initialiseGame() {
     // Draw initial gameboard
     for (let x = 0; x < numberOfColumns; x++) {
         for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] ? 'black' : 'white'); // Placeholder Cell Colour
+            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
         }
     }
 }
