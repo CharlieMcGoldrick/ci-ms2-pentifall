@@ -184,12 +184,13 @@ function generatePentomino() {
  */
 function initialiseGame() {
     // Create the game board as a 2D array
-    let gameBoard = new Array(numberOfRows);
+    gameBoard = new Array(numberOfRows);
     for (let i = 0; i < numberOfRows; i++) {
         gameBoard[i] = new Array(numberOfColumns).fill(0);
     }
-
+    // Draw Initial Gameboard
     drawBoard();
+    // Generate and position a pentomino at the top-middle of the board
     generatePentomino();
 }
 
