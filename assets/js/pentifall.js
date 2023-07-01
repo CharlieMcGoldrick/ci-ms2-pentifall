@@ -19,7 +19,7 @@ let currentPentomino;
 let pentominoPoisition;
 
 /**
- * Draw a cell
+ * Draw a cell.
  */
 function drawCell(x, y, color) {
     context.fillStyle = color;
@@ -29,10 +29,9 @@ function drawCell(x, y, color) {
 }
 
 /**
- * Draw Initial Gameboard
+ * Draw Initial Gameboard.
  */
 function drawBoard() {
-
     for (let x = 0; x < numberOfColumns; x++) {
         for (let y = 0; y < numberOfRows; y++) {
             drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
@@ -40,8 +39,19 @@ function drawBoard() {
     }
 }
 
+function drawPentomino() {
+    for (let x = 0; x < currentPentomino[0].length; x++) {
+        for (let y = 0; y < currentPentomino.length; y++) {
+            if (currentPentomino[y][x]) {
+                // The cell is part of the pentomino, so draw it
+                drawCell(pentominoPosition.x+x, pentominoPosition.y + y)
+            }
+        }
+    }
+}
+
 /**
- * Generates a new random pentomino and sets it as the current one
+ * Generates a new random pentomino and sets it as the current one.
  */
 function generatePentomino() {
     // Array of pentominoes
@@ -63,6 +73,7 @@ function initialiseGame() {
     }
 
     drawBoard();
+    generatePentomino();
 }
 
 
