@@ -132,8 +132,12 @@ const cellSize = boardWidth / numberOfColumns;
 let currentPentomino;
 let pentominoPosition;
 let fallSpeed = 1000; // Fall speed in milliseconds. 1000 = 1 second
-let fastFallSpeed = 250; // Fall speed when the down arrow key is pressed
+let fastFallSpeed = fallSpeed / 10; // Fall speed when the down arrow key is pressed. This is 10 times faster than the normal fall speed.
+let currentSpeed = fallSpeed;
 let gameLoopInterval;
+
+// Keys
+let isDownArrowKeyPressed = false;
 
 /**
  * Draw a cell.
@@ -201,6 +205,7 @@ function initialiseGame() {
  * Moves the current pentomino down and generates a new one if necessary
  */
 function gameStep() {
+    currentSpeed = isDownArrowKeyPressed ? fastFallSpeed : fallSpeed;
     // Try to move the pentomino down
     if (!movePentomino(0, 1)) { // If it cannot move down
         // Add the current pentomino to the game board
@@ -223,7 +228,11 @@ function gameStep() {
     }
     drawBoard();
     drawPentomino();
+    // Clear the current game step and set a new one with the current speed
+    clearInterval(gameLoopInterval);
+    gameLoopInterval = setInterval(gameStep, currentSpeed);
 }
+
 
 /**
  * Start the game when one of the two buttons are clicked.
@@ -241,7 +250,7 @@ function startGame() {
 
         // Start the game loop
         clearInterval(gameLoopInterval); // Clear exisiting interval if any
-        gameLoopInterval = setInterval(gameStep, fallSpeed);
+        gameLoopInterval = setInterval(gameStep, currentSpeed);
     } else {
         let errorMessage = '';
 
@@ -293,6 +302,7 @@ function isValidPosition(x, y, pentomino) {
 
 
 // Core Controls
+// Keydown event listener
 document.addEventListener('keydown', function (e) {
     switch (e.key) {
         case 'ArrowLeft': // Left Arrow Key
@@ -302,7 +312,7 @@ document.addEventListener('keydown', function (e) {
             movePentomino(1, 0); // Move Right
             break;
         case 'ArrowDown': // Down Arrow Key
-            fallSpeed = fastFallSpeed; // Move Down Faster
+            isDownArrowKeyPressed = true;
             break;
         case ' ': // Spacebar
             rotatePentomino(); // Rotate
@@ -310,9 +320,9 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-// Event listener for fastFallSpeed reset
+// Keyup event listener
 document.addEventListener('keyup', function (e) {
     if (e.key === 'ArrowDown') { // Down Arrow Key
-        fallSpeed = 1000;
+        isDownArrowKeyPressed = false;
     }
 });
