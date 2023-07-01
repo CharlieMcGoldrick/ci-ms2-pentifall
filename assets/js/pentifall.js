@@ -247,18 +247,32 @@ playWithSoundBtn.addEventListener('click', startGame);
 playWithoutSoundBtn.addEventListener('click', startGame);
 
 // MOVEMENT
+/**
+ * Move the pentomino by the given deltas (dx and dy)
+ * First, check if the new position would be valid
+ */
+function movePentomino(dx, dy) {
+    if (isValidPosition(pentominoPosition.x + dx, pentominoPosition.y + dy, currentPentomino)) {
+        pentominoPosition.x += dx;
+        pentominoPosition.y += dy;
+        drawBoard();
+        drawPentomino();
+    }
+}
+
+
 
 // Controls
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     switch (e.key) {
         case 37: // Left Arrow Key
-            movePentomino(-1,0); // Move Left
+            movePentomino(-1, 0); // Move Left
             break;
         case 39: // Right Arrow Key
             movePentomino(1, 0); // Move Right
             break;
         case 40: // Down Arrow Key
-            movePentomino(0,1); // Move Down Faster
+            movePentomino(0, 1); // Move Down Faster
             break;
         case 32: // Spacebar
             rotatePentomino(); // Rotate
