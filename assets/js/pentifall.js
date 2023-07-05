@@ -167,6 +167,8 @@ const pentominoes = [
     { shape: nPentominoFlipped, color: colors[17] }
 ];
 
+let pentominoCurrentColor;
+
 // Board
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
@@ -204,7 +206,7 @@ function drawCell(x, y, color) {
 function drawBoard() {
     for (let x = 0; x < numberOfColumns; x++) {
         for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] ? 'black' : '#8bac0f'); // Fill & Empty Board Colour
+            drawCell(x, y, gameBoard[y][x] ? 'black' : '#9bbc0f'); // Fill & Empty Board Colour
         }
     }
 }
@@ -217,7 +219,7 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, 'black'); // PLACEHOLDER Pentomino colour
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor.main); // This will use the pentomino objects that are assigned colour objects
             }
         }
     }
@@ -227,9 +229,9 @@ function drawPentomino() {
  * Generates a new random pentomino and sets it as the current one.
  */
 function generatePentomino() {
-    // Array of pentominoes
-    const pentominoes = [tPentomino, uPentomino, vPentomino, wPentomino, xPentomino, yPentomino, zPentomino, fPentomino, iPentomino, lPentomino, pPentomino, nPentomino];
-    currentPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+    let newPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+    currentPentomino = newPentomino.shape;
+    pentominoCurrentColor = newPentomino.color; // Set color of current pentomino here
 
     // Position the pentomino at the top middle of the board
     pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
