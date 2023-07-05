@@ -125,25 +125,26 @@ const nPentominoFlipped = [
 // Dark = left and top edge colour
 // Light = right and bottom edge colour
 const colors = [
-    { main: "#9bbc0f", dark: "#306230", light: "#0f380f" },
-    { main: "#a9a9a9", dark: "#545454", light: "#000000" },
-    { main: "#306230", dark: "#0f380f", light: "#9bbc0f" },
-    { main: "#0f380f", dark: "#545454", light: "#306230" },
-    { main: "#545454", dark: "#306230", light: "#0f380f" },
-    { main: "#306230", dark: "#000000", light: "#a9a9a9" },
-    { main: "#0f380f", dark: "#000000", light: "#545454" },
-    { main: "#000000", dark: "#306230", light: "#0f380f" },
-    { main: "#a9a9a9", dark: "#0f380f", light: "#306230" },
-    { main: "#545454", dark: "#0f380f", light: "#9bbc0f" },
-    { main: "#9bbc0f", dark: "#000000", light: "#a9a9a9" },
-    { main: "#0f380f", dark: "#a9a9a9", light: "#000000" },
-    { main: "#306230", dark: "#a9a9a9", light: "#545454" },
-    { main: "#000000", dark: "#545454", light: "#9bbc0f" },
-    { main: "#545454", dark: "#9bbc0f", light: "#000000" },
-    { main: "#a9a9a9", dark: "#9bbc0f", light: "#545454" },
-    { main: "#9bbc0f", dark: "#545454", light: "#306230" },
-    { main: "#306230", dark: "#545454", light: "#0f380f" }
+    { main: "#333333", dark: "#004000", light: "#CCCCCC" },
+    { main: "#2E2E2E", dark: "#005500", light: "#BDBDBD" },
+    { main: "#292929", dark: "#006600", light: "#AEAEAE" },
+    { main: "#242424", dark: "#007700", light: "#9F9F9F" },
+    { main: "#1F1F1F", dark: "#008800", light: "#909090" },
+    { main: "#1A1A1A", dark: "#009900", light: "#818181" },
+    { main: "#151515", dark: "#00AA00", light: "#727272" },
+    { main: "#101010", dark: "#00BB00", light: "#636363" },
+    { main: "#0B0B0B", dark: "#00CC00", light: "#545454" },
+    { main: "#060606", dark: "#00DD00", light: "#454545" },
+    { main: "#202020", dark: "#00EE00", light: "#B5B5B5" },
+    { main: "#252525", dark: "#00FF00", light: "#A6A6A6" },
+    { main: "#2A2A2A", dark: "#006400", light: "#979797" },
+    { main: "#2F2F2F", dark: "#007500", light: "#888888" },
+    { main: "#343434", dark: "#008500", light: "#797979" },
+    { main: "#393939", dark: "#009500", light: "#6A6A6A" },
+    { main: "#3E3E3E", dark: "#00A500", light: "#5B5B5B" },
+    { main: "#434343", dark: "#00B500", light: "#4C4C4C" }
 ];
+
 
 // Assign color sets to the pentominoes
 const pentominoes = [
@@ -219,11 +220,12 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor.main); // This will use the pentomino objects that are assigned colour objects
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor.main);// This will use the pentomino objects that are assigned colour objects
             }
         }
     }
 }
+
 
 /**
  * Generates a new random pentomino and sets it as the current one.
