@@ -189,6 +189,26 @@ function generatePentomino() {
 }
 
 /**
+ * Delete rows when they are filled
+ */
+function deleteFullRows() {
+    for (let y = 0; y < numberOfRows; y++) {
+        let rowFilled = true;
+        for (let x = 0; x < numberOfColumns; x++) {
+            if (gameBoard[y][x] === 0) {
+                rowFilled = false;
+                break;
+            }
+        }
+        if (rowFilled) {
+            // Remove the row and add a new row at the top
+            gameBoard.splice(y, 1);
+            gameBoard.unshift(new Array(numberOfColumns).fill(0));
+        }
+    }
+}
+
+/**
  * Initialise the game
  */
 function initialiseGame() {
@@ -218,6 +238,10 @@ function gameStep() {
                 }
             }
         }
+
+        // Delete row(s) if full
+        deleteFullRows();
+
         // Generate a new pentomino
         generatePentomino();
 
