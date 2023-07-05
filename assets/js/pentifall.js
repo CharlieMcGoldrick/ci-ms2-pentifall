@@ -138,6 +138,8 @@ let gameLoopInterval;
 
 // Keys
 let isDownArrowKeyPressed = false;
+let isSpaceBarDown = false;
+
 
 /**
  * Draw a cell.
@@ -300,7 +302,6 @@ function isValidPosition(x, y, pentomino) {
     return true; // Position is valid
 }
 
-
 // Core Controls
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
@@ -312,17 +313,25 @@ document.addEventListener('keydown', function (e) {
             movePentomino(1, 0); // Move Right
             break;
         case 'ArrowDown': // Down Arrow Key
-            isDownArrowKeyPressed = true;
+            isDownArrowKeyPressed = true; // Set down arrow key state to 'down'
             break;
-        case ' ': // Spacebar
-            rotatePentomino(); // Rotate
+        case ' ': //Spacebar
+            if (!isSpaceBarDown) {
+                rotatePentomino();
+                isSpaceBarDown = true;  // Set spacebar key state to 'down'
+            }
             break;
     }
 });
 
 // Keyup event listener
 document.addEventListener('keyup', function (e) {
-    if (e.key === 'ArrowDown') { // Down Arrow Key
-        isDownArrowKeyPressed = false;
+    switch (e.key) {
+        case 'ArrowDown': // Down Arrow Key
+            isDownArrowKeyPressed = false; // Set down arrow key state to 'up'
+            break;
+        case ' ': //Spacebar
+            isSpaceBarDown = false;  // Set spacebar key state to 'up'
+            break;
     }
 });
