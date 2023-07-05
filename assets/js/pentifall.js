@@ -288,6 +288,24 @@ function movePentomino(dx, dy) {
 }
 
 /**
+ * Rotate the pentomino
+ */
+function rotatePentomino() {
+    if (!currentPentomino) {
+        return;
+    }
+
+    const reversedPentomino = currentPentomino.map(row => [...row].reverse()); // [...row] is a spread operator to create a shallow copy of the original array
+    const rotatedPentomino = reversedPentomino[0].map((_, index) => // Underscore indicates I'm not using that parameter
+        reversedPentomino.map(row => row[index])
+    );
+
+    if (isValidPosition(pentominoPosition.x, pentominoPosition.y, rotatedPentomino)) {
+        currentPentomino = rotatedPentomino;
+    }
+}
+
+/**
  * // This function checks if a given position is valid (i.e., within the game board and not overlapping with any settled cells)
  */
 function isValidPosition(x, y, pentomino) {
