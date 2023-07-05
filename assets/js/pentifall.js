@@ -120,6 +120,53 @@ const nPentominoFlipped = [
     [1, 0, 0]
 ];
 
+// Pentomino Colours
+// Main = main colour
+// Dark = left and top edge colour
+// Light = right and bottom edge colour
+const colors = [
+    { main: "#9bbc0f", dark: "#306230", light: "#0f380f" },
+    { main: "#a9a9a9", dark: "#545454", light: "#000000" },
+    { main: "#306230", dark: "#0f380f", light: "#9bbc0f" },
+    { main: "#0f380f", dark: "#545454", light: "#306230" },
+    { main: "#545454", dark: "#306230", light: "#0f380f" },
+    { main: "#306230", dark: "#000000", light: "#a9a9a9" },
+    { main: "#0f380f", dark: "#000000", light: "#545454" },
+    { main: "#000000", dark: "#306230", light: "#0f380f" },
+    { main: "#a9a9a9", dark: "#0f380f", light: "#306230" },
+    { main: "#545454", dark: "#0f380f", light: "#9bbc0f" },
+    { main: "#9bbc0f", dark: "#000000", light: "#a9a9a9" },
+    { main: "#0f380f", dark: "#a9a9a9", light: "#000000" },
+    { main: "#306230", dark: "#a9a9a9", light: "#545454" },
+    { main: "#000000", dark: "#545454", light: "#9bbc0f" },
+    { main: "#545454", dark: "#9bbc0f", light: "#000000" },
+    { main: "#a9a9a9", dark: "#9bbc0f", light: "#545454" },
+    { main: "#9bbc0f", dark: "#545454", light: "#306230" },
+    { main: "#306230", dark: "#545454", light: "#0f380f" }
+];
+
+// Assign color sets to the pentominoes
+const pentominoes = [
+    { shape: tPentomino, color: colors[0] },
+    { shape: uPentomino, color: colors[1] },
+    { shape: vPentomino, color: colors[2] },
+    { shape: wPentomino, color: colors[3] },
+    { shape: xPentomino, color: colors[4] },
+    { shape: yPentomino, color: colors[5] },
+    { shape: yPentominoFlipped, color: colors[6] },
+    { shape: zPentomino, color: colors[7] },
+    { shape: zPentominoFlipped, color: colors[8] },
+    { shape: fPentomino, color: colors[9] },
+    { shape: fPentominoFlipped, color: colors[10] },
+    { shape: iPentomino, color: colors[11] },
+    { shape: lPentomino, color: colors[12] },
+    { shape: lPentominoFlipped, color: colors[13] },
+    { shape: pPentomino, color: colors[14] },
+    { shape: pPentominoFlipped, color: colors[15] },
+    { shape: nPentomino, color: colors[16] },
+    { shape: nPentominoFlipped, color: colors[17] }
+];
+
 // Board
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
