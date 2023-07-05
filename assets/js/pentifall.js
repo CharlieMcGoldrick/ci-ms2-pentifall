@@ -131,8 +131,8 @@ const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
 let currentPentomino;
 let pentominoPosition;
-let fallSpeed = 1000; // Fall speed in milliseconds. 1000 = 1 second
-let fastFallSpeed = fallSpeed / 50; // Fall speed when the down arrow key is pressed. This is 20 times faster than the normal fall speed.
+let fallSpeed = 800; // Fall speed in milliseconds. 800 = 0.8 second
+let fastFallSpeed = fallSpeed / 20; // Fall speed when the down arrow key is pressed. This is still 20 times faster than the normal fall speed.
 let currentSpeed = fallSpeed;
 let gameLoopInterval;
 
