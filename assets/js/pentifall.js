@@ -313,7 +313,7 @@ document.addEventListener('keydown', function (e) {
             if (isSoundOn) movePentominoSound.play();
             break;
         case 'ArrowDown':
-            isDownArrowKeyPressed = true;
+            isDownArrowKeyDown = true;
             break;
         case ' ': //Spacebar
             if (!isSpaceBarDown) {
