@@ -43,7 +43,7 @@ let isRotateSoundPlayed = false;
 /**
  * Draw a cell with shading.
  */
-function drawCell(x, y, color, isPentomino) {
+function drawCell(x, y, color, isPentomino = true) {
     const shadingWidth = cellSize * 0.1; // The width of the shading
 
     context.fillStyle = color.main;
@@ -60,7 +60,7 @@ function drawCell(x, y, color, isPentomino) {
         context.fillRect(x * cellSize, y * cellSize, cellSize, shadingWidth);
     }
 
-    context.strokeStyle = cellStrokeColour; // Cell stroke Colour
+    context.strokeStyle = cellStrokeColour;
     context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
 }
 
@@ -83,7 +83,7 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor, true); // isPentomino is set to always be true so that they are shaded
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor); // isPentomino is set to always be true so that they are shaded
             }
         }
     }
