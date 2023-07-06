@@ -145,7 +145,6 @@ const colors = [
     { main: "#434343", dark: "#005500", light: "#BDBDBD" }
 ];
 
-
 // Assign color sets to the pentominoes
 const pentominoes = [
     { shape: tPentomino, color: colors[0] },
@@ -176,8 +175,8 @@ const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 let gameBoard;
 let boardWidth = 260;
 let boardHeight = 520;
-const numberOfRows = 40;
-const numberOfColumns = 20;
+const numberOfRows = 30;
+const numberOfColumns = 15;
 const cellSize = boardWidth / numberOfColumns;
 let currentPentomino;
 let pentominoPosition;
@@ -189,6 +188,19 @@ let gameLoopInterval;
 // Keys
 let isDownArrowKeyPressed = false;
 let isSpaceBarDown = false;
+
+// Audio
+let mainThemeMusic = document.getElementById('mainTheme');
+mainThemeMusic.volume = 0.10; // 10% volume
+
+let movePentominoSound = document.getElementById('movePentomino');
+movePentominoSound.volume = 0.75; // 75% volume
+let placePentominoSound = document.getElementById('placePentomino');
+placePentominoSound.volume = 0.5; // 50% volume
+let gameOverSound = document.getElementById('gameOver');
+gameOverSound.volume = 0.75; // 75% volume
+
+let isSoundOn = false;  // Flag that represents if the game is playing with sound or not
 
 
 /**
@@ -214,7 +226,6 @@ function drawCell(x, y, color, isPentomino) {
     context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
     context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
 }
-
 
 /**
  * Draw Initial Gameboard.
@@ -264,6 +275,10 @@ function placePentomino() {
                 gameBoard[pentominoPosition.y + y][pentominoPosition.x + x] = pentominoCurrentColor;
             }
         }
+    }
+
+    if (isSoundOn) {
+        placePentominoSound.play(); // Play placePentominoSound only if isSoundOn is true and the block is placed
     }
 }
 
@@ -322,6 +337,10 @@ function gameStep() {
         if (!isValidPosition(pentominoPosition.x, pentominoPosition.y, currentPentomino)) {
             clearInterval(gameLoopInterval);
             console.log("Game Over");  // Game Over logic should be implemented here.
+            if (isSoundOn) {
+                mainThemeMusic.pause(); // Pause mainThemeMusic only if isSoundOn is true and it's game-over
+                gameOverSound.play(); // Play gameOverSound only if isSoundOn is true and it's game-over
+            }
             return;
         }
     }
@@ -363,9 +382,41 @@ function startGame() {
     }
 }
 
+/**
+ * Start the game with sound
+ */
+function startGameWithSound() {
+    // Start the game as usual...
+    startGame();
+    // ... and play the music if sound is on
+    if (isSoundOn) {
+        mainThemeMusic.play(); // Play mainThemeMusic only if isSoundOn is true
+    }
+}
+
+/**
+ * Start the game without sound
+ */
+function startGameWithoutSound() {
+    // Start the game as usual...
+    startGame();
+    // ... and stop the music if sound is off
+    if (!isSoundOn) {
+        mainThemeMusic.pause(); // Don't play mainThemeMusic only if isSoundOn is false
+    }
+}
+
 // START GAME WHEN BUTTON WITH OR WITHOUT SOUND IS CLICKED
-playWithSoundBtn.addEventListener('click', startGame);
-playWithoutSoundBtn.addEventListener('click', startGame);
+playWithSoundBtn.addEventListener('click', function () {
+    isSoundOn = true;  // Set the flag to true
+    startGameWithSound(); // Call startGameWithSound function
+});
+
+// Start game without sound
+playWithoutSoundBtn.addEventListener('click', function () {
+    isSoundOn = false;  // Set the flag to false
+    startGameWithoutSound(); // Call startGameWithoutSound function
+});
 
 // MOVEMENT
 /**
@@ -422,9 +473,11 @@ document.addEventListener('keydown', function (e) {
     switch (e.key) {
         case 'ArrowLeft': // Left Arrow Key
             movePentomino(-1, 0); // Move Left
+            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's moved left
             break;
         case 'ArrowRight': // Right Arrow Key
             movePentomino(1, 0); // Move Right
+            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's moved right
             break;
         case 'ArrowDown': // Down Arrow Key
             isDownArrowKeyPressed = true; // Set down arrow key state to 'down'
@@ -434,6 +487,7 @@ document.addEventListener('keydown', function (e) {
                 rotatePentomino();
                 isSpaceBarDown = true;  // Set spacebar key state to 'down'
             }
+            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's rotated
             break;
     }
 });
