@@ -201,6 +201,7 @@ let gameOverSound = document.getElementById('gameOver');
 gameOverSound.volume = 0.75; // 75% volume
 
 let isSoundOn = false;  // Flag that represents if the game is playing with sound or not
+let isRotateSoundPlayed = false;
 
 
 /**
