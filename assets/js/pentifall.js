@@ -19,6 +19,7 @@ let fallSpeed = 800; // Fall speed in milliseconds. 800 = 0.8 second
 let fastFallSpeed = fallSpeed / 20; // Fall speed when the down arrow key is down. This is still 20 times faster than the normal fall speed.
 let currentSpeed = fallSpeed;
 let gameLoopInterval;
+const cellStrokeColour = 'rgba(15, 56, 15, 0.05)'
 
 // Keys
 let isDownArrowKeyDown = false;
@@ -59,7 +60,7 @@ function drawCell(x, y, color, isPentomino) {
         context.fillRect(x * cellSize, y * cellSize, cellSize, shadingWidth);
     }
 
-    context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
+    context.strokeStyle = cellStrokeColour; // Cell stroke Colour
     context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
 }
 
