@@ -192,14 +192,29 @@ let isSpaceBarDown = false;
 
 
 /**
- * Draw a cell.
+ * Draw a cell with shading.
  */
-function drawCell(x, y, color) {
-    context.fillStyle = color;
+function drawCell(x, y, color, isPentomino) {
+    const shadingWidth = cellSize * 0.1; // The width of the shading
+
+    context.fillStyle = color.main;
     context.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+
+    // Add shading only if the cell is part of a pentomino
+    if (isPentomino) {
+        context.fillStyle = color.light;
+        context.fillRect((x * cellSize) + cellSize - shadingWidth, y * cellSize, shadingWidth, cellSize);
+        context.fillRect(x * cellSize, (y * cellSize) + cellSize - shadingWidth, cellSize, shadingWidth);
+
+        context.fillStyle = color.dark;
+        context.fillRect(x * cellSize, y * cellSize, shadingWidth, cellSize);
+        context.fillRect(x * cellSize, y * cellSize, cellSize, shadingWidth);
+    }
+
     context.strokeStyle = 'rgba(15, 56, 15, 0.05)'; // Cell stroke Colour
     context.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
 }
+
 
 /**
  * Draw Initial Gameboard.
@@ -207,10 +222,11 @@ function drawCell(x, y, color) {
 function drawBoard() {
     for (let x = 0; x < numberOfColumns; x++) {
         for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] ? 'black' : '#9bbc0f'); // Fill & Empty Board Colour
+            drawCell(x, y, gameBoard[y][x] || { main: '#9bbc0f' }, Boolean(gameBoard[y][x])); // Fill with #9bbc0f because Boolean(gameboard[y][x] will be false else use pentominoCurrentColor (See drawPentomino colour) 
         }
     }
 }
+
 
 /**
  * Draw the current pentomino
@@ -220,7 +236,7 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor.main);// This will use the pentomino objects that are assigned colour objects
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor, true); // isPentomino is set to always be true so that they are shaded
             }
         }
     }
