@@ -16,12 +16,12 @@ let currentPentomino;
 let pentominoPosition;
 let pentominoCurrentColor;
 let fallSpeed = 800; // Fall speed in milliseconds. 800 = 0.8 second
-let fastFallSpeed = fallSpeed / 20; // Fall speed when the down arrow key is pressed. This is still 20 times faster than the normal fall speed.
+let fastFallSpeed = fallSpeed / 20; // Fall speed when the down arrow key is down. This is still 20 times faster than the normal fall speed.
 let currentSpeed = fallSpeed;
 let gameLoopInterval;
 
 // Keys
-let isDownArrowKeyPressed = false;
+let isDownArrowKeyDown = false;
 let isSpaceBarDown = false;
 
 // Audio
@@ -157,7 +157,7 @@ function initialiseGame() {
  * Moves the current pentomino down and generates a new one if necessary
  */
 function gameStep() {
-    currentSpeed = isDownArrowKeyPressed ? fastFallSpeed : fallSpeed;
+    currentSpeed = isDownArrowKeyDown ? fastFallSpeed : fallSpeed;
     // Try to move the pentomino down
     if (!movePentomino(0, 1)) { // If it cannot move down
         // Add the current pentomino to the game board
@@ -222,11 +222,9 @@ function startGame() {
  * Start the game with sound
  */
 function startGameWithSound() {
-    // Start the game as usual...
     startGame();
-    // ... and play the music if sound is on
     if (isSoundOn) {
-        mainThemeMusic.play(); // Play mainThemeMusic only if isSoundOn is true
+        mainThemeMusic.play();
     }
 }
 
@@ -234,24 +232,22 @@ function startGameWithSound() {
  * Start the game without sound
  */
 function startGameWithoutSound() {
-    // Start the game as usual...
     startGame();
-    // ... and stop the music if sound is off
     if (!isSoundOn) {
-        mainThemeMusic.pause(); // Don't play mainThemeMusic only if isSoundOn is false
+        mainThemeMusic.pause();
     }
 }
 
 // START GAME WHEN BUTTON WITH OR WITHOUT SOUND IS CLICKED
 playWithSoundBtn.addEventListener('click', function () {
-    isSoundOn = true;  // Set the flag to true
-    startGameWithSound(); // Call startGameWithSound function
+    isSoundOn = true;
+    startGameWithSound();
 });
 
 // Start game without sound
 playWithoutSoundBtn.addEventListener('click', function () {
-    isSoundOn = false;  // Set the flag to false
-    startGameWithoutSound(); // Call startGameWithoutSound function
+    isSoundOn = false; 
+    startGameWithoutSound();
 });
 
 // MOVEMENT
@@ -307,24 +303,24 @@ function isValidPosition(x, y, pentomino) {
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
     switch (e.key) {
-        case 'ArrowLeft': // Left Arrow Key
-            movePentomino(-1, 0); // Move Left
-            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's moved left
+        case 'ArrowLeft':
+            movePentomino(-1, 0);
+            if (isSoundOn) movePentominoSound.play();
             break;
-        case 'ArrowRight': // Right Arrow Key
-            movePentomino(1, 0); // Move Right
-            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's moved right
+        case 'ArrowRight':
+            movePentomino(1, 0);
+            if (isSoundOn) movePentominoSound.play();
             break;
-        case 'ArrowDown': // Down Arrow Key
-            isDownArrowKeyPressed = true; // Set down arrow key state to 'down'
+        case 'ArrowDown':
+            isDownArrowKeyPressed = true;
             break;
         case ' ': //Spacebar
             if (!isSpaceBarDown) {
                 rotatePentomino();
-                isSpaceBarDown = true;  // Set spacebar key state to 'down'
+                isSpaceBarDown = true; 
                 if (isSoundOn && !isRotateSoundPlayed) {
-                    movePentominoSound.play(); // Play movePentominoSound only if isSoundOn is true, it's rotated, and the rotate sound has not been played for this key press
-                    isRotateSoundPlayed = true;  // Set rotate sound played flag to 'true' (Stops the sound from looping when the spacebar is held down)
+                    movePentominoSound.play(); 
+                    isRotateSoundPlayed = true;
                 }
             }
             break;
@@ -334,12 +330,12 @@ document.addEventListener('keydown', function (e) {
 // Keyup event listener
 document.addEventListener('keyup', function (e) {
     switch (e.key) {
-        case 'ArrowDown': // Down Arrow Key
-            isDownArrowKeyPressed = false; // Set down arrow key state to 'up'
+        case 'ArrowDown':
+            isDownArrowKeyDown = false;
             break;
         case ' ': //Spacebar
-            isSpaceBarDown = false;  // Set spacebar key state to 'up'
-            isRotateSoundPlayed = false;  // Reset rotate sound played flag to 'false'
+            isSpaceBarDown = false;
+            isRotateSoundPlayed = false;
             break;
     }
 });
