@@ -486,8 +486,11 @@ document.addEventListener('keydown', function (e) {
             if (!isSpaceBarDown) {
                 rotatePentomino();
                 isSpaceBarDown = true;  // Set spacebar key state to 'down'
+                if (isSoundOn && !isRotateSoundPlayed) {
+                    movePentominoSound.play(); // Play movePentominoSound only if isSoundOn is true, it's rotated, and the rotate sound has not been played for this key press
+                    isRotateSoundPlayed = true;  // Set rotate sound played flag to 'true' (Stops the sound from looping when the spacebar is held down)
+                }
             }
-            if (isSoundOn) movePentominoSound.play();  // Play movePentominoSound only if isSoundOn is true and it's rotated
             break;
     }
 });
@@ -500,6 +503,7 @@ document.addEventListener('keyup', function (e) {
             break;
         case ' ': //Spacebar
             isSpaceBarDown = false;  // Set spacebar key state to 'up'
+            isRotateSoundPlayed = false;  // Reset rotate sound played flag to 'false'
             break;
     }
 });
