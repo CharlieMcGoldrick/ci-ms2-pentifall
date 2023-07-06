@@ -125,24 +125,24 @@ const nPentominoFlipped = [
 // Dark = left and top edge colour
 // Light = right and bottom edge colour
 const colors = [
-    { main: "#333333", dark: "#004000", light: "#CCCCCC" },
+    { main: "#333333", dark: "#005500", light: "#BDBDBD" },
     { main: "#2E2E2E", dark: "#005500", light: "#BDBDBD" },
-    { main: "#292929", dark: "#006600", light: "#AEAEAE" },
-    { main: "#242424", dark: "#007700", light: "#9F9F9F" },
-    { main: "#1F1F1F", dark: "#008800", light: "#909090" },
-    { main: "#1A1A1A", dark: "#009900", light: "#818181" },
-    { main: "#151515", dark: "#00AA00", light: "#727272" },
-    { main: "#101010", dark: "#00BB00", light: "#636363" },
-    { main: "#0B0B0B", dark: "#00CC00", light: "#545454" },
-    { main: "#060606", dark: "#00DD00", light: "#454545" },
-    { main: "#202020", dark: "#00EE00", light: "#B5B5B5" },
-    { main: "#252525", dark: "#00FF00", light: "#A6A6A6" },
-    { main: "#2A2A2A", dark: "#006400", light: "#979797" },
-    { main: "#2F2F2F", dark: "#007500", light: "#888888" },
-    { main: "#343434", dark: "#008500", light: "#797979" },
-    { main: "#393939", dark: "#009500", light: "#6A6A6A" },
-    { main: "#3E3E3E", dark: "#00A500", light: "#5B5B5B" },
-    { main: "#434343", dark: "#00B500", light: "#4C4C4C" }
+    { main: "#292929", dark: "#005500", light: "#BDBDBD" },
+    { main: "#242424", dark: "#005500", light: "#BDBDBD" },
+    { main: "#1F1F1F", dark: "#005500", light: "#BDBDBD" },
+    { main: "#1A1A1A", dark: "#005500", light: "#BDBDBD" },
+    { main: "#151515", dark: "#005500", light: "#BDBDBD" },
+    { main: "#101010", dark: "#005500", light: "#BDBDBD" },
+    { main: "#0B0B0B", dark: "#005500", light: "#BDBDBD" },
+    { main: "#060606", dark: "#005500", light: "#BDBDBD" },
+    { main: "#202020", dark: "#005500", light: "#BDBDBD" },
+    { main: "#252525", dark: "#005500", light: "#BDBDBD" },
+    { main: "#2A2A2A", dark: "#005500", light: "#BDBDBD" },
+    { main: "#2F2F2F", dark: "#005500", light: "#BDBDBD" },
+    { main: "#343434", dark: "#005500", light: "#BDBDBD" },
+    { main: "#393939", dark: "#005500", light: "#BDBDBD" },
+    { main: "#3E3E3E", dark: "#005500", light: "#BDBDBD" },
+    { main: "#434343", dark: "#005500", light: "#BDBDBD" }
 ];
 
 
