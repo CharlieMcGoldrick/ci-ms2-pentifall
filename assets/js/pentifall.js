@@ -227,7 +227,6 @@ function drawBoard() {
     }
 }
 
-
 /**
  * Draw the current pentomino
  */
@@ -242,7 +241,6 @@ function drawPentomino() {
     }
 }
 
-
 /**
  * Generates a new random pentomino and sets it as the current one.
  */
@@ -253,6 +251,20 @@ function generatePentomino() {
 
     // Position the pentomino at the top middle of the board
     pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
+}
+
+/**
+ * Place Pentomino and keep the colour
+ */
+function placePentomino() {
+    for (let x = 0; x < currentPentomino[0].length; x++) {
+        for (let y = 0; y < currentPentomino.length; y++) {
+            if (currentPentomino[y][x]) {
+                // Place the pentomino on the game board
+                gameBoard[pentominoPosition.y + y][pentominoPosition.x + x] = pentominoCurrentColor;
+            }
+        }
+    }
 }
 
 /**
@@ -298,13 +310,7 @@ function gameStep() {
     // Try to move the pentomino down
     if (!movePentomino(0, 1)) { // If it cannot move down
         // Add the current pentomino to the game board
-        for (let i = 0; i < currentPentomino.length; i++) {
-            for (let j = 0; j < currentPentomino[i].length; j++) {
-                if (currentPentomino[i][j]) {
-                    gameBoard[pentominoPosition.y + i][pentominoPosition.x + j] = 1;
-                }
-            }
-        }
+        placePentomino();  // Use placePentomino function to ensure color is stored
 
         // Delete row(s) if full
         deleteFullRows();
@@ -325,7 +331,6 @@ function gameStep() {
     clearInterval(gameLoopInterval);
     gameLoopInterval = setInterval(gameStep, currentSpeed);
 }
-
 
 /**
  * Start the game when one of the two buttons are clicked.
