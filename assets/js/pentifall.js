@@ -10,16 +10,19 @@ let boardHeight = 520;
 const numberOfRows = 30;
 const numberOfColumns = 15;
 const cellSize = boardWidth / numberOfColumns;
+let score = 0;
+let level = 1;
+
 
 // Pentominoes
 let currentPentomino;
 let pentominoPosition;
 let pentominoCurrentColor;
 let fallSpeed = 800; // Fall speed in milliseconds. 800 = 0.8 second
-let fastFallSpeed = fallSpeed / 20; // Fall speed when the down arrow key is down. This is still 20 times faster than the normal fall speed.
+let fastFallSpeed = 40; // Fall speed when the down arrow key is down. This is 20 times faster than the normal fall speed.
 let currentSpeed = fallSpeed;
 let gameLoopInterval;
-const cellStrokeColour = 'rgba(15, 56, 15, 0.05)'
+const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 
 // Keys
 let isDownArrowKeyDown = false;
@@ -123,6 +126,7 @@ function placePentomino() {
  * Delete rows when they are filled
  */
 function deleteFullRows() {
+    let rowsDeleted = 0;
     for (let y = 0; y < numberOfRows; y++) {
         let rowFilled = true;
         for (let x = 0; x < numberOfColumns; x++) {
@@ -135,9 +139,20 @@ function deleteFullRows() {
             // Remove the row and add a new row at the top
             gameBoard.splice(y, 1);
             gameBoard.unshift(new Array(numberOfColumns).fill(0));
+            rowsDeleted++;
         }
     }
+
+    switch (rowsDeleted) {
+        case 1: score += 100; break;
+        case 2: score += 250; break;
+        case 3: score += 400; break;
+        case 4: score += 600; break;
+        case 5: score += 800; break;
+        default: break;
+    }
 }
+
 
 /**
  * Initialise the game
@@ -159,6 +174,13 @@ function initialiseGame() {
  */
 function gameStep() {
     currentSpeed = isDownArrowKeyDown ? fastFallSpeed : fallSpeed;
+
+    // Level up if score is high enough
+    if (score >= level * 1000) {
+        level++;
+        fallSpeed *= 0.9;  // Speed up by 10%
+    }
+
     // Try to move the pentomino down
     if (!movePentomino(0, 1)) { // If it cannot move down
         // Add the current pentomino to the game board
@@ -186,6 +208,9 @@ function gameStep() {
     // Clear the current game step and set a new one with the current speed
     clearInterval(gameLoopInterval);
     gameLoopInterval = setInterval(gameStep, currentSpeed);
+
+    document.getElementById('score').innerText = "Score: " + score;
+    document.getElementById('level').innerText = "Level: " + level;
 }
 
 /**
@@ -247,7 +272,7 @@ playWithSoundBtn.addEventListener('click', function () {
 
 // Start game without sound
 playWithoutSoundBtn.addEventListener('click', function () {
-    isSoundOn = false; 
+    isSoundOn = false;
     startGameWithoutSound();
 });
 
@@ -318,9 +343,9 @@ document.addEventListener('keydown', function (e) {
         case ' ': //Spacebar
             if (!isSpaceBarDown) {
                 rotatePentomino();
-                isSpaceBarDown = true; 
+                isSpaceBarDown = true;
                 if (isSoundOn && !isRotateSoundPlayed) {
-                    movePentominoSound.play(); 
+                    movePentominoSound.play();
                     isRotateSoundPlayed = true;
                 }
             }
