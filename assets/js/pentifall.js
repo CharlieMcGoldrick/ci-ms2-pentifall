@@ -7,8 +7,8 @@ const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 let gameBoard;
 let boardWidth = 260;
 let boardHeight = 520;
-const numberOfRows = 30;
-const numberOfColumns = 15;
+const numberOfRows = 40;
+const numberOfColumns = 20;
 const cellSize = boardWidth / numberOfColumns;
 let score = 0;
 let level = 1;
@@ -214,67 +214,53 @@ function gameStep() {
 }
 
 /**
- * Start the game when one of the two buttons are clicked.
- * One instance with sound, one without sound.
+ * Start the game with control for sound.
+ * @param {boolean} isSoundOn
  */
-function startGame() {
+function startGame(isSoundOn) {
     const playerName = playerNameInput.value.trim(); // Trim any whitespace 
-    if (playerName.length >= 3 && /^[A-Za-z]+$/.test(playerName)) { // Test name input to be more than 3 characters and using the desired pattern
-        // Valid input, hide the start menu and show the game area
-        startMenu.style.display = 'none';
-        gameArea.style.display = 'flex';
+    let errorMessage = '';
 
-        // Initialise the game
-        initialiseGame();
-
-        // Start the game loop
-        clearInterval(gameLoopInterval); // Clear exisiting interval if any
-        gameLoopInterval = setInterval(gameStep, currentSpeed);
-    } else {
-        let errorMessage = '';
-
-        if (playerName.length < 3) {
-            errorMessage = 'Please enter 3 characters or more!';
-        } else if (!/^[A-Za-z]+$/.test(playerName)) {
-            errorMessage = 'Please only use letters!';
-        } else {
-            errorMessage = 'Please enter a valid name!';
-        }
-        errorMessageElement.textContent = errorMessage;
+    if (playerName.length < 3) {
+        errorMessage = 'Please enter 3 characters or more!';
+    } else if (!/^[A-Za-z]+$/.test(playerName)) {
+        errorMessage = 'Please only use letters!';
     }
-}
 
-/**
- * Start the game with sound
- */
-function startGameWithSound() {
-    startGame();
+    if (errorMessage) {
+        errorMessageElement.textContent = errorMessage;
+        return;
+    }
+
+    // Control the game sound
     if (isSoundOn) {
         mainThemeMusic.play();
-    }
-}
-
-/**
- * Start the game without sound
- */
-function startGameWithoutSound() {
-    startGame();
-    if (!isSoundOn) {
+    } else {
         mainThemeMusic.pause();
     }
+
+    // Valid input, hide the start menu and show the game area
+    startMenu.style.display = 'none';
+    gameArea.style.display = 'flex';
+
+    // Initialise the game
+    initialiseGame();
+
+    // Start the game loop
+    clearInterval(gameLoopInterval); // Clear existing interval if any
+    gameLoopInterval = setInterval(gameStep, currentSpeed);
 }
 
-// START GAME WHEN BUTTON WITH OR WITHOUT SOUND IS CLICKED
+// Start game with sound
 playWithSoundBtn.addEventListener('click', function () {
-    isSoundOn = true;
-    startGameWithSound();
+    startGame(true);
 });
 
 // Start game without sound
 playWithoutSoundBtn.addEventListener('click', function () {
-    isSoundOn = false;
-    startGameWithoutSound();
+    startGame(false);
 });
+
 
 // MOVEMENT
 /**
