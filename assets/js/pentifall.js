@@ -1,4 +1,4 @@
-import { startMenu, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
+import { startMenu, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
 import { pentominoes } from './pentominoes.js';
 
 // Board
@@ -7,12 +7,12 @@ const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 const screen = document.getElementById('screen');
 
 // Get the width and height of the #screen element
-const screenWidth = screen.offsetWidth;
-const screenHeight = screen.offsetHeight;
+const screenWidth = screen.clientWidth;
+const screenHeight = screen.clientHeight;
 
 // Set the canvas width and height
-gameCanvas.width = screenWidth;
-gameCanvas.height = screenHeight;
+gameCanvas.width = screenWidth * 0.7;
+gameCanvas.height = screenHeight * 0.7; // Adjust according to the #game-area height
 
 // Gameboard 
 let gameBoard;
@@ -25,7 +25,6 @@ const cellSize = gameCanvas.width / numberOfColumns;
 // Game Info
 let score = 0;
 let level = 1;
-
 
 // Pentominoes
 let currentPentomino;
@@ -254,6 +253,7 @@ function startGame(isSoundOn) {
 
     // Valid input, hide the start menu and show the game area
     startMenu.style.display = 'none';
+    infoArea.style.display = 'flex';
     gameArea.style.display = 'flex';
 
     // Initialise the game

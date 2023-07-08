@@ -1,5 +1,6 @@
 // Start Menu
 export const startMenu = document.getElementById('start-menu');
+export const infoArea = document.getElementById('info-area');
 export const gameArea = document.getElementById('game-area');
 export const playWithSoundBtn = document.getElementById('play-w-sound');
 export const playWithoutSoundBtn = document.getElementById('play-w/o-sound');

@@ -27,35 +27,40 @@
             <div id="start-menu" aria-label="Start Menu">
                 <div id="player-name-container">
                     <div id="error-message"></div>
-                    <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20" pattern="[A-Za-z]+"
-                        placeholder="Please enter a name" required>
+                    <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20"
+                        pattern="[A-Za-z]+" placeholder="Please enter a name" required>
                 </div>
                 <button id="play-w-sound" type="submit">PLAY WITH SOUND</button>
                 <button id="play-w/o-sound" type="submit">PLAY WITHOUT SOUND</button>
                 <button id="how-to-play">HOW TO PLAY</button>
             </div>
-            <!-- GAME AREA -->
+            <!-- GAME & INFO AREA -->
+            <div id="info-area">
+                <div id="left-info">
+                    <div id="score"></div>
+                    <div id="level"></div>
+                </div>
+                <canvas id="next-pentomino"></canvas>
+            </div>
             <div id="game-area" aria-label="Pentifall Game">
-                <div id="score"></div>
-                <div id="level"></div>
-                <canvas id="board" width="260" height="520"></canvas>
+                <canvas id="board"></canvas>
             </div>
         </div>
         <div id="controls">
-                <div id="dpad">
-                    <button class="dpad-button" id="up">↑</button>
-                    <button class="dpad-button" id="left">←</button>
-                    <button class="dpad-button" id="right">→</button>
-                    <button class="dpad-button" id="down">↓</button>
-                </div>
-                <div id="x-y_buttons">
-                    <button class="action-button" id="y">Y</button>
-                    <button class="action-button" id="x">C</button>
-                </div>
-                <div id="start-select">
-                    <button class="start-select-button" id="start">Start</button>
-                    <button class="start-select-button" id="select">Select</button>
-                </div>
+            <div id="dpad">
+                <button class="dpad-button" id="up">↑</button>
+                <button class="dpad-button" id="left">←</button>
+                <button class="dpad-button" id="right">→</button>
+                <button class="dpad-button" id="down">↓</button>
+            </div>
+            <div id="x-y_buttons">
+                <button class="action-button" id="y">Y</button>
+                <button class="action-button" id="x">C</button>
+            </div>
+            <div id="start-select">
+                <button class="start-select-button" id="start">Start</button>
+                <button class="start-select-button" id="select">Select</button>
+            </div>
         </div>
     </section>
     <!-- START MENU -->

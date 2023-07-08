@@ -8,9 +8,34 @@
 
 /* BODY */
 body {
-    background-color: #a9a9a9;
     min-height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GAMEBOY */
+#gameboy {
+    width: 270px;
+    height: 640px;
+    background-color: #c7c1be;
+    border-radius: 2%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+}
+
+#screen {
+    width: 90%;
+    height: 75%;
+    outline: 10px solid #908d91;
+    background-color: #9bbc0f;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -18,8 +43,8 @@ body {
 /* START MENU */
 #start-menu {
     position: relative;
-    width: 260px;
-    height: 520px;
+    width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,21 +62,51 @@ body {
 #error-message {
     position: absolute;
     top: -25px;
-    /* Placeholder colour */
-    color: red;
 }
 
-/* GAME AREA */
+/* GAME AND INFO AREA */
+#info-area {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    box-sizing: border-box;
+}
+
+#info-area #left-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+}
+
+#info-area #next-pentomino {
+    width: 30%;
+}
+
+#info-area #score,
+#info-area #level {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 #game-area {
     display: none;
-}
-
-#score {
-    display: block;
-    color: red;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    box-sizing: border-box;
 }
 
 #board {
-    display: block;
+    width: 100%;
+    height: 100%;
     border: 1px solid #545454;
+    box-sizing: border-box;
 }
