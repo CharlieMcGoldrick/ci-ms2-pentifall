@@ -4,12 +4,25 @@ import { pentominoes } from './pentominoes.js';
 // Board
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
+const screen = document.getElementById('screen');
+
+// Get the width and height of the #screen element
+const screenWidth = screen.offsetWidth;
+const screenHeight = screen.offsetHeight;
+
+// Set the canvas width and height
+gameCanvas.width = screenWidth;
+gameCanvas.height = screenHeight;
+
+// Gameboard 
 let gameBoard;
-let boardWidth = 260;
-let boardHeight = 520;
 const numberOfRows = 40;
 const numberOfColumns = 20;
-const cellSize = boardWidth / numberOfColumns;
+
+// Cellsize based on width of the canvas
+const cellSize = gameCanvas.width / numberOfColumns;
+
+// Game Info
 let score = 0;
 let level = 1;
 
