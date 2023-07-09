@@ -6,18 +6,28 @@ const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
 const screen = document.getElementById('screen');
 
-// Get the width and height of the #screen element
-const screenWidth = screen.clientWidth;
-const screenHeight = screen.clientHeight;
-
-// Set the canvas width and height
-gameCanvas.width = screenWidth * 0.7;
-gameCanvas.height = screenHeight * 0.7; // Adjust according to the #game-area height
-
 // Gameboard 
 let gameBoard;
 const numberOfRows = 40;
 const numberOfColumns = 20;
+
+// Get the width and height of the #screen element
+const screenWidth = screen.clientWidth;
+const screenHeight = screen.clientHeight - infoArea.offsetHeight;
+
+// Calculate aspect ratio of the game board
+const gameBoardAspectRatio = numberOfColumns / numberOfRows;
+
+// Determine the smaller dimension of the screen
+const smallerScreenDimension = Math.min(screenWidth, screenHeight);
+
+// Calculate canvas dimensions based on aspect ratio
+const gameCanvasWidth = smallerScreenDimension * gameBoardAspectRatio;
+const gameCanvasHeight = smallerScreenDimension;
+
+// Set the canvas width and height
+gameCanvas.width = gameCanvasWidth;
+gameCanvas.height = gameCanvasHeight;
 
 // Cellsize based on width of the canvas
 const cellSize = gameCanvas.width / numberOfColumns;
