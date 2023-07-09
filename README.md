@@ -16,20 +16,20 @@ The visual representation of the game is an often-overlooked element of copyrigh
 <details>
 <summary><h4>User Stories</h4></summary>
 
-#### First Time Visitor Goals ####
+#### First Time Visitor Goals
 
 - As a First Time User, I want to easily understand the main purpose of the game and learn more about its unique concept.
 - As a First Time User, I want to be able to easily navigate the game interface, access instructions and start playing immediately.
 - As a First Time User, I want to have a responsive gaming experience, allowing me to play on my desktop or mobile device seamlessly.
 - As a First Time User, I want to find ways to follow the game's updates on different social media platforms.
 
-#### Returning Visitor Goals ####
+#### Returning Visitor Goals
 
 - As a Returning User, I want to experience new challenges and levels in the game that help me further enhance my problem-solving skills.
 - As a Returning User, I want to be able to share my scores and compete with other users to increase the game's interactivity and excitement.
 - As a Returning User, I want to be able to easily contact the game developer to provide feedback or report issues.
 
-#### Frequent Visitor Goals ####
+#### Frequent Visitor Goals
 
 - As a Frequent User, I want to check if there are any updates, new levels or features added to the game.
 - As a Frequent User, I want to keep track of my progress and improvements in the game over time.
@@ -50,39 +50,44 @@ The visual representation of the game is an often-overlooked element of copyrigh
 <details>
 <summary><h4>Competition</h4></summary>
 
-[Tetris](https://en.wikipedia.org/wiki/Tetris): The timeless classic that started the falling block puzzle genre. Its simple mechanics, combined with its engaging gameplay, have made it a staple in the gaming world. It continues to appeal to a broad range of players, offering both casual and competitive gaming modes. 
+[Tetris](https://en.wikipedia.org/wiki/Tetris): The timeless classic that started the falling block puzzle genre. Its simple mechanics, combined with its engaging gameplay, have made it a staple in the gaming world. It continues to appeal to a broad range of players, offering both casual and competitive gaming modes.
 
 Strengths:
+
 - Wide recognition: The game is a household name and synonymous with the falling-block puzzle genre.
 - Simple yet addictive gameplay: Its mechanics are easy to understand but hard to master, which keeps players engaged.
 - Multi-platform availability: It is available on almost all gaming platforms, allowing for a broad player base.
 
 Weaknesses:
+
 - Limited innovation: The game has largely remained the same since its inception, which might make some players seek more innovative alternatives.
 - No multi-player: The classic version lacks real-time multiplayer capabilities, which are in high demand today.
 
 [Tetr](Tetr.io): This is an online multiplayer version of Tetris. Its primary selling point is the ability to play against other players in real-time, offering both casual and competitive modes.
 
 Strengths:
+
 - Real-time multiplayer: It allows players to compete against each other in real-time, a feature that is not common in many Tetris-like games.
 - Customisable experience: Players can adjust various game settings to their preference.
 
 Weaknesses:
+
 - Complexity: The various customisable settings may seem overwhelming to new or casual players.
 - Less well-known: Compared to Tetris, it has lower brand recognition and popularity.
 
 [Pentix (1986)](https://tetris.wiki/Pentix): Pentix is a variant of the classic Tetris game, developed and released in 1986. Like Tetris, it's a falling block puzzle game. The key distinction lies in its use of Pentominoes - geometric shapes composed of five square blocks - as opposed to Tetrominoes (four square blocks) used in classic Tetris. This increases the complexity of the gameplay and makes it more challenging for players. It was one of the first major adaptations of the Tetris concept.
 
 Strengths:
+
 - Unique mechanics: Utilising Pentominoes increases the complexity of the game, offering a new layer of challenge for players.
 - Early innovator: Being an early variant of Tetris, it has historical significance in the evolution of falling block puzzle games.
 
 Weaknesses:
+
 - Dated graphics: As a game from 1986, the visual presentation can be considered outdated compared to modern games, potentially less appealing to younger audiences.
 - Lower recognition: Despite its innovative gameplay, it's not as well-known as Tetris or other similar games, resulting in a smaller player base.
 - Limited platforms: Being an older game, it might not be available on modern gaming platforms, limiting its accessibility.
 </details>
-
 
 <details>
 <summary><h4>Strategy Tradeoffs</h4></summary>
@@ -90,5 +95,80 @@ Weaknesses:
 ![Synaptic Surge Tradeoff Table](assets/images/readme/uxd/strategy/pentifall_strategy-tradeoffs-table.png)
 
 ![Synaptic Surge Tradeoff_Graph](assets/images/readme/uxd/strategy/pentifall_strategy_tradeoffs_graph.png)
+
 </details>
+
+<details>
+    <summary><h3>Scope</h3></summary>
+
+<details>
+    <summary><h4>Sprint 1</h4></summary>
+
+#### Sprint 1 Features
+
+- Build a responsive falling puzzle game
+- Educate users on how to play the game - Inform users about the controls
+- Option to play with or without music - Including a music option can enhance the overall gaming experience and keep player's more engaged.
+
+#### Sprint 1 Requirement Types
+
+- Languages: HTML, CSS & Javascript
+- Text
+- Audio
+
+</details>
+
+<details>
+    <summary><h4>Sprint 2</h4></summary>
+
+#### Sprint 2 Features
+
+- Community building through competition - Introducing score-sharing and leadboards can foster a sense of community and competition among players.
+- Social media presence - An active social media presense can help keep the community engaged, provide updates and attrack new users.
+
+#### Sprint 2 Requirement Types
+
+- Languages: HTML, CSS & Javascript
+- Text
+- Audio
+
+</details>
+
+<details>
+    <summary><h4>Sprint 3+</h4></summary>
+
+#### Sprint 3+ Features
+
+- Adaptive difficulty levels - Catering to a wide range of players, from beginners to puzzle game veterans, by introducing different difficult settings can enhance user engagement.
+- Interactive tutorials - A tutorial mode can help new usders understand the gameplay mechanics.
+- Game updates and new challenges - Regularly updating the game with new levels or challenges can keep players engaged and returning.
+- Monetisation - In-app purchases, such as aesthetic upgrades or additional challenges.
+
+#### Sprint 3+ Requirement Types
+
+- Languages: HTML, CSS & JavaScript
+- Text
+- Audio
+
+</details>
+</details>
+
+<details>
+    <summary><h3>Structure</h3></summary>
+
+Touchpoints - Responsive Website
+
+![Synaptic Surge Information Architecture](assets/images/readme/uxd/structure/pentifall-information-architecture.png)
+
+</details>
+
+<details>
+    <summary><h3>Skeleton</h3></summary>
+
+<h4>Desktop Wireframes</h4>
+<details>
+![Desktop Landing Page](assets/images/readme/uxd/skeleton/desktop-landing-page.png)
+</details
+</details>
+
 </details>
