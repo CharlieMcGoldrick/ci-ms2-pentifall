@@ -320,9 +320,9 @@ function startGame(isSoundOn) {
     let errorMessage = '';
 
     if (playerName.length < 3) {
-        errorMessage = 'Please enter 3 characters or more!';
+        errorMessage = 'Min 3 characters';
     } else if (!/^[A-Za-z]+$/.test(playerName)) {
-        errorMessage = 'Please only use letters!';
+        errorMessage = 'Only use letters!';
     }
 
     if (errorMessage) {
