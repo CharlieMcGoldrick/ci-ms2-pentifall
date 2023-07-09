@@ -31,7 +31,7 @@ body {
 
 #screen {
     width: 90%;
-    height: 75%;
+    height: 74%;
     outline: 10px solid #908d91;
     background-color: #9bbc0f;
     display: flex;
@@ -109,4 +109,139 @@ body {
     height: 100%;
     border: 1px solid #545454;
     box-sizing: border-box;
+}
+
+/* CONTROLS */
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 270px;
+    padding: 0 15px;
+    height: 200px;
+}
+
+/* DPAD & X-Y BUTTONS */
+#dpad-yx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* DPAD */
+#dpad {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#dpad #up,
+#dpad #down {
+    width: 25px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#up {
+    border-radius: 25% 25% 0 0;
+}
+
+#right {
+    border-radius: 0 25% 25% 0;
+}
+
+#down {
+    border-radius: 0 0 25% 25%;
+}
+
+#left {
+    border-radius: 25% 0 0 25%;
+}
+
+#dpad-middle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#dpad #left,
+#dpad #right {
+    width: 30px;
+    height: 25px;
+}
+
+.dpad-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #000000;
+}
+
+.middle {
+    width: 30px;
+    height: 25px;
+}
+
+/* X-Y BUTTONS */
+#x-y_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #a21641;
+    color: white;
+    border-radius: 50%;
+}
+
+#y {
+    margin-top: 20px;
+}
+
+#x {
+    margin-bottom: 20px;
+}
+
+/* START-SELECT BUTTONS */
+#start-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.start-select-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 20px;
+    border: none;
+    background-color: #908e7f;
+    color: white;
+    border-radius: 15px;
+}
+
+#select {
+    transform: rotate(-25deg);
+    margin-bottom: 15px;
+}
+
+#start {
+    transform: rotate(-25deg);
+    margin-top: 25px;
 }
