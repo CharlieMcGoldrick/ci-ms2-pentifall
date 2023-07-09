@@ -104,6 +104,10 @@ body {
     z-index: 1;
 }
 
+.active-menu-item {
+    background-color: black;
+}
+
 /* CONTROLS */
 #how-to-play-screen {
     display: none;

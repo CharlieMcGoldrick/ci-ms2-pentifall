@@ -65,6 +65,12 @@ gameOverSound.volume = 0.75; // 75% volume
 let isSoundOn = false;  // Flag that represents if the game is playing with sound or not
 let isRotateSoundPlayed = false;
 
+// Ensure input is an active menu item when the page is loaded.
+window.addEventListener('DOMContentLoaded', (event) => {
+    let inputItem = document.getElementById('player-name');
+    inputItem.focus();
+    inputItem.classList.add('active-menu-item');
+});
 
 /**
  * Draw a cell with shading.
@@ -471,47 +477,93 @@ function isValidPosition(x, y, pentomino) {
     return true; // Position is valid
 }
 
-
+// Core Controls
+// Keydown event listener
 // Core Controls
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
-    switch (e.key) {
-        case 'ArrowLeft':
-            movePentomino(-1, 0);
-            if (isSoundOn) movePentominoSound.play();
-            break;
-        case 'ArrowRight':
-            movePentomino(1, 0);
-            if (isSoundOn) movePentominoSound.play();
-            break;
-        case 'ArrowDown':
-            if (!isRotateKeyDown) {
-                rotatePentominoClockwise();
-                isRotateKeyDown = true;
-                if (isSoundOn && !isRotateSoundPlayed) {
-                    movePentominoSound.play();
-                    isRotateSoundPlayed = true;
+    if (startMenu.style.display !== 'none') {
+        let menuItems = Array.prototype.slice.call(document.querySelectorAll('.start-screen-button'));
+        let inputItem = document.getElementById('player-name');
+
+        // Insert the input field into the menu items array
+        menuItems.unshift(inputItem);
+
+        let activeItem = document.querySelector('.active-menu-item');
+        let index = Array.from(menuItems).indexOf(activeItem);
+
+        switch (e.key) {
+            case 'ArrowUp':
+            case 'ArrowDown':
+                // Remove the active class from the currently active item, if any
+                if (activeItem) activeItem.classList.remove('active-menu-item');
+
+                // Calculate the new index
+                index = e.key === 'ArrowUp'
+                    ? index <= 0 ? menuItems.length - 1 : index - 1
+                    : index >= menuItems.length - 1 ? 0 : index + 1;
+
+                // Add the active class to the new active item
+                activeItem = menuItems[index];
+                activeItem.classList.add('active-menu-item');
+
+                // If the new active item is the input field, focus it
+                if (activeItem === inputItem) {
+                    inputItem.focus();
+                } else {
+                    inputItem.blur();
                 }
-            }
-            break;
-        case 'ArrowUp':
-            if (!isRotateKeyDown) {
-                rotatePentominoCounterClockwise();
-                isRotateKeyDown = true;
-                if (isSoundOn && !isRotateSoundPlayed) {
-                    movePentominoSound.play();
-                    isRotateSoundPlayed = true;
+                break;
+            case ' ':
+                // Space will click the active menu item if it's not the input field
+                if (activeItem !== inputItem) {
+                    activeItem.click();
                 }
-            }
-            break;
-        case ' ': //Spacebar
-            isSpacebarKeyDown = true;
-            gameStep(); // Execute straight away so that it executes immediately 
-            break;
-        case 'Shift':
-            dropPentomino();
-            gameStep(); // Execute straight away so that it executes immediately
-            break;
+                break;
+        }
+    }
+    // If the start menu is not being displayed, control the game as usual
+    else {
+        switch (e.key) {
+            case 'ArrowLeft':
+                movePentomino(-1, 0);
+                if (isSoundOn) movePentominoSound.play();
+                break;
+            case 'ArrowRight':
+                movePentomino(1, 0);
+                if (isSoundOn) movePentominoSound.play();
+                break;
+            case 'ArrowDown':
+                if (!isRotateKeyDown) {
+                    rotatePentominoClockwise();
+                    isRotateKeyDown = true;
+                    if (isSoundOn && !isRotateSoundPlayed) {
+                        movePentominoSound.play();
+                        isRotateSoundPlayed = true;
+                    }
+                }
+                break;
+            case 'ArrowUp':
+                if (!isRotateKeyDown) {
+                    rotatePentominoCounterClockwise();
+                    isRotateKeyDown = true;
+                    if (isSoundOn && !isRotateSoundPlayed) {
+                        movePentominoSound.play();
+                        isRotateSoundPlayed = true;
+                    }
+                }
+                break;
+            case ' ':
+                if (!isSpacebarKeyDown) {
+                    isSpacebarKeyDown = true;
+                    gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                }
+                break;
+            case 'Shift':
+                dropPentomino();
+                gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                break;
+        }
     }
 });
 
@@ -530,14 +582,4 @@ document.addEventListener('keyup', function (e) {
             isSpacebarKeyDown = false;
             break;
     }
-});
-
-
-// Event listener for the "How To Play" button
-howToPlayButton.addEventListener('click', function () {
-    // Hide start menu
-    startMenu.style.display = 'none';
-
-    // Show controls
-    howToPlayScreen.style.display = 'block';
 });
