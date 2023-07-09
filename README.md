@@ -12,8 +12,11 @@ The visual representation of the game is an often-overlooked element of copyrigh
 <details>
 <summary><h2>User Experience Design (UXD)</h2></summary>
 
+<!-- Strategy -->
 <details>
 <summary><h3>Strategy</h3></summary>
+
+<!-- Strategy - User Stories -->
 <details>
 <summary><h4>User Stories</h4></summary>
 
@@ -48,6 +51,8 @@ The visual representation of the game is an often-overlooked element of copyrigh
 - As a Site Owner, I want to establish a bond with the users, allowing them to know the person behind the game, building trust, and a sense of community.
 
 </details>
+
+<!-- Strategy - Competition -->
 <details>
 <summary><h4>Competition</h4></summary>
 
@@ -90,6 +95,7 @@ Weaknesses:
 - Limited platforms: Being an older game, it might not be available on modern gaming platforms, limiting its accessibility.
 </details>
 
+<!-- Strategy - Strategy Tradeoffs -->
 <details>
 <summary><h4>Strategy Tradeoffs</h4></summary>
 
@@ -99,9 +105,11 @@ Weaknesses:
 
 </details>
 
+<!-- Scope -->
 <details>
     <summary><h3>Scope</h3></summary>
 
+<!-- Scope - Sprint 1 -->
 <details>
     <summary><h4>Sprint 1</h4></summary>
 
@@ -119,6 +127,7 @@ Weaknesses:
 
 </details>
 
+<!-- Scope - Sprint 2 -->
 <details>
     <summary><h4>Sprint 2</h4></summary>
 
@@ -135,6 +144,7 @@ Weaknesses:
 
 </details>
 
+<!-- Scope - Sprint 3 -->
 <details>
     <summary><h4>Sprint 3+</h4></summary>
 
@@ -154,6 +164,7 @@ Weaknesses:
 </details>
 </details>
 
+<!-- Structure -->
 <details>
     <summary><h3>Structure</h3></summary>
 
@@ -163,12 +174,63 @@ Touchpoints - Responsive Website
 
 </details>
 
+<!-- Skeleton -->
 <details>
     <summary><h3>Skeleton</h3></summary>
 
 <details>
 <h4>Desktop Wireframes</h4>
 ![Desktop Landing Page](assets/images/readme/uxd/skeleton/desktop-landing-page.png)
+</details>
+</details>
+
+<!-- Surface -->
+<details>
+    <summary><h3>Surface</h3></summary>
+
+<h4>Fonts</h4>
+
+All text - [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P?preview.text=Please%20enter%203%20characters%20or%20more&preview.text_type=custom)
+I'm going with Press Start 2P for all of my text as it lends itself well to a game.
+
+<h4>Colours</h4>
+
+Drawing significant inspiration from the classic Game Boy, I was intrigued by the distinctive green screen. This design choice was made to ensure optimal visibility for black colors. Despite my extensive search, I was unable to find a precise hexadecimal color code for this unique shade of green. Nevertheless, I opted for #9bbc0f.
+
+For accurately capturing the colors of the physical Game Boy, I used the [Eye Dropper](https://eyedropper.org/) tool on an image of the [Game Boy](https://en.wikipedia.org/wiki/Game_Boy#/media/File:Game-Boy-FL.jpg). This approach provided me with a faithful representation of the console's iconic color palette.
+
+<summary><h4>Technologies Used</h4></summary>
+
+<details>
+<summary><h5>Languages</h5></summary>
+
+- HTML
+- CSS
+- Javascript
+
+</details>
+
+<details>
+<summary><h5>Websites, Software & other Tools</h5></summary>
+
+- [Codeanywhere](https://codeanywhere.com/solutions/collaborate) This is was my IDE for the project.
+- [CodePen](codepen.io) I used this to test code outside of [Codeanywhere](https://codeanywhere.com/solutions/collaborate) so that I didn't use up hours unnecessarily.
+- [Git](https://git-scm.com/) Used to commit and push code to [Github](https://github.com/).
+- [Github](https://github.com/) This was used as a remote repository and I also used Github pages to host the live site.
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) Used to learn and stick to a conventional commit framework.
+- [Illustrator](https://www.adobe.com/uk/products/illustrator.html) Used to create image that I used for the favicon.
+- [AdobeXD](https://helpx.adobe.com/support/xd.html) Used to create wireframes.
+- [Google Fonts](https://fonts.google.com/) Sourcing fonts.
+- [Google Webfonts Helper](https://gwfh.mranftl.com/fonts) Used to download google fonts in WOFF2 format.
+- [W3Schools](https://www.w3schools.com/) Used to learn more about CSS and Javascript.
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) Used to learn more about Javascript.
+- [Youtube](https://www.youtube.com/) Used to learn more about Git, CSS and Javascript.
+- [Codepen](https://codepen.io/sosuke/pen/Pjoqqp) Used to learn more about CSS and Javascript.
+- [Am I Responsive?](https://ui.dev/amiresponsive) Used to create mock-ups for various screen sizes.
+- [Dynamic Drive](http://tools.dynamicdrive.com/favicon/) Used to create favicon.
+
+</details>
+</details>
 </details>
 </details>
 
