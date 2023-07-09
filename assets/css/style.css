@@ -79,7 +79,7 @@ body {
     outline: none;
 }
 
-.start-screen-button {
+.menu-buttons {
     font-family: 'Press Start 2P', cursive;
     padding: 8px 16px;
     font-size: 10px;
@@ -91,12 +91,12 @@ body {
     margin-bottom: 10px;
 }
 
-.start-screen-button:hover {
+.menu-buttons:hover {
     background-color: #5c5c5c;
 }
 
 #error-message {
-    font-family: 'Press Start 2P', cursive;
+
     position: absolute;
     text-align: center;
     top: -30px;
@@ -106,6 +106,26 @@ body {
 
 .active-menu-item {
     background-color: black;
+}
+
+#gameOverScreen {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    display: none;
+}
+
+#gameOverScreen h1 {
+    font-size: 14px;
+    padding: 10px 0 5px 0;
+}
+
+#gameOverScreen p {
+    font-size: 10px;
+    padding: 10px 0;
+}
+
+#gameOverScreen p {
+    padding: 10px 0;
 }
 
 /* CONTROLS */

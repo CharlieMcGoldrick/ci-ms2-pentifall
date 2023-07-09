@@ -302,12 +302,36 @@ function checkGameOver() {
  */
 function handleGameOver() {
     clearInterval(gameLoopInterval);
-    console.log("Game Over");
+
     if (isSoundOn) {
         mainThemeMusic.pause();
         gameOverSound.play();
     }
+
+    // Display the final score and level
+    document.getElementById('finalScore').innerText = "Final Score: " + score;
+    document.getElementById('finalLevel').innerText = "Final Level: " + level;
+
+    // Show the game over screen
+    document.getElementById('gameOverScreen').style.display = 'block';
+
+    // Hide info area
+    document.getElementById('info-area').style.display = 'none';
 }
+
+// Reset game state
+document.getElementById('startScreenButton').addEventListener('click', function () {
+    score = 0;
+    level = 1;
+
+    // Hide the game over screen and show the start menu
+    document.getElementById('gameOverScreen').style.display = 'none';
+    document.getElementById('game-area').style.display = 'none';
+    document.getElementById('start-menu').style.display = 'block';
+
+    // Clear the player name input
+    document.getElementById('player-name').value = '';
+});
 
 /**
  * Increase level for every 1000 points the player earns
@@ -483,7 +507,7 @@ function isValidPosition(x, y, pentomino) {
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
     if (startMenu.style.display !== 'none') {
-        let menuItems = Array.prototype.slice.call(document.querySelectorAll('.start-screen-button'));
+        let menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-buttons'));
         let inputItem = document.getElementById('player-name');
 
         // Insert the input field into the menu items array
