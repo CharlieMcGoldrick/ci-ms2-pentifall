@@ -21,29 +21,31 @@
 <body>
     <!-- NOTENDO SCRIPTBOY -->
     <section id="gameboy">
-        <div id="screen">
-            <!-- START MENU -->
-            <div id="start-menu" aria-label="Start Menu">
-                <div id="player-name-container">
-                    <div id="error-message"></div>
-                    <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20"
-                        pattern="[A-Za-z]+" placeholder="Enter a name" required>
+        <div class="screen-container">
+            <div id="screen">
+                <!-- START MENU -->
+                <div id="start-menu" aria-label="Start Menu">
+                    <div id="player-name-container">
+                        <div id="error-message"></div>
+                        <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20"
+                            pattern="[A-Za-z]+" placeholder="Enter a name" required>
+                    </div>
+                    <button id="play-w-sound" class="start-screen-button" type="submit">PLAY WITH SOUND</button>
+                    <button id="play-w/o-sound" class="start-screen-button" type="submit">PLAY WITHOUT SOUND</button>
+                    <button id="how-to-play" class="start-screen-button">HOW TO PLAY</button>
                 </div>
-                <button id="play-w-sound" class="start-screen-button" type="submit">PLAY WITH SOUND</button>
-                <button id="play-w/o-sound" class="start-screen-button" type="submit">PLAY WITHOUT SOUND</button>
-                <button id="how-to-play" class="start-screen-button">HOW TO PLAY</button>
-            </div>
-            <!-- GAME & INFO AREA -->
-            <div id="info-area">
-                <div id="left-info">
-                    <div id="score"></div>
-                    <div id="level"></div>
+                <!-- GAME & INFO AREA -->
+                <div id="info-area">
+                    <div id="left-info">
+                        <div id="score"></div>
+                        <div id="level"></div>
+                    </div>
+                    <canvas id="next-pentomino"></canvas>
                 </div>
-                <canvas id="next-pentomino"></canvas>
-            </div>
-            <div id="game-area" aria-label="Pentifall Game">
-                <canvas id="board"></canvas>
-            </div>
+                <div id="game-area" aria-label="Pentifall Game">
+                    <canvas id="board"></canvas>
+                </div>
+        </div>
         </div>
         <div id="controls">
             <div id="dpad-yx">
