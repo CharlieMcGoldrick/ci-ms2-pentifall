@@ -40,6 +40,7 @@ let level = 1;
 let currentPentomino;
 let pentominoPosition;
 let pentominoCurrentColor;
+let nextPentomino;
 let fallSpeed = 800; // Fall speed in milliseconds. 800 = 0.8 second
 let fastFallSpeed = 40; // Fall speed when the down arrow key is down. This is 20 times faster than the normal fall speed.
 let currentSpeed = fallSpeed;
@@ -68,7 +69,7 @@ let isRotateSoundPlayed = false;
 /**
  * Draw a cell with shading.
  */
-function drawCell(x, y, color, isPentomino = true) {
+function drawCell(x, y, color, context, cellSize, isPentomino = true) {
     const shadingWidth = cellSize * 0.1; // The width of the shading
 
     context.fillStyle = color.main;
@@ -95,7 +96,7 @@ function drawCell(x, y, color, isPentomino = true) {
 function drawBoard() {
     for (let x = 0; x < numberOfColumns; x++) {
         for (let y = 0; y < numberOfRows; y++) {
-            drawCell(x, y, gameBoard[y][x] || { main: '#9bbc0f' }, Boolean(gameBoard[y][x])); // Fill with #9bbc0f because Boolean(gameboard[y][x] will be false else use pentominoCurrentColor (See drawPentomino colour) 
+            drawCell(x, y, gameBoard[y][x] || { main: '#9bbc0f' }, context, cellSize, Boolean(gameBoard[y][x])); // Fill with #9bbc0f because Boolean(gameboard[y][x] will be false else use pentominoCurrentColor (See drawPentomino colour) 
         }
     }
 }
@@ -108,23 +109,67 @@ function drawPentomino() {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
                 // The cell is part of the pentomino, so draw it
-                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor); // isPentomino is set to always be true so that they are shaded
+                drawCell(pentominoPosition.x + x, pentominoPosition.y + y, pentominoCurrentColor, context, cellSize);
             }
         }
     }
 }
 
+
 /**
  * Generates a new random pentomino and sets it as the current one.
  */
 function generatePentomino() {
-    let newPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
-    currentPentomino = newPentomino.shape;
-    pentominoCurrentColor = newPentomino.color; // Set color of current pentomino here
+    // If nextPentomino is defined, set it as the current pentomino
+    if (nextPentomino) {
+        currentPentomino = nextPentomino.shape;
+        pentominoCurrentColor = nextPentomino.color;
+    } else {
+        let newPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+        currentPentomino = newPentomino.shape;
+        pentominoCurrentColor = newPentomino.color;
+    }
 
     // Position the pentomino at the top middle of the board
     pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
+
+    // Generate the next pentomino
+    nextPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+
+    // Update the preview canvas
+    updateNextPentominoPreview();
 }
+
+/**
+ * Update pentomino preview
+ */
+function updateNextPentominoPreview() {
+    const previewCanvas = document.getElementById('next-pentomino');
+    const previewContext = previewCanvas.getContext('2d');
+
+    // Clear the canvas
+    previewContext.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+
+    // Set the cell size based on the canvas size and the pentomino size
+    const previewCellSize = Math.min(
+        previewCanvas.width / nextPentomino.shape[0].length,
+        previewCanvas.height / nextPentomino.shape.length
+    );
+
+    // Calculate the starting position to center the pentomino
+    const offsetX = (previewCanvas.width - (nextPentomino.shape[0].length * previewCellSize)) / 2;
+    const offsetY = (previewCanvas.height - (nextPentomino.shape.length * previewCellSize)) / 2;
+
+    // Draw the pentomino
+    for (let y = 0; y < nextPentomino.shape.length; y++) {
+        for (let x = 0; x < nextPentomino.shape[0].length; x++) {
+            if (nextPentomino.shape[y][x] === 1) {
+                drawCell(offsetX / previewCellSize + x, offsetY / previewCellSize + y, nextPentomino.color, previewContext, previewCellSize);
+            }
+        }
+    }
+}
+
 
 /**
  * Place Pentomino and keep the colour
