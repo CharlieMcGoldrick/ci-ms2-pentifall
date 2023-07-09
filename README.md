@@ -8,6 +8,7 @@ Regarding copyright, while Tetris Holding, LLC does have certain rights, these s
 
 The visual representation of the game is an often-overlooked element of copyright law in games. In fact, courts have ruled in the past that visual aspects, including specific colour schemes, can be considered proprietary. With Pentifall, I've been conscientious in this regard, devising a unique aesthetic that separates it from Tetris while maintaining the captivating nature of the puzzle genre. For an example of how a judge has ruled on this matter, please refer to this article: [Defining Tetris: How Courts Judge Gaming Clones](https://arstechnica.com/gaming/2012/06/defining-tetris-how-courts-judge-gaming-clones/)
 
+<!-- UXD -->
 <details>
 <summary><h2>User Experience Design (UXD)</h2></summary>
 
@@ -165,10 +166,68 @@ Touchpoints - Responsive Website
 <details>
     <summary><h3>Skeleton</h3></summary>
 
-<h4>Desktop Wireframes</h4>
 <details>
+<h4>Desktop Wireframes</h4>
 ![Desktop Landing Page](assets/images/readme/uxd/skeleton/desktop-landing-page.png)
-</details
 </details>
+</details>
+
+</details>
+
+<!-- DEPLOYMENT -->
+<details>
+<summary><h2>Deployment</h2></summary>
+
+I have deployed this website on GitHub Pages. To do this yourself, follow the steps below:
+
+1. Log in to your GitHub account and navigate to the repository you wish to deploy.
+2. Click on the "Settings" tab.
+3. In the left-hand navigation menu, click on the "Pages" button.
+4. Under "Source", click on the dropdown that says "None" and then select "main".
+5. Wait for a few seconds and the page should automatically refresh.
+6. In GitHub Pages, you can see the link to your published site.
+
+To make a clone of this repository, follow these steps:
+
+1. Login to your GitHub account.
+2. Go to the repository by visiting the link: [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
+3. Click the "Code" button and then use the copy button next to the link to copy the link.
+4. In your IDE of choice, open a new terminal and use the following clone command:
+   `git clone <https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge.git>`.
+5. You will now have a copy of the repository in you local version.
+
+To fork this repository, follow these steps:
+
+1. Log in to your GitHub account.
+2. Go to the repository you want to fork, which is located at:  [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
+3. In the top-right corner of the repository page, click on the "Fork" button
+4. GitHub will prompt you to select where you want to fork the repository. Choose your personal account or organization.
+5. Wait for the forking process to complete. Once it's done, you will be redirected to your forked repository under your GitHub account.
+
+NOTE: Any changes pushed to the main branch automatically show up on the website.
+
+</details>
+
+<!-- Credits -->
+<details>
+<summary><h2>Credits</h2></summary>
+
+- [W3Schools](https://www.w3schools.com/) Used to learn more about CSS and Javascript
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) Used to learn more about Javascript.
+- [Kevin Powell](https://www.youtube.com/@KevinPowell) Helpful CSS tips.
+- [Free Code Camp](https://www.youtube.com/@freecodecamp) To learn JavaScript.
+- [Am I Responsive?](https://ui.dev/amiresponsive) Used to create mock-ups for various screen sizes.
+- [Color Space](https://mycolor.space/) Used to create colour palette.
+- [Dynamic Drive](http://tools.dynamicdrive.com/favicon/) Used to create favicon.
+
+</details>
+
+<!-- Acknowledgements -->
+<details>
+<summary><h2>Acknowledgements</h2></summary>
+
+- Thank you to Katherine Evans for creating a Viola and Piano rendition of the Korobeiniki folk song.
+- Thank you to my mentor; Graeme Taylor and Code Institute (including the Slack community), for the great support, advice, and guidance.
+- Thank you to my friends and family for their patience and understanding whilst working on this project.
 
 </details>
