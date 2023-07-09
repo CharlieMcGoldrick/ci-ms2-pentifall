@@ -179,6 +179,13 @@ body {
     align-items: center;
     border: none;
     background-color: #000000;
+    box-shadow: 0 4px #666;
+    transition: all 0.1s;
+}
+
+#dpad #top:active, #dpad #right:active, #dpad #bottom:active, #dpad #left:active {
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
 }
 
 .middle {
@@ -205,6 +212,10 @@ body {
     margin-top: 40px;
 }
 
+#y span, #x span {
+    padding-top: 5px;
+}
+
 .action-button {
     display: flex;
     justify-content: center;
@@ -215,6 +226,13 @@ body {
     background-color: #a21641;
     color: white;
     border-radius: 50%;
+    box-shadow: 0 5px #570224;
+    transition: all 0.1s;
+}
+
+.action-button:active {
+    box-shadow: 0 2px #570224;
+    transform: translateY(2px);
 }
 
 /* START-SELECT BUTTONS */
@@ -244,6 +262,13 @@ body {
     color: white;
     border-radius: 15px;
     margin-bottom: 10px;
+    box-shadow: 0 4px #70706f;
+    transition: all 0.1s;
+}
+
+.start-select-button:active {
+    box-shadow: 0 2px #70706f;
+    transform: translateY(2px);
 }
 
 #select,
