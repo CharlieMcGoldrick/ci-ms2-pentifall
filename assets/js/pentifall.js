@@ -349,9 +349,10 @@ function gameStep() {
 
 /**
  * Start the game with control for sound.
- * @param {boolean} isSoundOn
+ * @param {boolean} soundStatus
  */
-function startGame(isSoundOn) {
+function startGame(soundStatus) {
+    isSoundOn = soundStatus;
     const playerName = playerNameInput.value.trim(); // Trim any whitespace 
     let errorMessage = '';
 
