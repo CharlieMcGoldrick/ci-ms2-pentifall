@@ -506,9 +506,11 @@ document.addEventListener('keydown', function (e) {
             break;
         case ' ': //Spacebar
             isSpacebarKeyDown = true;
+            gameStep(); // Execute straight away so that it executes immediately 
             break;
         case 'Shift':
             dropPentomino();
+            gameStep(); // Execute straight away so that it executes immediately
             break;
     }
 });
