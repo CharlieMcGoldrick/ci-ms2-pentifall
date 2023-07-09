@@ -48,7 +48,7 @@ let gameLoopInterval;
 const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 
 // Keys
-let isDownArrowKeyDown = false;
+let isSpacebarKeyDown = false;
 let isRotateKeyDown = false;
 
 // Audio
@@ -268,7 +268,7 @@ function initialiseGame() {
     for (let i = 0; i < numberOfRows; i++) {
         gameBoard[i] = new Array(numberOfColumns).fill(0);
     }
-    
+
     // Generate and position a pentomino at the top-middle of the board
     generatePentomino();
 
@@ -318,7 +318,7 @@ function levelUp() {
  * Gameplay loop
  */
 function gameStep() {
-    currentSpeed = isDownArrowKeyDown ? fastFallSpeed : fallSpeed;
+    currentSpeed = isSpacebarKeyDown ? fastFallSpeed : fallSpeed;
 
     levelUp();
 
@@ -504,7 +504,7 @@ document.addEventListener('keydown', function (e) {
             }
             break;
         case ' ': //Spacebar
-            isDownArrowKeyDown = true;
+            isSpacebarKeyDown = true;
             break;
         case 'Shift':
             dropPentomino();
@@ -524,7 +524,7 @@ document.addEventListener('keyup', function (e) {
             isRotateSoundPlayed = false;
             break;
         case ' ': //Spacebar
-            isDownArrowKeyDown = false;
+            isSpacebarKeyDown = false;
             break;
     }
 });
