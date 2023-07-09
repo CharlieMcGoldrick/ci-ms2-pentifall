@@ -49,7 +49,7 @@ const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 
 // Keys
 let isDownArrowKeyDown = false;
-let isSpaceBarDown = false;
+let isRotateKeyDown = false;
 
 // Audio
 let mainThemeMusic = document.getElementById('mainTheme');
@@ -142,7 +142,6 @@ function generatePentomino() {
     // Update the preview canvas
     updateNextPentominoPreview();
 }
-
 
 /**
  * Update pentomino preview
@@ -377,10 +376,32 @@ function movePentomino(dx, dy) {
     return false;
 }
 
+// Drop pentomino to the bottom
+function dropPentomino() {
+    while (isValidPosition(pentominoPosition.x, pentominoPosition.y + 1, currentPentomino)) {
+        pentominoPosition.y++;
+    }
+}
+
+/** Rotate Pentomino clockwise */
+function rotatePentominoClockwise() {
+    if (!currentPentomino) {
+        return;
+    }
+
+    // reverse the rows and perform a transpose operation
+    const transposedPentomino = currentPentomino[0].map((_, index) => currentPentomino.map(row => row[index]));
+    const reversedPentomino = transposedPentomino.map(row => [...row].reverse());
+
+    if (isValidPosition(pentominoPosition.x, pentominoPosition.y, reversedPentomino)) {
+        currentPentomino = reversedPentomino;
+    }
+}
+
 /**
- * Rotate the pentomino
+ * Rotate the pentomino counter clockwise
  */
-function rotatePentomino() {
+function rotatePentominoCounterClockwise() {
     if (!currentPentomino) {
         return;
     }
@@ -426,17 +447,30 @@ document.addEventListener('keydown', function (e) {
             if (isSoundOn) movePentominoSound.play();
             break;
         case 'ArrowDown':
-            isDownArrowKeyDown = true;
-            break;
-        case ' ': //Spacebar
-            if (!isSpaceBarDown) {
-                rotatePentomino();
-                isSpaceBarDown = true;
+            if (!isRotateKeyDown) {
+                rotatePentominoClockwise();
+                isRotateKeyDown = true;
                 if (isSoundOn && !isRotateSoundPlayed) {
                     movePentominoSound.play();
                     isRotateSoundPlayed = true;
                 }
             }
+            break;
+        case 'ArrowUp':
+            if (!isRotateKeyDown) {
+                rotatePentominoCounterClockwise();
+                isRotateKeyDown = true;
+                if (isSoundOn && !isRotateSoundPlayed) {
+                    movePentominoSound.play();
+                    isRotateSoundPlayed = true;
+                }
+            }
+            break;
+        case ' ': //Spacebar
+            isDownArrowKeyDown = true;
+            break;
+        case 'Shift':
+            dropPentomino();
             break;
     }
 });
@@ -445,11 +479,15 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('keyup', function (e) {
     switch (e.key) {
         case 'ArrowDown':
-            isDownArrowKeyDown = false;
+            isRotateKeyDown = false;
+            isRotateSoundPlayed = false;
+            break;
+        case 'ArrowUp':
+            isRotateKeyDown = false;
+            isRotateSoundPlayed = false;
             break;
         case ' ': //Spacebar
-            isSpaceBarDown = false;
-            isRotateSoundPlayed = false;
+            isDownArrowKeyDown = false;
             break;
     }
 });
