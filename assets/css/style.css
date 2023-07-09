@@ -38,6 +38,7 @@ body {
 #screen {
     width: 100%;
     height: 100%;
+    position: relative;
     background-color: #9bbc0f;
     display: flex;
     flex-direction: column;
@@ -111,7 +112,6 @@ body {
     align-items: center;
     width: 100%;
     height: 10%;
-    opacity: 0.8;
 }
 
 #info-area #left-info {
@@ -127,7 +127,6 @@ body {
 
 #info-area #next-pentomino {
     width: 30%;
-    opacity: 0.8;
 }
 
 #info-area #score,
@@ -145,7 +144,6 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    opacity: 0.8;
 }
 
 #board {
