@@ -49,6 +49,7 @@ const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 
 // Keys
 let isSpacebarKeyDown = false;
+let isShiftKeyDown = false;
 let isRotateKeyDown = false;
 
 // Audio
@@ -327,7 +328,7 @@ document.getElementById('startScreenButton').addEventListener('click', function 
     // Hide the game over screen and show the start menu
     document.getElementById('gameOverScreen').style.display = 'none';
     document.getElementById('game-area').style.display = 'none';
-    document.getElementById('start-menu').style.display = 'block';
+    document.getElementById('start-menu').style.display = 'flex';
 
     // Clear the player name input
     document.getElementById('player-name').value = '';
@@ -503,8 +504,6 @@ function isValidPosition(x, y, pentomino) {
 
 // Core Controls
 // Keydown event listener
-// Core Controls
-// Keydown event listener
 document.addEventListener('keydown', function (e) {
     if (startMenu.style.display !== 'none') {
         let menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-buttons'));
@@ -584,8 +583,11 @@ document.addEventListener('keydown', function (e) {
                 }
                 break;
             case 'Shift':
-                dropPentomino();
-                gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                if (!isShiftKeyDown) {
+                    isShiftKeyDown = true;
+                    dropPentomino();
+                    gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                }
                 break;
         }
     }
@@ -604,6 +606,9 @@ document.addEventListener('keyup', function (e) {
             break;
         case ' ': //Spacebar
             isSpacebarKeyDown = false;
+            break;
+        case 'Shift':
+            isShiftKeyDown = false;
             break;
     }
 });
