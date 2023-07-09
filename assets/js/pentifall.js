@@ -242,56 +242,68 @@ function initialiseGame() {
 }
 
 /**
- * Moves the current pentomino down and generates a new one if necessary
+ * Check to see if it's gameover
+ */
+function checkGameOver() {
+    // Check if any block is on the top row of the board
+    for (let i = 0; i < numberOfColumns; i++) {
+        if (gameBoard[0][i]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * If it's gameover then pause the main theme music
+ * Play the gameoverSound
+ */
+function handleGameOver() {
+    clearInterval(gameLoopInterval);
+    console.log("Game Over");
+    if (isSoundOn) {
+        mainThemeMusic.pause();
+        gameOverSound.play();
+    }
+}
+
+/**
+ * Increase level for every 1000 points the player earns
+ * Speed game up by 90%
+ */
+function levelUp() {
+    if (score >= level * 1000) {
+        level++;
+        fallSpeed *= 0.9;
+    }
+}
+
+/**
+ * Gameplay loop
  */
 function gameStep() {
     currentSpeed = isDownArrowKeyDown ? fastFallSpeed : fallSpeed;
 
-    // Level up if score is high enough
-    if (score >= level * 1000) {
-        level++;
-        fallSpeed *= 0.9;  // Speed up by 10%
-    }
+    levelUp();
 
-    // Try to move the pentomino down
-    if (!movePentomino(0, 1)) { // If it cannot move down
-        // Add the current pentomino to the game board
-        placePentomino();  // Use placePentomino function to ensure color is stored
-
-        // Check if any block is on the top row of the board
-        for (let i = 0; i < numberOfColumns; i++) {
-            if (gameBoard[0][i]) {
-                clearInterval(gameLoopInterval);
-                console.log("Game Over");  // Game Over logic should be implemented here.
-                if (isSoundOn) {
-                    mainThemeMusic.pause(); // Pause mainThemeMusic only if isSoundOn is true and it's game-over
-                    gameOverSound.play(); // Play gameOverSound only if isSoundOn is true and it's game-over
-                }
-                return;
-            }
+    if (!movePentomino(0, 1)) {
+        placePentomino();
+        if (checkGameOver()) {
+            handleGameOver();
+            return;
         }
-
-        // Delete row(s) if full
         deleteFullRows();
-
-        // Generate a new pentomino
         generatePentomino();
 
-        // If the new piece cannot move, then the game is over
         if (!isValidPosition(pentominoPosition.x, pentominoPosition.y, currentPentomino)) {
-            clearInterval(gameLoopInterval);
-            console.log("Game Over");  // Game Over logic should be implemented here.
-            if (isSoundOn) {
-                mainThemeMusic.pause(); // Pause mainThemeMusic only if isSoundOn is true and it's game-over
-                gameOverSound.play(); // Play gameOverSound only if isSoundOn is true and it's game-over
-            }
+            handleGameOver();
             return;
         }
     }
 
     drawBoard();
     drawPentomino();
-    // Clear the current game step and set a new one with the current speed
     clearInterval(gameLoopInterval);
     gameLoopInterval = setInterval(gameStep, currentSpeed);
 
