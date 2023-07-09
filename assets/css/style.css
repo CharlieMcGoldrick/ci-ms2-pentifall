@@ -180,26 +180,26 @@ body {
     align-items: center;
 }
 
-#dpad #up,
-#dpad #down {
+#dpad #button-up,
+#dpad #button-down {
     width: 25px;
     height: 30px;
     margin: 0 auto;
 }
 
-#up {
+#button-up {
     border-radius: 25% 25% 0 0;
 }
 
-#right {
+#button-right {
     border-radius: 0 25% 25% 0;
 }
 
-#down {
+#button-down {
     border-radius: 0 0 25% 25%;
 }
 
-#left {
+#button-left {
     border-radius: 25% 0 0 25%;
 }
 
@@ -209,8 +209,8 @@ body {
     width: 100%;
 }
 
-#dpad #left,
-#dpad #right {
+#dpad #button-left,
+#dpad #button-right {
     width: 30px;
     height: 25px;
 }
@@ -225,10 +225,10 @@ body {
     transition: all 0.1s;
 }
 
-#dpad #up:active,
-#dpad #right:active,
-#dpad #down:active,
-#dpad #left:active {
+#dpad #button-up:active,
+#dpad #button-right:active,
+#dpad #button-down:active,
+#dpad #button-left:active {
     box-shadow: 0 2px #666;
     transform: translateY(2px);
 }
