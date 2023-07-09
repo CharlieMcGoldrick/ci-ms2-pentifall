@@ -1,12 +1,12 @@
 # Pentifall
 
-The project, Pentifall, is my refreshing take on the classic block-dropping puzzle genre, paying homage to the beloved game, Tetris. However, it introduces a unique twist by utilising ![Pentominoes](https://en.wikipedia.org/wiki/Pentomino), shapes formed by five square blocks, as opposed to the traditional ![Tetrominoes](https://en.wikipedia.org/wiki/Tetromino) made up of four. This change is inspired by the original puzzle games that were the foundation for Tetris, intending to present a heightened challenge due to the increased block size.
+The project, Pentifall, is my refreshing take on the classic block-dropping puzzle genre, paying homage to the beloved game, Tetris. However, it introduces a unique twist by utilising [Pentominoes](https://en.wikipedia.org/wiki/Pentomino), shapes formed by five square blocks, as opposed to the traditional [Tetrominoes](https://en.wikipedia.org/wiki/Tetromino) made up of four. This change is inspired by the original puzzle games that were the foundation for Tetris, intending to present a heightened challenge due to the increased block size.
 
 By leveraging the complexity of Pentominoes, Pentifall aims to captivate players with intricate puzzle-solving scenarios and push their strategic capabilities to the limit. It's designed to cater to those who appreciate the simplicity of the original game, yet crave a further test of their skill and adaptability.
 
 Regarding copyright, while Tetris Holding, LLC does have certain rights, these specifically cover the aspects of Tetrominoes, the 10x20 board size, and also the distinct colouring patterns used for Tetrominoes. Pentifall carefully navigates these intellectual property rights. I use Pentominoes instead of Tetrominoes and the board size and block colours in my game are entirely distinct, ensuring no infringement occurs.
 
-The visual representation of the game is an often-overlooked element of copyright law in games. In fact, courts have ruled in the past that visual aspects, including specific colour schemes, can be considered proprietary. With Pentifall, I've been conscientious in this regard, devising a unique aesthetic that separates it from Tetris while maintaining the captivating nature of the puzzle genre. For an example of how a judge has ruled on this matter, please refer to this article: ![Defining Tetris: How Courts Judge Gaming Clones](https://arstechnica.com/gaming/2012/06/defining-tetris-how-courts-judge-gaming-clones/)
+The visual representation of the game is an often-overlooked element of copyright law in games. In fact, courts have ruled in the past that visual aspects, including specific colour schemes, can be considered proprietary. With Pentifall, I've been conscientious in this regard, devising a unique aesthetic that separates it from Tetris while maintaining the captivating nature of the puzzle genre. For an example of how a judge has ruled on this matter, please refer to this article: [Defining Tetris: How Courts Judge Gaming Clones](https://arstechnica.com/gaming/2012/06/defining-tetris-how-courts-judge-gaming-clones/)
 
 <details>
 <summary><h2>User Experience Design (UXD)</h2></summary>
@@ -50,7 +50,7 @@ The visual representation of the game is an often-overlooked element of copyrigh
 <details>
 <summary><h4>Competition</h4></summary>
 
-![Tetris](https://en.wikipedia.org/wiki/Tetris): The timeless classic that started the falling block puzzle genre. Its simple mechanics, combined with its engaging gameplay, have made it a staple in the gaming world. It continues to appeal to a broad range of players, offering both casual and competitive gaming modes. 
+[Tetris](https://en.wikipedia.org/wiki/Tetris): The timeless classic that started the falling block puzzle genre. Its simple mechanics, combined with its engaging gameplay, have made it a staple in the gaming world. It continues to appeal to a broad range of players, offering both casual and competitive gaming modes. 
 
 Strengths:
 - Wide recognition: The game is a household name and synonymous with the falling-block puzzle genre.
@@ -61,7 +61,7 @@ Weaknesses:
 - Limited innovation: The game has largely remained the same since its inception, which might make some players seek more innovative alternatives.
 - No multi-player: The classic version lacks real-time multiplayer capabilities, which are in high demand today.
 
-![Tetr](Tetr.io): This is an online multiplayer version of Tetris. Its primary selling point is the ability to play against other players in real-time, offering both casual and competitive modes.
+[Tetr](Tetr.io): This is an online multiplayer version of Tetris. Its primary selling point is the ability to play against other players in real-time, offering both casual and competitive modes.
 
 Strengths:
 - Real-time multiplayer: It allows players to compete against each other in real-time, a feature that is not common in many Tetris-like games.
@@ -71,7 +71,7 @@ Weaknesses:
 - Complexity: The various customisable settings may seem overwhelming to new or casual players.
 - Less well-known: Compared to Tetris, it has lower brand recognition and popularity.
 
-![Pentix (1986)](https://tetris.wiki/Pentix): Pentix is a variant of the classic Tetris game, developed and released in 1986. Like Tetris, it's a falling block puzzle game. The key distinction lies in its use of Pentominoes - geometric shapes composed of five square blocks - as opposed to Tetrominoes (four square blocks) used in classic Tetris. This increases the complexity of the gameplay and makes it more challenging for players. It was one of the first major adaptations of the Tetris concept.
+[Pentix (1986)](https://tetris.wiki/Pentix): Pentix is a variant of the classic Tetris game, developed and released in 1986. Like Tetris, it's a falling block puzzle game. The key distinction lies in its use of Pentominoes - geometric shapes composed of five square blocks - as opposed to Tetrominoes (four square blocks) used in classic Tetris. This increases the complexity of the gameplay and makes it more challenging for players. It was one of the first major adaptations of the Tetris concept.
 
 Strengths:
 - Unique mechanics: Utilising Pentominoes increases the complexity of the game, offering a new layer of challenge for players.
@@ -87,8 +87,8 @@ Weaknesses:
 <details>
 <summary><h4>Strategy Tradeoffs</h4></summary>
 
-![Synaptic Surge Tradeoff Table](assets/images/readme/uxd/strategy/synaptic_surge_strategy_tradeoffs_table.png)
+![Synaptic Surge Tradeoff Table](assets/images/readme/uxd/strategy/pentifall_strategy-tradeoffs-table.png)
 
-![Synaptic Surge Tradeoff_Graph](assets/images/readme/uxd/strategy/synaptic_surge_strategy_tradeoffs_graph.png)
+![Synaptic Surge Tradeoff_Graph](assets/images/readme/uxd/strategy/pentifall_strategy_tradeoffs_graph.png)
 </details>
 </details>
