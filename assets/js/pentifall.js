@@ -130,8 +130,11 @@ function generatePentomino() {
         pentominoCurrentColor = newPentomino.color;
     }
 
-    // Position the pentomino at the top middle of the board
-    pentominoPosition = { x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), y: 0 };
+    // Position the pentomino at the top middle of the board and off screen
+    pentominoPosition = { 
+        x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), 
+        y: -currentPentomino.length 
+    };
 
     // Generate the next pentomino
     nextPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
@@ -139,6 +142,7 @@ function generatePentomino() {
     // Update the preview canvas
     updateNextPentominoPreview();
 }
+
 
 /**
  * Update pentomino preview
@@ -170,7 +174,6 @@ function updateNextPentominoPreview() {
     }
 }
 
-
 /**
  * Place Pentomino and keep the colour
  */
@@ -178,8 +181,10 @@ function placePentomino() {
     for (let x = 0; x < currentPentomino[0].length; x++) {
         for (let y = 0; y < currentPentomino.length; y++) {
             if (currentPentomino[y][x]) {
-                // Place the pentomino on the game board
-                gameBoard[pentominoPosition.y + y][pentominoPosition.x + x] = pentominoCurrentColor;
+                // Only place the pentomino on the game board if it's on the board
+                if (pentominoPosition.y + y >= 0) {
+                    gameBoard[pentominoPosition.y + y][pentominoPosition.x + x] = pentominoCurrentColor;
+                }
             }
         }
     }
