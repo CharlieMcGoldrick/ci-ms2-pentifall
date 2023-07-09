@@ -99,7 +99,15 @@ function drawBoard() {
             drawCell(x, y, gameBoard[y][x] || { main: '#9bbc0f' }, context, cellSize, Boolean(gameBoard[y][x])); // Fill with #9bbc0f because Boolean(gameboard[y][x] will be false else use pentominoCurrentColor (See drawPentomino colour) 
         }
     }
+
+    // Drawing the ghost pentomino
+    drawGhostPentomino();
+
+    // Draw the current pentomino
+    drawPentomino();
 }
+
+
 
 /**
  * Draw the current pentomino
@@ -141,6 +149,32 @@ function generatePentomino() {
 
     // Update the preview canvas
     updateNextPentominoPreview();
+}
+
+function drawGhostPentomino() {
+    if (!currentPentomino || !pentominoPosition) {
+        return; // If either of these is not set yet, we just exit the function
+    }
+
+    // Calculate the ghost position
+    let ghostY = pentominoPosition.y;
+    while (isValidPosition(pentominoPosition.x, ghostY + 1, currentPentomino)) {
+        ghostY++;
+    }
+
+    // Now draw the ghost pentomino
+    for (let x = 0; x < currentPentomino[0].length; x++) {
+        for (let y = 0; y < currentPentomino.length; y++) {
+            if (currentPentomino[y][x]) {
+                // The cell is part of the pentomino, so draw it
+                // Use a semi-transparent color for the ghost
+                drawCell(pentominoPosition.x + x, ghostY + y, { main: 'rgba(0, 0, 15, 0.1)' }, context, cellSize, false);
+                // Also draw the stroke color for the ghost
+                context.strokeStyle = cellStrokeColour;
+                context.strokeRect((pentominoPosition.x + x) * cellSize, (ghostY + y) * cellSize, cellSize, cellSize);
+            }
+        }
+    }
 }
 
 /**
@@ -234,10 +268,12 @@ function initialiseGame() {
     for (let i = 0; i < numberOfRows; i++) {
         gameBoard[i] = new Array(numberOfColumns).fill(0);
     }
-    // Draw Initial Gameboard
-    drawBoard();
+    
     // Generate and position a pentomino at the top-middle of the board
     generatePentomino();
+
+    // Draw Initial Gameboard
+    drawBoard();
 }
 
 /**
@@ -303,6 +339,7 @@ function gameStep() {
 
     drawBoard();
     drawPentomino();
+    drawGhostPentomino();
     clearInterval(gameLoopInterval);
     gameLoopInterval = setInterval(gameStep, currentSpeed);
 
