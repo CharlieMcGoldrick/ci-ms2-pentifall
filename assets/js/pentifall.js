@@ -131,9 +131,9 @@ function generatePentomino() {
     }
 
     // Position the pentomino at the top middle of the board and off screen
-    pentominoPosition = { 
-        x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2), 
-        y: -currentPentomino.length 
+    pentominoPosition = {
+        x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2),
+        y: -currentPentomino.length
     };
 
     // Generate the next pentomino
@@ -258,6 +258,19 @@ function gameStep() {
         // Add the current pentomino to the game board
         placePentomino();  // Use placePentomino function to ensure color is stored
 
+        // Check if any block is on the top row of the board
+        for (let i = 0; i < numberOfColumns; i++) {
+            if (gameBoard[0][i]) {
+                clearInterval(gameLoopInterval);
+                console.log("Game Over");  // Game Over logic should be implemented here.
+                if (isSoundOn) {
+                    mainThemeMusic.pause(); // Pause mainThemeMusic only if isSoundOn is true and it's game-over
+                    gameOverSound.play(); // Play gameOverSound only if isSoundOn is true and it's game-over
+                }
+                return;
+            }
+        }
+
         // Delete row(s) if full
         deleteFullRows();
 
@@ -275,6 +288,7 @@ function gameStep() {
             return;
         }
     }
+
     drawBoard();
     drawPentomino();
     // Clear the current game step and set a new one with the current speed
@@ -375,14 +389,17 @@ function rotatePentomino() {
 function isValidPosition(x, y, pentomino) {
     for (let i = 0; i < pentomino.length; i++) {
         for (let j = 0; j < pentomino[i].length; j++) {
-            if (pentomino[i][j] && // If this part of the pentomino exists
-                (y + i < 0 || y + i >= numberOfRows || x + j < 0 || x + j >= numberOfColumns || gameBoard[y + i][x + j])) {
-                return false; // Position is invalid
+            if (pentomino[i][j]) { // If this part of the pentomino exists
+                if (y + i < 0) continue; // Skip checking blocks above the board
+                if (y + i >= numberOfRows || x + j < 0 || x + j >= numberOfColumns || gameBoard[y + i][x + j]) {
+                    return false; // Position is invalid
+                }
             }
         }
     }
     return true; // Position is valid
 }
+
 
 // Core Controls
 // Keydown event listener
