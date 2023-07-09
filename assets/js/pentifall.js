@@ -1,4 +1,4 @@
-import { startMenu, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
+import { startMenu, howToPlayButton, howToPlayScreen, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
 import { pentominoes } from './pentominoes.js';
 
 // Board
@@ -527,4 +527,14 @@ document.addEventListener('keyup', function (e) {
             isSpacebarKeyDown = false;
             break;
     }
+});
+
+
+// Event listener for the "How To Play" button
+howToPlayButton.addEventListener('click', function () {
+    // Hide start menu
+    startMenu.style.display = 'none';
+
+    // Show controls
+    howToPlayScreen.style.display = 'block';
 });

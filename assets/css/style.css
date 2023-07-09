@@ -104,6 +104,12 @@ body {
     z-index: 1;
 }
 
+/* CONTROLS */
+#how-to-play-screen {
+    display: none;
+    font-family: 'Press Start 2P', cursive;
+}
+
 /* GAME AND INFO AREA */
 #info-area {
     display: none;
