@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
     <title>Pentifall</title>
 </head>
@@ -24,16 +22,16 @@
     <!-- NOTENDO SCRIPTBOY -->
     <section id="gameboy">
         <div id="screen">
-                <!-- START MENU -->
+            <!-- START MENU -->
             <div id="start-menu" aria-label="Start Menu">
                 <div id="player-name-container">
                     <div id="error-message"></div>
                     <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20"
-                        pattern="[A-Za-z]+" placeholder="Please enter a name" required>
+                        pattern="[A-Za-z]+" placeholder="Enter a name" required>
                 </div>
-                <button id="play-w-sound" type="submit">PLAY WITH SOUND</button>
-                <button id="play-w/o-sound" type="submit">PLAY WITHOUT SOUND</button>
-                <button id="how-to-play">HOW TO PLAY</button>
+                <button id="play-w-sound" class="start-screen-button" type="submit">PLAY WITH SOUND</button>
+                <button id="play-w/o-sound" class="start-screen-button" type="submit">PLAY WITHOUT SOUND</button>
+                <button id="how-to-play" class="start-screen-button">HOW TO PLAY</button>
             </div>
             <!-- GAME & INFO AREA -->
             <div id="info-area">
