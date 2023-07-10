@@ -50,6 +50,7 @@ let gameLoopInterval;
 const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 
 // Keys
+let button = null;
 let isSpacebarKeyDown = false;
 let isShiftKeyDown = false;
 let isRotateKeyDown = false;
@@ -691,6 +692,7 @@ function navigateMenu(control) {
 // Keyboard
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
+
     if (startMenu.style.display !== 'none') {
         let menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-buttons'));
         let inputItem = document.getElementById('player-name');
@@ -701,52 +703,71 @@ document.addEventListener('keydown', function (e) {
         let activeItem = document.querySelector('.active-menu-item');
         let index = Array.from(menuItems).indexOf(activeItem);
 
-        switch (e.key) {
-            case 'ArrowUp':
-            case 'ArrowDown':
-                // Remove the active class from the currently active item, if any
-                if (activeItem) activeItem.classList.remove('active-menu-item');
+        if (e.key === 'Control' && e.location === 1) { // 1 refers to left CTRL
+            button = document.getElementById('start-button');
+        } else {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    button = document.getElementById('button-left');
+                    break;
+                case 'ArrowRight':
+                    button = document.getElementById('button-right');
+                    break;
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    button = e.key === 'ArrowUp' ? document.getElementById('button-up') : document.getElementById('button-down');
 
-                // Calculate the new index
-                index = e.key === 'ArrowUp'
-                    ? index <= 0 ? menuItems.length - 1 : index - 1
-                    : index >= menuItems.length - 1 ? 0 : index + 1;
+                    // Remove the active class from the currently active item, if any
+                    if (activeItem) activeItem.classList.remove('active-menu-item');
 
-                // Add the active class to the new active item
-                activeItem = menuItems[index];
-                activeItem.classList.add('active-menu-item');
+                    // Calculate the new index
+                    index = e.key === 'ArrowUp'
+                        ? index <= 0 ? menuItems.length - 1 : index - 1
+                        : index >= menuItems.length - 1 ? 0 : index + 1;
 
-                // If the new active item is the input field, focus it
-                if (activeItem === inputItem) {
-                    inputItem.focus();
-                } else {
-                    inputItem.blur();
-                }
-                break;
-            case ' ':
-                // Space will click the active menu item if it's not the input field
-                if (activeItem !== inputItem) {
-                    activeItem.click();
-                }
-                break;
+                    // Add the active class to the new active item
+                    activeItem = menuItems[index];
+                    activeItem.classList.add('active-menu-item');
+
+                    // If the new active item is the input field, focus it
+                    if (activeItem === inputItem) {
+                        inputItem.focus();
+                    } else {
+                        inputItem.blur();
+                    }
+                    break;
+                case ' ':
+                    button = document.getElementById('y-button');
+                    break;
+                case 'Shift':
+                    button = document.getElementById('x-button');
+                    break;
+                case 'm':
+                    button = document.getElementById('select-button');
+                    break;
+            }
         }
+        if (button) button.classList.add('button-pressed');
     }
-    // If the start menu is not being displayed, control the game as usual
     else {
         if (e.key === 'Control' && e.location === 1) { // 1 refers to left CTRL
+            button = document.getElementById('start-button');
             isGamePaused = !isGamePaused;
             gameStep();
         } else if (!isGamePaused) {
             switch (e.key) {
                 case 'ArrowLeft':
                     movePentomino(-1, 0);
+                    button = document.getElementById('button-left');
                     if (isSoundOn) movePentominoSound.play();
                     break;
                 case 'ArrowRight':
                     movePentomino(1, 0);
+                    button = document.getElementById('button-right');
                     if (isSoundOn) movePentominoSound.play();
                     break;
                 case 'ArrowDown':
+                    button = document.getElementById('button-down');
                     if (!isRotateKeyDown) {
                         rotatePentominoClockwise();
                         isRotateKeyDown = true;
@@ -757,6 +778,7 @@ document.addEventListener('keydown', function (e) {
                     }
                     break;
                 case 'ArrowUp':
+                    button = document.getElementById('button-up');
                     if (!isRotateKeyDown) {
                         rotatePentominoCounterClockwise();
                         isRotateKeyDown = true;
@@ -767,19 +789,22 @@ document.addEventListener('keydown', function (e) {
                     }
                     break;
                 case ' ':
+                    button = document.getElementById('y-button');
                     if (!isSpacebarKeyDown) {
                         isSpacebarKeyDown = true;
                         gameStep(); // Execute gameStep immediately when spacebar is pressed down
                     }
                     break;
                 case 'Shift':
+                    button = document.getElementById('x-button');
                     if (!isShiftKeyDown) {
                         isShiftKeyDown = true;
                         dropPentomino();
-                        gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                        gameStep(); // Execute gameStep immediately when shift is pressed down
                     }
                     break;
                 case 'm':
+                    button = document.getElementById('select-button');
                     if (!isMKeyDown) {
                         isMKeyDown = true;
                         toggleSound();
@@ -787,6 +812,7 @@ document.addEventListener('keydown', function (e) {
                     break;
             }
         }
+        if (button) button.classList.add('button-pressed');
     }
 });
 
@@ -811,4 +837,5 @@ document.addEventListener('keyup', function (e) {
             isMKeyDown = false;
             break;
     }
+    if (button) button.classList.remove('button-pressed');
 });

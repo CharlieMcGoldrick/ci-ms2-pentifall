@@ -375,3 +375,7 @@ body {
     box-shadow: 0 2px #70706f;
     transform: translateY(2px);
 }
+
+.button-pressed {
+    transform: translateY(2px);
+}
