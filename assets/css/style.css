@@ -120,7 +120,6 @@ body {
 #gameOverScreen {
     text-align: center;
     display: none;
-    padding: 20px 0;
 }
 
 #gameOverScreen h1 {
