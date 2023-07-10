@@ -125,20 +125,56 @@ export const colors = [
 
 // Assign color sets to the pentominoes
 export const pentominoes = [
-    { shape: tPentomino, color: colors[0] },
-    { shape: uPentomino, color: colors[1] },
-    { shape: vPentomino, color: colors[2] },
-    { shape: wPentomino, color: colors[3] },
-    { shape: xPentomino, color: colors[4] },
-    { shape: yPentomino, color: colors[5] },
-    { shape: yPentominoFlipped, color: colors[6] },
-    { shape: zPentomino, color: colors[7] },
-    { shape: zPentominoFlipped, color: colors[8] },
-    { shape: fPentomino, color: colors[9] },
-    { shape: fPentominoFlipped, color: colors[10] },
-    { shape: iPentomino, color: colors[11] },
-    { shape: lPentomino, color: colors[12] },
-    { shape: lPentominoFlipped, color: colors[13] },
-    { shape: pPentomino, color: colors[14] },
-    { shape: pPentominoFlipped, color: colors[15] }
+    { name: "tPentomino", shape: tPentomino, color: colors[0] },
+    { name: "uPentomino", shape: uPentomino, color: colors[1] },
+    { name: "vPentomino", shape: vPentomino, color: colors[2] },
+    { name: "wPentomino", shape: wPentomino, color: colors[3] },
+    { name: "xPentomino", shape: xPentomino, color: colors[4] },
+    { name: "yPentomino", shape: yPentomino, color: colors[5] },
+    { name: "yPentominoFlipped", shape: yPentominoFlipped, color: colors[6] },
+    { name: "zPentomino", shape: zPentomino, color: colors[7] },
+    { name: "zPentominoFlipped", shape: zPentominoFlipped, color: colors[8] },
+    { name: "fPentomino", shape: fPentomino, color: colors[9] },
+    { name: "fPentominoFlipped", shape: fPentominoFlipped, color: colors[10] },
+    { name: "iPentomino", shape: iPentomino, color: colors[11] },
+    { name: "lPentomino", shape: lPentomino, color: colors[12] },
+    { name: "lPentominoFlipped", shape: lPentominoFlipped, color: colors[13] },
+    { name: "pPentomino", shape: pPentomino, color: colors[14] },
+    { name: "pPentominoFlipped", shape: pPentominoFlipped, color: colors[15] }
 ];
+
+export const pentominoWeights = {
+    tPentomino: 1.2,
+    uPentomino: 1.3,
+    vPentomino: 1.1,
+    wPentomino: 1,
+    xPentomino: 0.2,
+    yPentomino: 1.1,
+    yPentominoFlipped: 1.1,
+    zPentomino: 1.1,
+    zPentominoFlipped: 1.1,
+    fPentomino: 1,
+    fPentominoFlipped: 1,
+    iPentomino: 4.5,
+    lPentomino: 1.3,
+    lPentominoFlipped: 1.3,
+    pPentomino: 1.4,
+    pPentominoFlipped: 1.4
+};
+
+/**
+ * Weighted selection function
+ */
+export function weightedPentominoSelection() {
+    const weightedPentominoes = [];
+
+    for (const pentomino of pentominoes) {
+        const weight = pentominoWeights[pentomino.name] || 1;
+        for (let i = 0; i < weight * 100; i++) {
+            weightedPentominoes.push(pentomino);
+        }
+    }
+
+    const randomIndex = Math.floor(Math.random() * weightedPentominoes.length);
+    return weightedPentominoes[randomIndex];
+}

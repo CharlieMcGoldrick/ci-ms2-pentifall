@@ -1,5 +1,5 @@
 import { startMenu, howToPlayButton, howToPlayScreen, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
-import { pentominoes } from './pentominoes.js';
+import { weightedPentominoSelection } from './pentominoes.js';
 import { controls } from './controls.js';
 
 // Board
@@ -156,16 +156,13 @@ function drawPentomino() {
     }
 }
 
-/**
- * Generates a new random pentomino and sets it as the current one.
- */
 function generatePentomino() {
     // If nextPentomino is defined, set it as the current pentomino
     if (nextPentomino) {
         currentPentomino = nextPentomino.shape;
         pentominoCurrentColor = nextPentomino.color;
     } else {
-        let newPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+        let newPentomino = weightedPentominoSelection();
         currentPentomino = newPentomino.shape;
         pentominoCurrentColor = newPentomino.color;
     }
@@ -177,7 +174,7 @@ function generatePentomino() {
     };
 
     // Generate the next pentomino
-    nextPentomino = pentominoes[Math.floor(Math.random() * pentominoes.length)];
+    nextPentomino = weightedPentominoSelection();
 
     // Update the preview canvas
     updateNextPentominoPreview();
