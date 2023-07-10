@@ -178,10 +178,9 @@ Touchpoints - Responsive Website
 <details>
     <summary><h3>Skeleton</h3></summary>
 
-<details>
 <h4>Desktop Wireframes</h4>
 ![Desktop Landing Page](assets/images/readme/uxd/skeleton/desktop-landing-page.png)
-</details>
+
 </details>
 
 <!-- Surface -->
@@ -233,6 +232,40 @@ For accurately capturing the colors of the physical Game Boy, I used the [Eye Dr
 </details>
 </details>
 </details>
+
+</details>
+
+<!-- BUGS -->
+<details>
+<summary><h2>Bugs</h2></summary>
+
+<h3>Known Bugs</h3>
+
+- Unitended game over state - You can move a pentomino to the side of the board before it's showing and 'hook' it on one of the edges.
+- Pentomino ghost consistency - Pentomino ghost is a lighter colour for 1 game step and then becomes the consistent colour that I've set.
+- Pentomino preview - Pentomino preview display blocks at different sizes, this should be standardised.
+- Text glitch - When the select button is pressed there is an odd text glitch on the start button text
+
+<h3>Fixed Bugs</h3>
+
+- [Start Menu not being hidden and Game Area not being displayed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/125a448757b8a1ceef63196730fca4eaab73ae41) - Change *=* to *-* so that the const is using the proper variable name.
+- [Start Menu would show again after briefly showing game area](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/4678ff341ab56b9206f82f4475b67a192d70e46a) - Remove the form tag, as I didn't actually need to input a form but just need the name input for validation and end screen.
+- [gameCanvas wasn't being captured](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/e39423c6ca0fe2d5146b34156706f4b488ceba4d) - Change the ID captured from *gameCanvas* to *board*, which was the ID on the HTML Canvas tag.
+- [pentominoPosition variable couldn't be found](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cde6eb663d54d0eb41c6e47893312ec54b1f8504) - Fixed spelling on variable.
+- [Scope issue with gameBoard variable](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b30b382c74102f761d5a17d5faddd51ac117d9fb) - Remove *Let* inside the function as it was already declared at the top of my script which gives it a global scope.
+- [Pentominoes weren't showing on the board](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/f456a3d27db121143a9ca8e85ece3dbb4bf954e0) - I gave the pentominoes a colour where the cells were being drawn.
+- [Keys weren't being found](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/0bc2d4c0bff5714af02c10a4929c0205ebaecf67) - Change keycode to strings of keys.
+- [Game over state due to pentominoes not moving](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/611e658c9fa7b254dfa0c1cec84c7144be2457fc) - In the *gameStep* function I changed the pentomino generation to only happen when it can't move down anymore. I also added a boolean value to *movePentomino* so that *gameStep* knows whether the pentomino was moved successfully.
+- [fastFallSpeed would only be active for a short time](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/c29af702834f145e26f9100ddcbd75de855fee21) - Add a *currentSpeed* variable, along with a boolean to check if the *down key* is pressed down or not. If it is pressed down then the *currentSpeed* is changed to *fastFallSpeed*.
+- [Pentominoes weren't showing well on background](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/7e4944fa5abb9d3ef537b9e48efad743b509e924) - Change all main colours to be a dark shade of greyscale.
+- [moveSound is looped when the space is held down to rotate](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/9f37c306bd2ac1e2a162c738712503d251fa4ceb) - Add a boolean (flag) to check whether the sound has been played on the key press.
+- [Spacebar had wrong flag name](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/4a3fbbeeb2b7a2e08e50cfebab1a2269b566079e) - Renamed flag to the variable name set at the top.
+- [Pentominoes were placed off screen](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/7b9c8c534ae7eb0b9e4fd07ba481ad70369cd06a) - Set the game canvas to fit within the size of the game screen based on the aspect ratio.
+- [Off screen pentomino triggered game over state](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b5ce9432b01c44933a9ba00cb294d7fe5b641742) - Change the *isValidPosition* function to not check blocks above the board, but then check if one is placed and hit's the top line.
+- [Screen wasn't on top of the other elements](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/a125dff383f6e7f7af2168b59785769598f38870) - Change *#screen* to have *position:relative* as *position:static* doesn't work with z-index.
+- [Some audio wasn't playing correctly](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/566d7fec8c46343e3965ad46ae7af1f11e26f21b) - Change boolean value in *startGame* function to *soundStatus* and then store that vlaue in the *startGame* variable.
+- [Delay on fastFallSpeed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - I added the *gameStep* function within the *key down* controls so that these effects are instant.
+- [dropPentomino can be held down](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - This would cause frustrating gameplay, so I added a flag *isShiftKeyDown*.
 
 </details>
 
