@@ -244,7 +244,10 @@ For accurately capturing the colors of the physical Game Boy, I used the [Eye Dr
 - Unitended game over state - You can move a pentomino to the side of the board before it's showing and 'hook' it on one of the edges.
 - Pentomino ghost consistency - Pentomino ghost is a lighter colour for 1 game step and then becomes the consistent colour that I've set.
 - Pentomino preview - Pentomino preview display blocks at different sizes, this should be standardised.
-- Text glitch - When the select button is pressed there is an odd text glitch on the start button text
+- Text glitch - When the select button is pressed there is an odd text glitch on the start button text.
+- Cycling through menu items with keys or d-pad is cycling through hidden buttons.
+- Pressed a button on the gameOverScreen plays the game over sound.
+- Left and Right sound isn't played for each movement when keys are held down.
 
 <h3>Fixed Bugs</h3>
 
