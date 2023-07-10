@@ -10,6 +10,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 /* BODY */
@@ -75,7 +76,6 @@ body {
 }
 
 #player-name {
-    font-family: 'Press Start 2P', cursive;
     width: 75%;
     padding: 15px 5px;
     font-size: 10px;
@@ -91,7 +91,6 @@ body {
 }
 
 .menu-buttons {
-    font-family: 'Press Start 2P', cursive;
     padding: 15px;
     font-size: 10px;
     border: none;
@@ -107,7 +106,6 @@ body {
 }
 
 #error-message {
-    font-family: 'Press Start 2P', cursive;
     position: absolute;
     text-align: center;
     top: -30px;
@@ -120,7 +118,6 @@ body {
 }
 
 #gameOverScreen {
-    font-family: 'Press Start 2P', cursive;
     text-align: center;
     display: none;
 }
@@ -147,7 +144,6 @@ body {
 #how-to-play-screen {
     display: none;
     flex-direction: column;
-    font-family: 'Press Start 2P', cursive;
     font-size: 10px;
     line-height: 1.4;
     padding: 10px;
@@ -168,7 +164,6 @@ body {
 }
 
 #info-area #left-info {
-    font-family: 'Press Start 2P', cursive;
     font-size: 10px;
     line-height: 1.4;
     text-align: center;
@@ -204,9 +199,16 @@ body {
     border: 1px solid #545454;
 }
 
+/* CONSOLE BRAND */
+#console-brand {
+    font-size: 10px;
+    padding: 5px 0;
+    color:#46468e;
+    word-spacing: -5px;
+}
+
 /* CONTROLS */
 #controls {
-    font-family: 'Press Start 2P', cursive;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -222,7 +224,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 /* DPAD */

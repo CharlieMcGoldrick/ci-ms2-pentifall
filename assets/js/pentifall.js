@@ -483,12 +483,6 @@ function movePentomino(dx, dy) {
         pentominoPosition.y += dy;
         drawBoard();
         drawPentomino();
-
-        // Play the sound here if the sound is on
-        if (isSoundOn) {
-            movePentominoSound.play();
-        }
-
         return true;
     }
     return false;
@@ -637,7 +631,7 @@ const gameControlsUp = {
 Object.keys(controls).forEach(id => {
     const btn = document.getElementById(id);
     if (btn) {
-        btn.addEventListener('mousedown', function (e) {
+        btn.addEventListener('touchstart', function (e) {
             e.preventDefault();
             console.log(`Button ${id} is pressed. Control is ${controls[id]}.`);
             console.log(`startMenu defined: ${startMenu !== undefined}, startMenu display: ${window.getComputedStyle(startMenu).display}`);
@@ -650,7 +644,7 @@ Object.keys(controls).forEach(id => {
             }
         });
 
-        btn.addEventListener('mouseup', function (e) {
+        btn.addEventListener('touchend', function (e) {
             e.preventDefault();
 
             if (window.getComputedStyle(startMenu).display === 'none' || !(controls[id] === 'ArrowUp' || controls[id] === 'ArrowDown' || controls[id] === 'Shift')) {
