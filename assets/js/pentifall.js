@@ -51,10 +51,11 @@ const cellStrokeColour = 'rgba(15, 56, 15, 0.05)';
 let isSpacebarKeyDown = false;
 let isShiftKeyDown = false;
 let isRotateKeyDown = false;
+let isGamePaused = false;
+let isMKeyDown = false;
 
 // Audio
 let mainThemeMusic = document.getElementById('mainTheme');
-mainThemeMusic.volume = 0.10; // 10% volume
 
 let movePentominoSound = document.getElementById('movePentomino');
 movePentominoSound.volume = 0.75; // 75% volume
@@ -65,6 +66,20 @@ gameOverSound.volume = 0.75; // 75% volume
 
 let isSoundOn = false;  // Flag that represents if the game is playing with sound or not
 let isRotateSoundPlayed = false;
+
+// Control the game sound
+function toggleSound() {
+    isSoundOn = !isSoundOn;
+    if (isSoundOn) {
+        mainThemeMusic.volume = 0.5;
+        // play the music only if the game is not paused
+        if (!isGamePaused) {
+            mainThemeMusic.play();
+        }
+    } else {
+        mainThemeMusic.pause();
+    }
+}
 
 // Ensure input is an active menu item when the page is loaded.
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -349,6 +364,19 @@ function levelUp() {
  * Gameplay loop
  */
 function gameStep() {
+    // If Left CTRL is pressed then pause game and music
+    if (isGamePaused) {
+        mainThemeMusic.pause(); // Mute the sound when the game is paused
+        return;
+    } else {
+        if (isSoundOn) {
+            mainThemeMusic.play(); // Full volume when the game is running
+        } else {
+            mainThemeMusic.pause(); // Mute the sound when sound is turned off
+        }
+    }
+
+    // Current speed is fallSpeed unless isSpacebarKeyDown = true
     currentSpeed = isSpacebarKeyDown ? fastFallSpeed : fallSpeed;
 
     levelUp();
@@ -400,9 +428,10 @@ function startGame(soundStatus) {
 
     // Control the game sound
     if (isSoundOn) {
+        mainThemeMusic.volume = 0.5; // Full volume
         mainThemeMusic.play();
     } else {
-        mainThemeMusic.pause();
+        mainThemeMusic.volume = 0; // Mute the sound
     }
 
     // Valid input, hide the start menu and show the game area
@@ -547,48 +576,59 @@ document.addEventListener('keydown', function (e) {
     }
     // If the start menu is not being displayed, control the game as usual
     else {
-        switch (e.key) {
-            case 'ArrowLeft':
-                movePentomino(-1, 0);
-                if (isSoundOn) movePentominoSound.play();
-                break;
-            case 'ArrowRight':
-                movePentomino(1, 0);
-                if (isSoundOn) movePentominoSound.play();
-                break;
-            case 'ArrowDown':
-                if (!isRotateKeyDown) {
-                    rotatePentominoClockwise();
-                    isRotateKeyDown = true;
-                    if (isSoundOn && !isRotateSoundPlayed) {
-                        movePentominoSound.play();
-                        isRotateSoundPlayed = true;
+        if (e.key === 'Control' && e.location === 1) { // 1 refers to left CTRL
+            isGamePaused = !isGamePaused;
+            gameStep();
+        } else if (!isGamePaused) {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    movePentomino(-1, 0);
+                    if (isSoundOn) movePentominoSound.play();
+                    break;
+                case 'ArrowRight':
+                    movePentomino(1, 0);
+                    if (isSoundOn) movePentominoSound.play();
+                    break;
+                case 'ArrowDown':
+                    if (!isRotateKeyDown) {
+                        rotatePentominoClockwise();
+                        isRotateKeyDown = true;
+                        if (isSoundOn && !isRotateSoundPlayed) {
+                            movePentominoSound.play();
+                            isRotateSoundPlayed = true;
+                        }
                     }
-                }
-                break;
-            case 'ArrowUp':
-                if (!isRotateKeyDown) {
-                    rotatePentominoCounterClockwise();
-                    isRotateKeyDown = true;
-                    if (isSoundOn && !isRotateSoundPlayed) {
-                        movePentominoSound.play();
-                        isRotateSoundPlayed = true;
+                    break;
+                case 'ArrowUp':
+                    if (!isRotateKeyDown) {
+                        rotatePentominoCounterClockwise();
+                        isRotateKeyDown = true;
+                        if (isSoundOn && !isRotateSoundPlayed) {
+                            movePentominoSound.play();
+                            isRotateSoundPlayed = true;
+                        }
                     }
-                }
-                break;
-            case ' ':
-                if (!isSpacebarKeyDown) {
-                    isSpacebarKeyDown = true;
-                    gameStep(); // Execute gameStep immediately when spacebar is pressed down
-                }
-                break;
-            case 'Shift':
-                if (!isShiftKeyDown) {
-                    isShiftKeyDown = true;
-                    dropPentomino();
-                    gameStep(); // Execute gameStep immediately when spacebar is pressed down
-                }
-                break;
+                    break;
+                case ' ':
+                    if (!isSpacebarKeyDown) {
+                        isSpacebarKeyDown = true;
+                        gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                    }
+                    break;
+                case 'Shift':
+                    if (!isShiftKeyDown) {
+                        isShiftKeyDown = true;
+                        dropPentomino();
+                        gameStep(); // Execute gameStep immediately when spacebar is pressed down
+                    }
+                    break;
+                case 'm':
+                    if (!isMKeyDown) {
+                        isMKeyDown = true;
+                        toggleSound();
+                    }
+                    break;
+            }
         }
     }
 });
@@ -609,6 +649,9 @@ document.addEventListener('keyup', function (e) {
             break;
         case 'Shift':
             isShiftKeyDown = false;
+            break;
+        case 'm':
+            isMKeyDown = false;
             break;
     }
 });
