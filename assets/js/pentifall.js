@@ -68,6 +68,16 @@ gameOverSound.volume = 0.75; // 75% volume
 let isSoundOn = false;  // Flag that represents if the game is playing with sound or not
 let isRotateSoundPlayed = false;
 
+// "How To Play" button
+howToPlayButton.addEventListener('click', function () {
+    // Hide start menu
+    startMenu.style.display = 'none';
+
+    // Show controls
+    howToPlayScreen.style.display = 'block';
+});
+
+
 // Control the game sound
 function toggleSound() {
     isSoundOn = !isSoundOn;
