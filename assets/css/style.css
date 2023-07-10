@@ -120,11 +120,12 @@ body {
 #gameOverScreen {
     text-align: center;
     display: none;
+    padding: 20px 0;
 }
 
 #gameOverScreen h1 {
     font-size: 14px;
-    padding: 10px 0 5px 0;
+    padding: 15px 0 10px 0;
 }
 
 #playerNameDisplay {
@@ -203,7 +204,7 @@ body {
 #console-brand {
     font-size: 10px;
     padding: 5px 0;
-    color:#46468e;
+    color: #46468e;
     word-spacing: -5px;
 }
 
