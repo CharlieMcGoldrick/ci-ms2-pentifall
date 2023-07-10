@@ -143,6 +143,12 @@ body {
 #how-to-play-screen {
     display: none;
     font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+#how-to-play-screen p {
+    padding: 10px 5px;
 }
 
 /* GAME AND INFO AREA */
