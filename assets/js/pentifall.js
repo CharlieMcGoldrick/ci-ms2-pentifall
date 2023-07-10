@@ -34,6 +34,7 @@ gameCanvas.height = gameCanvasHeight;
 const cellSize = gameCanvas.width / numberOfColumns;
 
 // Game Info
+let playerName = '';
 let score = 0;
 let level = 1;
 
@@ -74,7 +75,7 @@ howToPlayButton.addEventListener('click', function () {
     startMenu.style.display = 'none';
 
     // Show controls
-    howToPlayScreen.style.display = 'block';
+    howToPlayScreen.style.display = 'flex';
 });
 
 
@@ -336,6 +337,7 @@ function handleGameOver() {
     }
 
     // Display the final score and level
+    document.getElementById('playerNameDisplay').innerText = playerName;
     document.getElementById('finalScore').innerText = "Final Score: " + score;
     document.getElementById('finalLevel').innerText = "Final Level: " + level;
 
@@ -354,6 +356,7 @@ document.getElementById('startScreenButton').addEventListener('click', function 
     // Hide the game over screen and show the start menu
     document.getElementById('gameOverScreen').style.display = 'none';
     document.getElementById('game-area').style.display = 'none';
+    document.getElementById('how-to-play-screen').style.display = 'none';
     document.getElementById('start-menu').style.display = 'flex';
 
     // Clear the player name input
@@ -423,7 +426,7 @@ function gameStep() {
  */
 function startGame(soundStatus) {
     isSoundOn = soundStatus;
-    const playerName = playerNameInput.value.trim(); // Trim any whitespace 
+    playerName = playerNameInput.value.trim(); // Trim any whitespace 
     let errorMessage = '';
 
     if (playerName.length < 3) {
@@ -480,6 +483,12 @@ function movePentomino(dx, dy) {
         pentominoPosition.y += dy;
         drawBoard();
         drawPentomino();
+
+        // Play the sound here if the sound is on
+        if (isSoundOn) {
+            movePentominoSound.play();
+        }
+
         return true;
     }
     return false;
