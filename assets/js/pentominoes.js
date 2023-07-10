@@ -100,18 +100,6 @@ export const pPentominoFlipped = [
     [0, 1]
 ];
 
-export const nPentomino = [
-    [1, 0, 0],
-    [1, 1, 1],
-    [0, 0, 1]
-];
-
-export const nPentominoFlipped = [
-    [0, 0, 1],
-    [1, 1, 1],
-    [1, 0, 0]
-];
-
 // Pentomino Colours
 // Main = main colour
 // Dark = left and top edge colour
@@ -132,9 +120,7 @@ export const colors = [
     { main: "#2A2A2A", dark: "#005500", light: "#BDBDBD" },
     { main: "#2F2F2F", dark: "#005500", light: "#BDBDBD" },
     { main: "#343434", dark: "#005500", light: "#BDBDBD" },
-    { main: "#393939", dark: "#005500", light: "#BDBDBD" },
-    { main: "#3E3E3E", dark: "#005500", light: "#BDBDBD" },
-    { main: "#434343", dark: "#005500", light: "#BDBDBD" }
+    { main: "#393939", dark: "#005500", light: "#BDBDBD" }
 ];
 
 // Assign color sets to the pentominoes
@@ -154,7 +140,5 @@ export const pentominoes = [
     { shape: lPentomino, color: colors[12] },
     { shape: lPentominoFlipped, color: colors[13] },
     { shape: pPentomino, color: colors[14] },
-    { shape: pPentominoFlipped, color: colors[15] },
-    { shape: nPentomino, color: colors[16] },
-    { shape: nPentominoFlipped, color: colors[17] }
+    { shape: pPentominoFlipped, color: colors[15] }
 ];
