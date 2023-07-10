@@ -1,3 +1,9 @@
+/* COLOUR VARIABLES */
+:root {
+    --dark-colour: #000000;
+    --light-colour: #d9d9d9;
+}
+
 /* GLOBAL RESET */
 * {
     /* font-family: 'Roboto', sans-serif; */
@@ -74,9 +80,14 @@ body {
     padding: 15px 5px;
     font-size: 10px;
     border: none;
-    background-color: #d9d9d9;
-    color: #000000;
+    background-color: var(--light-colour);
+    color: var(--dark-colour);
     outline: none;
+}
+
+#player-name::selection {
+    background-color: var(--dark-colour);
+    color: --;
 }
 
 .menu-buttons {
@@ -96,6 +107,7 @@ body {
 }
 
 #error-message {
+    font-family: 'Press Start 2P', cursive;
     position: absolute;
     text-align: center;
     top: -30px;
@@ -104,7 +116,7 @@ body {
 }
 
 .active-menu-item {
-    background-color: black;
+    background-color: var(--dark-colour);
 }
 
 #gameOverScreen {
@@ -320,11 +332,14 @@ body {
     margin-top: 10px;
 }
 
-#select,
-#start {
+#select-container,
+#start-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: rotate(-25deg);
+    margin: 0 20px;
+    font-size: 8px;
 }
 
 .start-select-button {
@@ -345,11 +360,4 @@ body {
 .start-select-button:active {
     box-shadow: 0 2px #70706f;
     transform: translateY(2px);
-}
-
-#select,
-#start {
-    transform: rotate(-25deg);
-    margin: 0 20px;
-    font-size: 8px;
 }

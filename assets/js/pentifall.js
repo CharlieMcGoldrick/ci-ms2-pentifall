@@ -1,5 +1,6 @@
 import { startMenu, howToPlayButton, howToPlayScreen, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
 import { pentominoes } from './pentominoes.js';
+import { controls } from './controls.js';
 
 // Board
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
@@ -531,7 +532,158 @@ function isValidPosition(x, y, pentomino) {
     return true; // Position is valid
 }
 
-// Core Controls
+// Game control functions for button down events:
+const gameControlsDown = {
+    'ArrowUp': function () {
+        if (!isRotateKeyDown) {
+            rotatePentominoCounterClockwise();
+            isRotateKeyDown = true;
+            if (isSoundOn && !isRotateSoundPlayed) {
+                movePentominoSound.play();
+                isRotateSoundPlayed = true;
+            }
+        }
+    },
+    'ArrowDown': function () {
+        if (!isRotateKeyDown) {
+            rotatePentominoClockwise();
+            isRotateKeyDown = true;
+            if (isSoundOn && !isRotateSoundPlayed) {
+                movePentominoSound.play();
+                isRotateSoundPlayed = true;
+            }
+        }
+    },
+    'ArrowLeft': function () {
+        if (startMenu.style.display !== 'none') return;
+        movePentomino(-1, 0);
+        if (isSoundOn) movePentominoSound.play();
+    },
+    'ArrowRight': function () {
+        if (startMenu.style.display !== 'none') return;
+        movePentomino(1, 0);
+        if (isSoundOn) movePentominoSound.play();
+    },
+    'Spacebar': function () {
+        if (startMenu.style.display !== 'none') return;
+        if (!isSpacebarKeyDown) {
+            isSpacebarKeyDown = true;
+            gameStep();
+        }
+    },
+    'Shift': function () {
+        if (!isShiftKeyDown) {
+            isShiftKeyDown = true;
+            dropPentomino();
+            gameStep();
+        }
+    },
+    'Select': function () {
+        if (startMenu.style.display !== 'none') return;
+        if (!isMKeyDown) {
+            isMKeyDown = true;
+            toggleSound();
+        }
+    },
+    'CTRL': function () {
+        if (startMenu.style.display !== 'none') return;
+        isGamePaused = !isGamePaused;
+        gameStep();
+    }
+};
+
+
+// Game control functions for button up events:
+const gameControlsUp = {
+    'ArrowUp': function () {
+        isRotateKeyDown = false;
+        isRotateSoundPlayed = false;
+    },
+    'ArrowDown': function () {
+        isRotateKeyDown = false;
+        isRotateSoundPlayed = false;
+    },
+    'Spacebar': function () {
+        isSpacebarKeyDown = false;
+    },
+    'Shift': function () {
+        isShiftKeyDown = false;
+    },
+    'Select': function () {
+        isMKeyDown = false;
+    },
+};
+
+// Button listeners:
+Object.keys(controls).forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+        btn.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+            console.log(`Button ${id} is pressed. Control is ${controls[id]}.`);
+            console.log(`startMenu defined: ${startMenu !== undefined}, startMenu display: ${window.getComputedStyle(startMenu).display}`);
+
+            // If startMenu is displayed then use navigateMenu controls
+            if (window.getComputedStyle(startMenu).display !== 'none' && (controls[id] === 'ArrowUp' || controls[id] === 'ArrowDown' || controls[id] === 'Shift')) {
+                navigateMenu(controls[id]);
+            } else {
+                gameControlsDown[controls[id]]();
+            }
+        });
+
+        btn.addEventListener('mouseup', function (e) {
+            e.preventDefault();
+
+            if (window.getComputedStyle(startMenu).display === 'none' || !(controls[id] === 'ArrowUp' || controls[id] === 'ArrowDown' || controls[id] === 'Shift')) {
+                gameControlsUp[controls[id]] && gameControlsUp[controls[id]]();
+            }
+        });
+    }
+});
+
+// Menu navigation function
+function navigateMenu(control) {
+    let menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-buttons'));
+    let inputItem = document.getElementById('player-name');
+
+    // Insert the input field into the menu items array
+    menuItems.unshift(inputItem);
+
+    let activeItem = document.querySelector('.active-menu-item');
+    let index = Array.from(menuItems).indexOf(activeItem);
+
+    switch (control) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+            // Remove the active class from the currently active item, if any
+            if (activeItem) activeItem.classList.remove('active-menu-item');
+
+            // Calculate the new index
+            index = control === 'ArrowUp'
+                ? index <= 0 ? menuItems.length - 1 : index - 1
+                : index >= menuItems.length - 1 ? 0 : index + 1;
+
+            // Add the active class to the new active item
+            activeItem = menuItems[index];
+            activeItem.classList.add('active-menu-item');
+
+            // If the new active item is the input field, focus it
+            if (activeItem === inputItem) {
+                inputItem.focus();
+            } else {
+                inputItem.blur();
+            }
+            break;
+        // Shift button will click the active menu item if it's not the input field
+        case 'Shift':
+            if (activeItem !== inputItem) {
+                activeItem.click();
+            }
+            break;
+    }
+}
+
+// Keyboard
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
     if (startMenu.style.display !== 'none') {

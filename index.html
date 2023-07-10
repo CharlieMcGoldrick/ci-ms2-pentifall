@@ -45,7 +45,6 @@
                     <p id="finalLevel">Final Level: </p>
                     <button id="startScreenButton" class="menu-buttons">Start Screen</button>
                 </div>
-
                 <!-- GAME & INFO AREA -->
                 <div id="info-area">
                     <div id="left-info">
@@ -82,12 +81,12 @@
                 </div>
             </div>
             <div id="start-select">
-                <div id="select">
-                    <button class="start-select-button"></button>
+                <div id="select-container">
+                    <button id="select-button" class="start-select-button"></button>
                     <span>Select</span>
                 </div>
-                <div id="start">
-                    <button class="start-select-button"></button>
+                <div id="start-container">
+                    <button id="start-button" class="start-select-button"></button>
                     <span>Start</span>
                 </div>
             </div>
@@ -109,9 +108,9 @@
 
     <!-- JAVASCRIPT -->
     <script type="module" src="assets/js/start_menu.js"></script>
+    <script type="module" src="assets/js/controls.js"></script>
     <script type="module" src="assets/js/pentominoes.js"></script>
     <script type="module" src="assets/js/pentifall.js"></script>
-
 </body>
 
 </html>
