@@ -71,13 +71,14 @@ let isRotateSoundPlayed = false;
 
 // "How To Play" button
 howToPlayButton.addEventListener('click', function () {
-    // Hide start menu
     startMenu.style.display = 'none';
-
-    // Show controls
     howToPlayScreen.style.display = 'flex';
 });
-
+// Back To Start Screen Button
+backToStartScreen.addEventListener('click', function () {
+    startMenu.style.display = 'flex';
+    howToPlayScreen.style.display = 'none';
+});
 
 // Control the game sound
 function toggleSound() {
@@ -141,8 +142,6 @@ function drawBoard() {
     drawPentomino();
 }
 
-
-
 /**
  * Draw the current pentomino
  */
@@ -156,7 +155,6 @@ function drawPentomino() {
         }
     }
 }
-
 
 /**
  * Generates a new random pentomino and sets it as the current one.
@@ -349,14 +347,13 @@ function handleGameOver() {
 }
 
 // Reset game state
-document.getElementById('startScreenButton').addEventListener('click', function () {
+document.getElementById('startScreenReset').addEventListener('click', function () {
     score = 0;
     level = 1;
 
     // Hide the game over screen and show the start menu
     document.getElementById('gameOverScreen').style.display = 'none';
     document.getElementById('game-area').style.display = 'none';
-    document.getElementById('how-to-play-screen').style.display = 'none';
     document.getElementById('start-menu').style.display = 'flex';
 
     // Clear the player name input
