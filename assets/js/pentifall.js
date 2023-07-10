@@ -672,9 +672,7 @@ function navigateMenu(control) {
             if (activeItem) activeItem.classList.remove('active-menu-item');
 
             // Calculate the new index
-            index = control === 'ArrowUp'
-                ? index <= 0 ? menuItems.length - 1 : index - 1
-                : index >= menuItems.length - 1 ? 0 : index + 1;
+            index = control === 'ArrowUp' ? index <= 0 ? menuItems.length - 1 : index - 1 : index >= menuItems.length - 1 ? 0 : index + 1;
 
             // Add the active class to the new active item
             activeItem = menuItems[index];
