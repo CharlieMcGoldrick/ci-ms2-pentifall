@@ -75,53 +75,54 @@
                 <div id="dpad">
                     <button id="button-up" class="dpad-button" aria-label="Up"></button>
                     <div id="dpad-middle">
-                        <button id="button-left" class="dpad-button"></button>
+                        <button id="button-left" class="dpad-button" aria-label="Left"></button>
                         <div class="dpad-button middle"></div>
+                        <button id="button-right" class="dpad-button" aria-label="Right"></button>
                     </div>
-                    <button id="button-left" class="dpad-button" aria-label="Left"></button>
+                    <button id="button-down" class="dpad-button" aria-label="Down"></button>
                 </div>
                 <div id="x-y_buttons">
                     <div id="y">
-                        <button id="button-right" class="dpad-button" aria-label="Right"></button>
+                        <button id="y-button" class="action-button" aria-label="Y Button"></button>
                         <span class="no-highlight">Y</span>
                     </div>
                     <div id="x">
-                        <button id="button-down" class="dpad-button" aria-label="Down"></button>
+                        <button id="x-button" class="action-button" aria-label="X Button"></button>
                         <span class="no-highlight">X</span>
                     </div>
                 </div>
             </div>
             <div id="start-select">
                 <div id="select-container">
-                    <button id="y-button" class="action-button" aria-label="Y Button"></button>
+                    <button id="select-button" class="start-select-button" aria-label="Select Button"></button>
                     <span class="no-highlight">Select</span>
                 </div>
                 <div id="start-container">
-                    <button id="x-button" class="action-button" aria-label="X Button"></button>
+                    <button id="start-button" class="start-select-button" aria-label="Start Button"></button>
                     <span class="no-highlight">Start</span>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- AUDIO -->
-    <audio id="mainTheme" loop>
-        <source src="assets/audio/tetris_piano_viola.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="movePentomino">
-        <source src="assets/audio/move_pentomino.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="placePentomino">
-        <source src="assets/audio/place_pentomino.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="gameOver">
-        <source src="assets/audio/game_over.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- JAVASCRIPT -->
-    <script type="module" src="assets/js/start_menu.js"></script>
-    <script type="module" src="assets/js/controls.js"></script>
-    <script type="module" src="assets/js/pentominoes.js"></script>
-    <script type="module" src="assets/js/pentifall.js"></script>
+        <!-- AUDIO -->
+        <audio id="mainTheme" loop>
+            <source src="assets/audio/tetris_piano_viola.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="movePentomino">
+            <source src="assets/audio/move_pentomino.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="placePentomino">
+            <source src="assets/audio/place_pentomino.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="gameOver">
+            <source src="assets/audio/game_over.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- JAVASCRIPT -->
+        <script type="module" src="assets/js/start_menu.js"></script>
+        <script type="module" src="assets/js/controls.js"></script>
+        <script type="module" src="assets/js/pentominoes.js"></script>
+        <script type="module" src="assets/js/pentifall.js"></script>
 </body>
 
 </html>
