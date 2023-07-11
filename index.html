@@ -30,9 +30,9 @@
                         <input id="player-name" type="text" name="player-name" minlength="3" maxlength="20"
                             pattern="[A-Za-z]+" placeholder="Enter a name" autofocus autocomplete="off" required>
                     </div>
-                    <button id="play-w-sound" class="menu-buttons" type="submit">PLAY WITH SOUND</button>
-                    <button id="play-w/o-sound" class="menu-buttons" type="submit">PLAY WITHOUT SOUND</button>
-                    <button id="how-to-play-button" class="menu-buttons">HOW TO PLAY</button>
+                    <button id="play-w-sound" class="menu-buttons no-highlight" type="submit">PLAY WITH SOUND</button>
+                    <button id="play-w/o-sound" class="menu-buttons no-highlight" type="submit">PLAY WITHOUT SOUND</button>
+                    <button id="how-to-play-button" class="menu-buttons no-highlight">HOW TO PLAY</button>
                 </div>
                 <!-- HOW TO PLAY -->
                 <div id="how-to-play-screen">
@@ -44,7 +44,7 @@
                     <p>Instant Drop - X Button</p>
                     <p>Mute - Select</p>
                     <p>Pause - Start</p>
-                    <button id="backToStartScreen" class="menu-buttons">Start Screen</button>
+                    <button id="backToStartScreen" class="menu-buttons no-highlight">Start Screen</button>
                 </div>
                 <!-- GAME OVER SCREEN -->
                 <div id="gameOverScreen">
@@ -52,7 +52,7 @@
                     <div id="playerNameDisplay"></div>
                     <p id="finalScore">Final Score: </p>
                     <p id="finalLevel">Final Level: </p>
-                    <button id="startScreenReset" class="menu-buttons">Start Screen</button>
+                    <button id="startScreenReset" class="menu-buttons no-highlight">Start Screen</button>
                 </div>
                 <!-- GAME & INFO AREA -->
                 <div id="info-area">
@@ -68,7 +68,7 @@
             </div>
         </div>
         <!-- CONSOLE BRAND -->
-        <div id="console-brand">Notendo SCRIPT BOY<sup>TM</sup></div>
+        <div id="console-brand" class="no-highlight">Notendo SCRIPT BOY<sup>TM</sup></div>
         <!-- CONTROLS -->
         <div id="controls">
             <div id="dpad-yx">
@@ -84,22 +84,22 @@
                 <div id="x-y_buttons">
                     <div id="y">
                         <button id="y-button" class="action-button"></button>
-                        <span>Y</span>
+                        <span class="no-highlight">Y</span>
                     </div>
                     <div id="x">
                         <button id="x-button" class="action-button"></button>
-                        <span>X</span>
+                        <span class="no-highlight">X</span>
                     </div>
                 </div>
             </div>
             <div id="start-select">
                 <div id="select-container">
                     <button id="select-button" class="start-select-button"></button>
-                    <span>Select</span>
+                    <span class="no-highlight">Select</span>
                 </div>
                 <div id="start-container">
                     <button id="start-button" class="start-select-button"></button>
-                    <span>Start</span>
+                    <span class="no-highlight">Start</span>
                 </div>
             </div>
         </div>
