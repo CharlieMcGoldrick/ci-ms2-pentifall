@@ -171,7 +171,7 @@ function generatePentomino() {
     // Position the pentomino at the top middle of the board and off screen
     pentominoPosition = {
         x: Math.floor(numberOfColumns / 2) - Math.floor(currentPentomino[0].length / 2),
-        y: -currentPentomino.length
+        y: -1
     };
 
     // Generate the next pentomino
@@ -288,6 +288,17 @@ function deleteFullRows() {
     }
 }
 
+/**
+ * Increase level for every 1000 points the player earns
+ * Speed game up by 90%
+ */
+function levelUp() {
+    if (score >= level * 1000) {
+        level++;
+        fallSpeed *= 0.9;
+    }
+}
+
 
 /**
  * Initialise the game
@@ -357,17 +368,6 @@ document.getElementById('startScreenReset').addEventListener('click', function (
     // Clear the player name input
     document.getElementById('player-name').value = '';
 });
-
-/**
- * Increase level for every 1000 points the player earns
- * Speed game up by 90%
- */
-function levelUp() {
-    if (score >= level * 1000) {
-        level++;
-        fallSpeed *= 0.9;
-    }
-}
 
 /**
  * Gameplay loop
