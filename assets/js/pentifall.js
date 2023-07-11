@@ -344,7 +344,7 @@ function handleGameOver() {
     }
 
     // Display the final score and level
-    document.getElementById('playerNameDisplay').innerText = playerName;
+    document.getElementById('playerNameDisplay').innerText = "GAME OVER: " + playerName;
     document.getElementById('finalScore').innerText = "Final Score: " + score;
     document.getElementById('finalLevel').innerText = "Final Level: " + level;
 
