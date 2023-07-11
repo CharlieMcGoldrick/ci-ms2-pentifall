@@ -8,6 +8,8 @@ Regarding copyright, while Tetris Holding, LLC does have certain rights, these s
 
 The visual representation of the game is an often-overlooked element of copyright law in games. In fact, courts have ruled in the past that visual aspects, including specific colour schemes, can be considered proprietary. With Pentifall, I've been conscientious in this regard, devising a unique aesthetic that separates it from Tetris while maintaining the captivating nature of the puzzle genre. For an example of how a judge has ruled on this matter, please refer to this article: [Defining Tetris: How Courts Judge Gaming Clones](https://arstechnica.com/gaming/2012/06/defining-tetris-how-courts-judge-gaming-clones/)
 
+![Pentifall](assets/images/amiresponsive.png)
+
 <!-- UXD -->
 <details>
 <summary><h2>User Experience Design (UXD)</h2></summary>
@@ -178,8 +180,12 @@ Touchpoints - Responsive Website
 <details>
     <summary><h3>Skeleton</h3></summary>
 
-<h4>Desktop Wireframes</h4>
-![Desktop Landing Page](assets/images/readme/uxd/skeleton/desktop-landing-page.png)
+<h4>Pentifall Wireframes</h4>
+
+![Start Screen](assets/images/readme/skeleton/pentifall-startscreen.png)
+![Game Screen](assets/images/readme/skeleton/pentifall-gamescreen.png)
+![How To Play Screen](assets/images/readme/skeleton/pentifall-how_to_play_screen.png)
+![Game Over Screen](assets/images/readme/skeleton/pentifall-game_over_screen.png)
 
 </details>
 
@@ -246,11 +252,13 @@ All navigation is controlled with buttons. From the *Start Screen* you are able 
 - The *Game Without Sound*
 - *How To Play Page* that displays
 
-From the *How To Play Page* you are able to navigate to:
-- The *Start Screen*
+From the _How To Play Page_ you are able to navigate to:
 
-From the *Game Over Page* you are able to navigate to:
-- The *Start Screen*
+- The _Start Screen_
+
+From the _Game Over Page_ you are able to navigate to:
+
+- The _Start Screen_
 
 You able to use these buttons either with a mouse, the keys used in the game (that are mapped to the ScriptBoy buttons) and the buttons on the ScriptBoy (actual buttons only work on touchscreen)
 
@@ -291,24 +299,24 @@ Display the controls based on screen size.
 
 <h3>Fixed Bugs</h3>
 
-- [Start Menu not being hidden and Game Area not being displayed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/125a448757b8a1ceef63196730fca4eaab73ae41) - Change *=* to *-* so that the const is using the proper variable name.
+- [Start Menu not being hidden and Game Area not being displayed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/125a448757b8a1ceef63196730fca4eaab73ae41) - Change _=_ to _-_ so that the const is using the proper variable name.
 - [Start Menu would show again after briefly showing game area](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/4678ff341ab56b9206f82f4475b67a192d70e46a) - Remove the form tag, as I didn't actually need to input a form but just need the name input for validation and end screen.
-- [gameCanvas wasn't being captured](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/e39423c6ca0fe2d5146b34156706f4b488ceba4d) - Change the ID captured from *gameCanvas* to *board*, which was the ID on the HTML Canvas tag.
+- [gameCanvas wasn't being captured](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/e39423c6ca0fe2d5146b34156706f4b488ceba4d) - Change the ID captured from _gameCanvas_ to _board_, which was the ID on the HTML Canvas tag.
 - [pentominoPosition variable couldn't be found](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cde6eb663d54d0eb41c6e47893312ec54b1f8504) - Fixed spelling on variable.
-- [Scope issue with gameBoard variable](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b30b382c74102f761d5a17d5faddd51ac117d9fb) - Remove *Let* inside the function as it was already declared at the top of my script which gives it a global scope.
+- [Scope issue with gameBoard variable](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b30b382c74102f761d5a17d5faddd51ac117d9fb) - Remove _Let_ inside the function as it was already declared at the top of my script which gives it a global scope.
 - [Pentominoes weren't showing on the board](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/f456a3d27db121143a9ca8e85ece3dbb4bf954e0) - I gave the pentominoes a colour where the cells were being drawn.
 - [Keys weren't being found](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/0bc2d4c0bff5714af02c10a4929c0205ebaecf67) - Change keycode to strings of keys.
-- [Game over state due to pentominoes not moving](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/611e658c9fa7b254dfa0c1cec84c7144be2457fc) - In the *gameStep* function I changed the pentomino generation to only happen when it can't move down anymore. I also added a boolean value to *movePentomino* so that *gameStep* knows whether the pentomino was moved successfully.
-- [fastFallSpeed would only be active for a short time](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/c29af702834f145e26f9100ddcbd75de855fee21) - Add a *currentSpeed* variable, along with a boolean to check if the *down key* is pressed down or not. If it is pressed down then the *currentSpeed* is changed to *fastFallSpeed*.
+- [Game over state due to pentominoes not moving](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/611e658c9fa7b254dfa0c1cec84c7144be2457fc) - In the _gameStep_ function I changed the pentomino generation to only happen when it can't move down anymore. I also added a boolean value to _movePentomino_ so that _gameStep_ knows whether the pentomino was moved successfully.
+- [fastFallSpeed would only be active for a short time](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/c29af702834f145e26f9100ddcbd75de855fee21) - Add a _currentSpeed_ variable, along with a boolean to check if the _down key_ is pressed down or not. If it is pressed down then the _currentSpeed_ is changed to _fastFallSpeed_.
 - [Pentominoes weren't showing well on background](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/7e4944fa5abb9d3ef537b9e48efad743b509e924) - Change all main colours to be a dark shade of greyscale.
 - [moveSound is looped when the space is held down to rotate](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/9f37c306bd2ac1e2a162c738712503d251fa4ceb) - Add a boolean (flag) to check whether the sound has been played on the key press.
 - [Spacebar had wrong flag name](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/4a3fbbeeb2b7a2e08e50cfebab1a2269b566079e) - Renamed flag to the variable name set at the top.
 - [Pentominoes were placed off screen](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/7b9c8c534ae7eb0b9e4fd07ba481ad70369cd06a) - Set the game canvas to fit within the size of the game screen based on the aspect ratio.
-- [Off screen pentomino triggered game over state](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b5ce9432b01c44933a9ba00cb294d7fe5b641742) - Change the *isValidPosition* function to not check blocks above the board, but then check if one is placed and hit's the top line.
-- [Screen wasn't on top of the other elements](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/a125dff383f6e7f7af2168b59785769598f38870) - Change *#screen* to have *position:relative* as *position:static* doesn't work with z-index.
-- [Some audio wasn't playing correctly](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/566d7fec8c46343e3965ad46ae7af1f11e26f21b) - Change boolean value in *startGame* function to *soundStatus* and then store that vlaue in the *startGame* variable.
-- [Delay on fastFallSpeed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - I added the *gameStep* function within the *key down* controls so that these effects are instant.
-- [dropPentomino can be held down](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - This would cause frustrating gameplay, so I added a flag *isShiftKeyDown*.
+- [Off screen pentomino triggered game over state](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/b5ce9432b01c44933a9ba00cb294d7fe5b641742) - Change the _isValidPosition_ function to not check blocks above the board, but then check if one is placed and hit's the top line.
+- [Screen wasn't on top of the other elements](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/a125dff383f6e7f7af2168b59785769598f38870) - Change _#screen_ to have _position:relative_ as _position:static_ doesn't work with z-index.
+- [Some audio wasn't playing correctly](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/566d7fec8c46343e3965ad46ae7af1f11e26f21b) - Change boolean value in _startGame_ function to _soundStatus_ and then store that vlaue in the _startGame_ variable.
+- [Delay on fastFallSpeed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - I added the _gameStep_ function within the _key down_ controls so that these effects are instant.
+- [dropPentomino can be held down](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - This would cause frustrating gameplay, so I added a flag _isShiftKeyDown_.
 
 </details>
 
@@ -337,7 +345,7 @@ To make a clone of this repository, follow these steps:
 To fork this repository, follow these steps:
 
 1. Log in to your GitHub account.
-2. Go to the repository you want to fork, which is located at:  [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
+2. Go to the repository you want to fork, which is located at: [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
 3. In the top-right corner of the repository page, click on the "Fork" button
 4. GitHub will prompt you to select where you want to fork the repository. Choose your personal account or organization.
 5. Wait for the forking process to complete. Once it's done, you will be redirected to your forked repository under your GitHub account.

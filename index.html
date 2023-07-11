@@ -20,7 +20,7 @@
 
 <body>
     <!-- NOTENDO SCRIPTBOY -->
-    <section id="gameboy">
+    <div id="gameboy">
         <div class="screen-container">
             <div id="screen">
                 <!-- START MENU -->
@@ -31,7 +31,8 @@
                             pattern="[A-Za-z]+" placeholder="Enter a name" autofocus autocomplete="off" required>
                     </div>
                     <button id="play-w-sound" class="menu-buttons no-highlight" type="submit">PLAY WITH SOUND</button>
-                    <button id="play-w/o-sound" class="menu-buttons no-highlight" type="submit">PLAY WITHOUT SOUND</button>
+                    <button id="play-w/o-sound" class="menu-buttons no-highlight" type="submit">PLAY WITHOUT
+                        SOUND</button>
                     <button id="how-to-play-button" class="menu-buttons no-highlight">HOW TO PLAY</button>
                 </div>
                 <!-- HOW TO PLAY -->
@@ -72,37 +73,36 @@
         <div id="controls">
             <div id="dpad-yx">
                 <div id="dpad">
-                    <button id="button-up" class="dpad-button"></button>
+                    <button id="button-up" class="dpad-button" aria-label="Up"></button>
                     <div id="dpad-middle">
                         <button id="button-left" class="dpad-button"></button>
                         <div class="dpad-button middle"></div>
-                        <button id="button-right" class="dpad-button"></button>
                     </div>
-                    <button id="button-down" class="dpad-button"></button>
+                    <button id="button-left" class="dpad-button" aria-label="Left"></button>
                 </div>
                 <div id="x-y_buttons">
                     <div id="y">
-                        <button id="y-button" class="action-button"></button>
+                        <button id="button-right" class="dpad-button" aria-label="Right"></button>
                         <span class="no-highlight">Y</span>
                     </div>
                     <div id="x">
-                        <button id="x-button" class="action-button"></button>
+                        <button id="button-down" class="dpad-button" aria-label="Down"></button>
                         <span class="no-highlight">X</span>
                     </div>
                 </div>
             </div>
             <div id="start-select">
                 <div id="select-container">
-                    <button id="select-button" class="start-select-button"></button>
+                    <button id="y-button" class="action-button" aria-label="Y Button"></button>
                     <span class="no-highlight">Select</span>
                 </div>
                 <div id="start-container">
-                    <button id="start-button" class="start-select-button"></button>
+                    <button id="x-button" class="action-button" aria-label="X Button"></button>
                     <span class="no-highlight">Start</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- AUDIO -->
     <audio id="mainTheme" loop>
         <source src="assets/audio/tetris_piano_viola.mp3" type="audio/mpeg">
