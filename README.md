@@ -235,6 +235,46 @@ For accurately capturing the colors of the physical Game Boy, I used the [Eye Dr
 
 </details>
 
+<!-- FEATURES -->
+<details>
+
+<summary><h2>Features</h2></summary>
+
+<h3>Navigation</h3>
+All navigation is controlled with buttons. From the *Start Screen* you are able to navigate to:
+- The *Game With Sound*
+- The *Game Without Sound*
+- *How To Play Page* that displays
+
+From the *How To Play Page* you are able to navigate to:
+- The *Start Screen*
+
+From the *Game Over Page* you are able to navigate to:
+- The *Start Screen*
+
+You able to use these buttons either with a mouse, the keys used in the game (that are mapped to the ScriptBoy buttons) and the buttons on the ScriptBoy (actual buttons only work on touchscreen)
+
+<h3>Game - Pentifall</h3>
+A falling puzzle game where the objective is to fit pentominoes together so that you fill rows. When you fill a row (maximum 5 at a time), a line will be cleared and you will recieve points that increase depnding on how many you clear with one block. It includes multiple features:
+
+- Input your name - Controlled by validation so that names use letters and are within a certain size.
+- Play with or without music - There is a main theme song which loops; a rendition of the Korobeiniki Russian folk song.
+- Scoreboard - Showing level and score.
+- Next pentomino preview - so player can plan their moves.
+- Ghost pentomino - You can see where your current pentomino is going to land based on it's current trajectory.
+- Move pentomino left and right.
+- Rotate pentomino clockwise and counter-clockwise.
+- Increase pentomino fall speed.
+- Make pentomino drop instantly
+- Pause game
+- Mute
+- Game over screen - Displays the players name, score and the board as it was when the game goes to a fail state. Players can then navigate back to the start screen.
+
+<h3>How To Play Page</h3>
+Display the controls based on screen size.
+
+</details>
+
 <!-- BUGS -->
 <details>
 <summary><h2>Bugs</h2></summary>
