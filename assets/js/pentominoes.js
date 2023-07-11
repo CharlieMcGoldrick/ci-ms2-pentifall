@@ -155,7 +155,7 @@ export const pentominoWeights = {
     zPentominoFlipped: 1.1,
     fPentomino: 1,
     fPentominoFlipped: 1,
-    iPentomino: 4.5,
+    iPentomino: 4,
     lPentomino: 1.3,
     lPentominoFlipped: 1.3,
     pPentomino: 1.4,
