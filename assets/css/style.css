@@ -23,14 +23,13 @@ body {
 
 /* GAMEBOY */
 #gameboy {
-    width: 200px;
-    height: 450px;
+    width: 275px;
+    height: 600px;
     background-color: #c7c1be;
     border-radius: 2%;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     padding: 5px 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
@@ -44,14 +43,14 @@ body {
 }
 
 .screen-container {
-    border: 10px solid #5a5a5a;
-    height: 100%;
     width: 100%;
+    height: 60vh;
 }
 
 #screen {
     width: 100%;
     height: 100%;
+    border: 10px solid #5a5a5a;
     position: relative;
     background-color: #9bbc0f;
     display: flex;
@@ -83,9 +82,9 @@ body {
 }
 
 #player-name {
-    width: 75%;
+    width: 90%;
     padding: 15px 5px;
-    font-size: 10px;
+    font-size: 8px;
     border: none;
     background-color: var(--light-colour);
     color: var(--dark-colour);
@@ -98,6 +97,7 @@ body {
 }
 
 .menu-buttons {
+    width: 90%;
     padding: 15px 10px;
     font-size: 8px;
     border: none;
@@ -178,6 +178,7 @@ body {
 
 #info-area #next-pentomino {
     width: 30%;
+    padding: 0 10px;
 }
 
 #info-area #score,
@@ -205,7 +206,7 @@ body {
 /* CONSOLE BRAND */
 #console-brand {
     align-self: flex-start;
-    font-size: 8px;
+    font-size: 12px;
     padding: 3px 0;
     color: #46468e;
     word-spacing: -5px;
@@ -217,9 +218,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 200px;
-    padding: 0 15px;
-    height: 100px;
+    width: 100%;
+    padding: 15px 10px 20px 10px;
+    height: 150px;
 }
 
 /* DPAD & X-Y BUTTONS */
@@ -240,8 +241,8 @@ body {
 
 #dpad #button-up,
 #dpad #button-down {
-    width: 15px;
-    height: 20px;
+    width: 25px;
+    height: 30px;
     margin: 0 auto;
 }
 
@@ -269,8 +270,8 @@ body {
 
 #dpad #button-left,
 #dpad #button-right {
-    width: 20px;
-    height: 15px;
+    width: 30px;
+    height: 25px;
 }
 
 .dpad-button {
@@ -292,8 +293,8 @@ body {
 }
 
 .middle {
-    width: 20px;
-    height: 15px;
+    width: 30px;
+    height: 25px;
 }
 
 /* X-Y BUTTONS */
@@ -301,7 +302,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 100%;
 }
 
 #y,
@@ -313,21 +313,23 @@ body {
 
 #y {
     margin-top: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 #y span,
-#x span {
-    font-size: 5px;
-    padding-top: 8px;
+#x span,
+#select-container,
+#start-container {
+    font-size: 8px;
+    padding-top: 10px;
 }
 
 .action-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     border: none;
     background-color: #a21641;
     color: white;
@@ -347,7 +349,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #select-container,
@@ -356,16 +358,15 @@ body {
     flex-direction: column;
     align-items: center;
     transform: rotate(-25deg);
-    margin: 0 10px;
-    font-size: 5px;
+    margin: 0 15px;
 }
 
 .start-select-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 8px;
+    width: 40px;
+    height: 12px;
     border: none;
     background-color: #908e7f;
     color: white;
@@ -390,7 +391,7 @@ body {
 @media screen and (min-width: 401px) and (max-width: 480px) {
     #gameboy {
         width: calc(350px + (420 - 360) * ((100vw - 401px) / (480 - 401)));
-        height: calc(800px + (1000 - 853) * ((100vw - 401px) / (480 - 401)));
+        height: calc(840px + (1000 - 853) * ((100vw - 401px) / (480 - 401)));
     }
 
     #error-message {
@@ -420,13 +421,12 @@ body {
 
 @media screen and (min-width: 401px) {
     #console-brand {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     #controls {
-        width: 300px;
-        padding: 0 15px;
-        height: 225px;
+        width: 350px;
+        height: 250px;
     }
 
     #dpad-yx {
@@ -436,43 +436,40 @@ body {
 
     #dpad #button-up,
     #dpad #button-down {
-        width: 30px;
-        height: 45px;
+        width: 40px;
+        height: 50px;
     }
 
     #dpad #button-left,
     #dpad #button-right {
-        width: 45px;
-        height: 30px;
+        width: 50px;
+        height: 40px;
     }
 
     .middle {
-        width: 35px;
-        height: 30px;
+        width: 45px;
+        height: 40px;
     }
 
     .action-button {
-        width: 45px;
-        height: 45px;
+        width: 55px;
+        height: 55px;
     }
 
     #start-select {
-        margin-bottom: 15px;
+        margin-top: 30px;
     }
 
     #y span,
-    #x span {
-        font-size: 12px;
-    }
-
+    #x span,
     #select-container,
     #start-container {
         font-size: 12px;
     }
 
     .start-select-button {
-        width: 60px;
-        height: 20px;
+        width: 70px;
+        height: 25px;
     }
 }
 
@@ -519,7 +516,6 @@ body {
 
     #controls {
         width: 320px;
-        padding: 0 15px;
         height: 225px;
     }
 
@@ -559,10 +555,7 @@ body {
     }
 
     #y span,
-    #x span {
-        font-size: 12px;
-    }
-
+    #x span,
     #select-container,
     #start-container {
         font-size: 12px;
@@ -571,6 +564,10 @@ body {
     .start-select-button {
         width: 60px;
         height: 20px;
+    }
+
+    #info-area #left-info {
+        font-size: 14px;
     }
 }
 
@@ -612,8 +609,7 @@ body {
     }
 
     #controls {
-        width: 300px;
-        padding: 0 15px;
+        width: 450px;
         height: 250px;
     }
 
@@ -623,24 +619,24 @@ body {
 
     #dpad #button-up,
     #dpad #button-down {
-        width: 25px;
-        height: 40px;
+        width: 40px;
+        height: 55px;
     }
 
     #dpad #button-left,
     #dpad #button-right {
-        width: 40px;
-        height: 25px;
+        width: 55px;
+        height: 40px;
     }
 
     .middle {
-        width: 35px;
-        height: 25px;
+        width: 50px;
+        height: 40px;
     }
 
     .action-button {
-        width: 40px;
-        height: 40px;
+        width: 55px;
+        height: 55px;
     }
 
     #x-y_buttons {
@@ -648,26 +644,37 @@ body {
     }
 
     #y span,
-    #x span {
-        font-size: 10px;
+    #x span,
+    #select-container,
+    #start-container {
+        font-size: 14px;
     }
 
     #select-container,
     #start-container {
-        font-size: 10px;
+        margin: 0 20px;
     }
 
+
     .start-select-button {
-        width: 50px;
-        height: 15px;
+        width: 65px;
+        height: 25px;
+    }
+
+    #info-area #next-pentomino {
+        padding: 0 25px;
     }
 }
 
 /* Desktop */
 @media screen and (min-width: 1025px) {
     #gameboy {
-        width: calc(375px + (500 - 450) * ((100vw - 1025px) / (1800 - 1024)));
-        height: calc(750px + (1200 - 1100) * ((100vw - 1025px) / (1800 - 1024)));
+        width: calc(500px + (500 - 450) * ((100vw - 1025px) / (1800 - 1024)));
+        height: calc(900px + (1200 - 1100) * ((100vw - 1025px) / (1800 - 1024)));
+    }
+
+    #controls {
+        height: 300px;
     }
 
 
