@@ -44,7 +44,7 @@ body {
 }
 
 .screen-container {
-    border: 10px solid #908d91;
+    border: 10px solid #5a5a5a;
     height: 100%;
     width: 100%;
 }
@@ -101,7 +101,7 @@ body {
     padding: 15px 10px;
     font-size: 8px;
     border: none;
-    background-color: #8a8a8a;
+    background-color: #5a5a5a;
     color: #ffffff;
     outline: none;
     cursor: pointer;
@@ -109,7 +109,7 @@ body {
 }
 
 .menu-buttons:hover {
-    background-color: #5c5c5c;
+    background-color: #3f3f3f;
 }
 
 #error-message {
