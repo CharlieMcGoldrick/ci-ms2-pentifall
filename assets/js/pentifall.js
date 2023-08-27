@@ -84,15 +84,28 @@ backToStartScreen.addEventListener('click', function () {
 // Control the game sound
 function toggleSound() {
     isSoundOn = !isSoundOn;
+
+    const soundOnIcon = document.getElementById('sound-on');
+    const soundOffIcon = document.getElementById('sound-off');
+
     if (isSoundOn) {
         mainThemeMusic.volume = 0.5;
         // play the music only if the game is not paused
         if (!isGamePaused) {
             mainThemeMusic.play();
         }
+        soundOnIcon.classList.add('active');
+        soundOffIcon.classList.remove('active');
     } else {
         mainThemeMusic.pause();
+        soundOnIcon.classList.remove('active');
+        soundOffIcon.classList.add('active');
     }
+
+    setTimeout(() => {
+        soundOnIcon.classList.remove('active');
+        soundOffIcon.classList.remove('active');
+    }, 3000); // Remove the active class after 3 seconds
 }
 
 // Ensure input is an active menu item when the page is loaded.
@@ -417,10 +430,8 @@ function gameStep() {
 
 /**
  * Start the game with control for sound.
- * @param {boolean} soundStatus
  */
-function startGame(soundStatus) {
-    isSoundOn = soundStatus;
+function startGame() {
     playerName = playerNameInput.value.trim(); // Trim any whitespace 
     let errorMessage = '';
 
@@ -433,14 +444,6 @@ function startGame(soundStatus) {
     if (errorMessage) {
         errorMessageElement.textContent = errorMessage;
         return;
-    }
-
-    // Control the game sound
-    if (isSoundOn) {
-        mainThemeMusic.volume = 0.5; // Full volume
-        mainThemeMusic.play();
-    } else {
-        mainThemeMusic.volume = 0; // Mute the sound
     }
 
     // Valid input, hide the start menu and show the game area
@@ -458,12 +461,18 @@ function startGame(soundStatus) {
 
 // Start game with sound
 playWithSoundBtn.addEventListener('click', function () {
-    startGame(true);
+    isSoundOn = true;
+    startGame();
+    if (isSoundOn && !isGamePaused) {
+        mainThemeMusic.play();
+    }
+    document.getElementById('sound-off').classList.remove('active');
 });
 
 // Start game without sound
 playWithoutSoundBtn.addEventListener('click', function () {
-    startGame(false);
+    isSoundOn = false;
+    startGame();
 });
 
 
