@@ -564,7 +564,7 @@ body {
     }
 
     #start-select {
-        margin-bottom: 5px;
+        margin-top: 20px;
     }
 
     #x-y_buttons {
@@ -691,7 +691,11 @@ body {
     }
 
     #controls {
-        height: 300px;
+        height: 350px;
+    }
+
+    #console-brand {
+        font-size: 18px;
     }
 
 
