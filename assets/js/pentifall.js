@@ -463,9 +463,6 @@ function startGame() {
 playWithSoundBtn.addEventListener('click', function () {
     isSoundOn = true;
     startGame();
-    if (isSoundOn && !isGamePaused) {
-        mainThemeMusic.play();
-    }
     document.getElementById('sound-off').classList.remove('active');
 });
 
@@ -474,7 +471,6 @@ playWithoutSoundBtn.addEventListener('click', function () {
     isSoundOn = false;
     startGame();
 });
-
 
 // MOVEMENT
 /**
