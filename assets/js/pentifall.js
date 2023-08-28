@@ -362,7 +362,7 @@ function handleGameOver() {
     document.getElementById('finalLevel').innerText = "Final Level: " + level;
 
     // Show the game over screen
-    document.getElementById('gameOverScreen').style.display = 'block';
+    document.getElementById('gameOverScreen').style.display = 'flex';
 
     // Hide info area
     document.getElementById('info-area').style.display = 'none';
