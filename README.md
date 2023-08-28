@@ -182,9 +182,16 @@ Touchpoints - Responsive Website
 
 <h4>Pentifall Wireframes</h4>
 
+Start Screen
 ![Start Screen](assets/images/readme/uxd/skeleton/pentifall-startscreen.png)
+
+Game Screen
 ![Game Screen](assets/images/readme/uxd/skeleton/pentifall-gamescreen.png)
+
+How To Play Screen
 ![How To Play Screen](assets/images/readme/uxd/skeleton/pentifall-how_to_play_screen.png)
+
+Game Over Screen
 ![Game Over Screen](assets/images/readme/uxd/skeleton/pentifall-game_over_screen.png)
 
 </details>
@@ -262,6 +269,8 @@ From the _Game Over Page_ you are able to navigate to:
 
 You able to use these buttons either with a mouse, the keys used in the game (that are mapped to the ScriptBoy buttons) and the buttons on the ScriptBoy (actual buttons only work on touchscreen)
 
+![Start Screen](assets/images/readme/features/pentifall-feature-start-screen.png)
+
 <h3>Game - Pentifall</h3>
 A falling puzzle game where the objective is to fit pentominoes together so that you fill rows. When you fill a row (maximum 5 at a time), a line will be cleared and you will recieve points that increase depnding on how many you clear with one block. It includes multiple features:
 
@@ -276,10 +285,17 @@ A falling puzzle game where the objective is to fit pentominoes together so that
 - Make pentomino drop instantly
 - Pause game
 - Mute
+
+![Game Screen](assets/images/readme/features/pentifall-feature-game-screen.png)
+
 - Game over screen - Displays the players name, score and the board as it was when the game goes to a fail state. Players can then navigate back to the start screen.
+
+![Game Over Screen](assets/images/readme/features/pentifall-feature-game-over-screen.png)
 
 <h3>How To Play Page</h3>
 Display the controls based on screen size.
+
+![How To Play Screen](assets/images/readme/features/pentifall-feature-how-to-play-screen.png)
 
 </details>
 
@@ -361,8 +377,14 @@ I also used [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/ove
 <details>
 <summary><h4>Google Lighthouse</h4></summary>
 
+Lighthouse Desktop Navigation Test
 ![Google Lighthouse - Initial Screen - Desktop](assets/images/readme/google-lighthouse/google-lighthouse-initial-screen-desktop.png)
+
+Lighthouse Mobile Navigation Test
 ![Google Lighthouse - Initial Screen - Mobile](assets/images/readme/google-lighthouse/google-lighthouse-initial-screen-mobile.png)
+
+Lighthouse Mobile Snapshot Test (I added this so that I can test the site whilst the game is running)
+![Google Lighthouse - During Game - Snapshot](assets/images/readme/google-lighthouse/google-lighthouse-snapshot.png)
 
 </details>
 </details>
