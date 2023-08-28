@@ -24,7 +24,7 @@ body {
 /* GAMEBOY */
 #gameboy {
     width: 275px;
-    height: 600px;
+    height: 475px;
     background-color: #c7c1be;
     border-radius: 2%;
     position: relative;
@@ -449,7 +449,7 @@ form {
 @media screen and (min-width: 401px) and (max-width: 480px) {
     #gameboy {
         width: calc(350px + (420 - 360) * ((100vw - 401px) / (480 - 401)));
-        height: calc(840px + (1000 - 853) * ((100vw - 401px) / (480 - 401)));
+        height: calc(750px + (1000 - 853) * ((100vw - 401px) / (480 - 401)));
     }
 
     #error-message {
@@ -515,7 +515,7 @@ form {
     }
 
     #start-select {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     #y span,
@@ -732,7 +732,7 @@ form {
     }
 
     #controls {
-        height: 350px;
+        height: 300px;
     }
 
     #console-brand {
