@@ -138,9 +138,10 @@ form {
 #error-message {
     position: absolute;
     text-align: center;
-    top: -30px;
+    top: -50px;
     font-size: 10px;
     z-index: 1;
+    line-height: 2;
 }
 
 .active-menu-item {
@@ -453,7 +454,7 @@ form {
 
     #error-message {
         font-size: 12px;
-        top: -35px;
+        top: -60px;
     }
 
     #player-name {
@@ -539,7 +540,7 @@ form {
 
     #error-message {
         font-size: 14px;
-        top: -40px;
+        top: -70px;
     }
 
     #player-name {
@@ -637,7 +638,7 @@ form {
 
     #error-message {
         font-size: 15px;
-        top: -40px;
+        top: -70px;
     }
 
     #player-name {
@@ -741,7 +742,7 @@ form {
 
     #error-message {
         font-size: 14px;
-        top: -45px;
+        top: -70px;
     }
 
     #player-name {

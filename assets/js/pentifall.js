@@ -435,16 +435,17 @@ function gameStep() {
  */
 function startGame() {
     playerName = playerNameInput.value.trim(); // Trim any whitespace 
-    let errorMessage = '';
+    let errorMessages = [];
 
+    if (!/^[A-Za-z]+$/.test(playerName)) {
+        errorMessages.push('Only use letters!');
+    }
     if (playerName.length < 3) {
-        errorMessage = 'Min 3 characters';
-    } else if (!/^[A-Za-z]+$/.test(playerName)) {
-        errorMessage = 'Only use letters!';
+        errorMessages.push('Min 3 characters');
     }
 
-    if (errorMessage) {
-        errorMessageElement.textContent = errorMessage;
+    if (errorMessages.length > 0) {
+        errorMessageElement.innerHTML = errorMessages.join('<br>');
         return;
     }
 
