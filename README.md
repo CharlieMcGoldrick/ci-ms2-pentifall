@@ -322,6 +322,51 @@ Display the controls based on screen size.
 
 </details>
 
+<details>
+<summary><h2>Validation, Performance, Accessibility & Testing</h2></summary>
+
+<h4>Validation</h4>
+
+All HTML passed the [w3C HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcharliemcgoldrick.github.io%2Fci-ms2-pentifall%2F).
+
+<details>
+<summary><h4>HTML Validation</h4></summary>
+
+![w3C Validator - Markup - Index](assets/images/readme/html-validation/w3c-validator-markup-index.png)
+
+</details>
+
+All CSS passed the [w3C CSS Validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcharliemcgoldrick.github.io%2Fci-ms2-pentifall%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en).
+<details>
+<summary><h4>CSS Validation</h4></summary>
+
+![w3C Validator - Markup - Home](assets/images/readme/css-validation/w3c-validator-css-style.png)
+
+</details>
+
+All JS passed the [JSHint](https://jshint.com/) validation.
+<details>
+<summary><h4>JS Validation</h4></summary>
+
+There are only warnings regarding the use of certain techniques that require ES6.
+
+</details>
+
+<h3>Performance & Accessibility</h3>
+
+I used [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) and it passed with 0 errors.
+
+I also used [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) and it was in the high greens for performance, accessbility and best practises.
+
+<details>
+<summary><h4>Google Lighthouse</h4></summary>
+
+![Google Lighthouse - Initial Screen - Desktop](assets/images/readme/google-lighthouse/google-lighthouse-initial-screen-desktop.png)
+![Google Lighthouse - Initial Screen - Mobile](assets/images/readme/google-lighthouse/google-lighthouse-initial-screen-mobile.png)
+
+</details>
+</details>
+
 <!-- DEPLOYMENT -->
 <details>
 <summary><h2>Deployment</h2></summary>
