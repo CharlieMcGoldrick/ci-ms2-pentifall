@@ -317,6 +317,8 @@ Display the controls based on screen size.
 - [Some audio wasn't playing correctly](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/566d7fec8c46343e3965ad46ae7af1f11e26f21b) - Change boolean value in _startGame_ function to _soundStatus_ and then store that vlaue in the _startGame_ variable.
 - [Delay on fastFallSpeed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - I added the _gameStep_ function within the _key down_ controls so that these effects are instant.
 - [dropPentomino can be held down](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/cb7e26f26d6ae1f50805663bda1e0ff5f7f9a5ee) - This would cause frustrating gameplay, so I added a flag _isShiftKeyDown_.
+- [404 error with sound icon images](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/dcb93ddae181fe30d834af2ef2276d5ac34c0c35) - Removed `/` from the file path so that the images loaded correctly.
+- [Sound would play when vame validation failed](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall/commit/85c0efcb8548cd1c1187de1839eff07711ca5886) - Removed some code that starts playing the music when the _Play with Sound_ button is pressed.
 
 </details>
 
