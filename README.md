@@ -402,8 +402,8 @@ Lighthouse Mobile Snapshot Test (I added this so that I can test the site whilst
 <summary><h2>Application Testing</h2></summary>
 
 <h3>All Screen Sizes</h3>
-<details>
-<summary><h4>Start Screen</h4></summary>
+
+<h4>Start Screen</h4>
 
 Expected - When the site loads, the start screen should be presented. It should have an input, _Play with Sound_ button, _Play without Sound_ button & _How to Play_ Button displayed on the screen. At the bottom right of the screen should be a _sound off_ icon as the `isSoundOn` flag initially set to `False`. Below the screen should be the _physical_ buttons.
 Testing - Tested the feature by loading the app.
@@ -412,19 +412,14 @@ Result - The feature responded as expected.
 Expected - Inputting a name shorter than 3 characters or using numbers should throw up a relevant error. If both errors are met, then both errors should be displayed and the game shouldn't start.
 Testing - Tested the feature by inputting a name shorter than 3 characters and inputting non-letters.
 Result - The feature responded as expected.
-</details>
 
-<details>
-<summary><h4>Game Screen</h4></summary>
+<h4>Game Screen</h4>
 
 Expected - The music should loop
 Testing - Tested the feature by playing the game.
 Result - The feature responded as expected.
 
-</details>
-
-<details>
-<summary><h4>Game Over Screen</h4></summary>
+<h4>Game Over Screen</h4>
 
 Expected - Gameover screen should display the inputted name, _Final Score_, _Final Level_ and a _Start Screen_ button. In the background the gameboard should be displayed as it was before the user entered the gameover state.
 Testing - Tested the feature by hitting the top of the game board which triggers the gameover state.
@@ -433,9 +428,6 @@ Result - The feature responded as expected.
 Expected - Keys shouldn't be active in this screen.
 Testing - Tested the feature by pressing/touching keys.
 Result - There is a bug related to sound (See Known Bug 6), so it seems like the keys are still _active_.
-
-</details>
-</details>
 
 <details>
 <summary><h3>Desktop</h3></summary>
@@ -512,9 +504,6 @@ Result - The feature responded as expected.
 Expected - Clicking the _Start Screen_ button should return the user to the the _Start Screen_.
 Testing - Tested the feature by clicking the _Start Screen_ button.
 Result - The feature responded as expected.
-</details>
-
-
 </details>
 
 <details>
@@ -638,18 +627,18 @@ NOTE: Any changes pushed to the main branch automatically show up on the website
 The following credits are used to inspire colour ideas, create the favicon, source royality free sound or inspire techniques used in this project.
 
 - [W3Schools](https://www.w3schools.com/) Used to learn more about CSS and Javascript
-- - [Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) Used to reinforce objects.
-- - [Arrays](https://www.w3schools.com/js/js_arrays.asp) Used to reinforce knowledge on arrays.
-- - [Objects](https://www.w3schools.com/js/js_objects.asp) Used to reinforce knowledge pn objects.
+  - [Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) Used to reinforce objects.
+  - [Arrays](https://www.w3schools.com/js/js_arrays.asp) Used to reinforce knowledge on arrays.
+  - [Objects](https://www.w3schools.com/js/js_objects.asp) Used to reinforce knowledge pn objects.
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) Used to learn more about Javascript.
-- - [Arrow Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) Learned about Arrow Functions expressions.
-- - [Switch Statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Reinforced knowledge about switch statements.
-- - [Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) Reinforced knowledge about ternary operators.
-- - [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) Reinforced knowledge about a KeyboardEvent.
+  - [Arrow Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) Learned about Arrow Functions expressions.
+  - [Switch Statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) Reinforced knowledge about switch statements.
+  - [Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) Reinforced knowledge about ternary operators.
+  - [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) Reinforced knowledge about a KeyboardEvent.
 - [Kevin Powell](https://www.youtube.com/@KevinPowell) Helpful CSS tips.
-- - [calc() lets you do some real CSS magic](https://www.youtube.com/watch?v=PKVKwluRTfo) Used for some inspiration with CSS calc, which I used for the height and width of the ScriptBoy.
+  - [calc() lets you do some real CSS magic](https://www.youtube.com/watch?v=PKVKwluRTfo) Used for some inspiration with CSS calc, which I used for the height and width of the ScriptBoy.
 - [Free Code Camp](https://www.youtube.com/@freecodecamp) To learn JavaScript.
-- - [Learn JavaScript - Full Course for Beginners](https://www.youtube.com/watch?v=PkZNo7MFNFg) No specific code used, but I went through this to reinforce what I learnt from Code Institute.
+  - [Learn JavaScript - Full Course for Beginners](https://www.youtube.com/watch?v=PkZNo7MFNFg) No specific code used, but I went through this to reinforce what I learnt from Code Institute.
 - [Am I Responsive?](https://ui.dev/amiresponsive) Used to create mock-ups for various screen sizes.
 - [Color Space](https://mycolor.space/) Used to create colour palette.
 - [Dynamic Drive](http://tools.dynamicdrive.com/favicon/) Used to create favicon.
