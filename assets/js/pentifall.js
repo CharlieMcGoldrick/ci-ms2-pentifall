@@ -74,11 +74,13 @@ let isRotateSoundPlayed = false;
 howToPlayButton.addEventListener('click', function () {
     startMenu.style.display = 'none';
     howToPlayScreen.style.display = 'flex';
+    howToPlayScreen.classList.add('how-to-play-active');
 });
 // Back To Start Screen Button
 backToStartScreen.addEventListener('click', function () {
     startMenu.style.display = 'flex';
     howToPlayScreen.style.display = 'none';
+    howToPlayScreen.classList.remove('how-to-play-active');
 });
 
 // Control the game sound

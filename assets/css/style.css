@@ -188,10 +188,25 @@ form {
 /* How To Play */
 #how-to-play-screen {
     display: none;
-    flex-direction: column;
     font-size: 8px;
     line-height: 1.4;
     padding: 10px;
+}
+
+.how-to-play-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#how-to-play-screen-desktop {
+    display: none;
+    flex-direction: column;
+}
+
+#how-to-play-screen-mobile {
+    flex-direction: column;
 }
 
 #how-to-play-screen p {
@@ -738,6 +753,14 @@ form {
     .menu-buttons {
         font-size: 13px;
         margin-bottom: 12px;
+    }
+
+    #how-to-play-screen-desktop {
+        display: flex;
+    }
+
+    #how-to-play-screen-mobile {
+        display: none;
     }
 
     #how-to-play-screen {
