@@ -703,6 +703,11 @@ function navigateMenu(control) {
 // Keydown event listener
 document.addEventListener('keydown', function (e) {
 
+    // If the key pressed is an arrow key, prevent the default behavior
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault();
+    }
+
     if (startMenu.style.display !== 'none') {
         let menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-buttons'));
         let inputItem = document.getElementById('player-name');
