@@ -1,11 +1,11 @@
-import { startMenu, howToPlayButton, howToPlayScreen, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
+import { startMenu, howToPlayButton, howToPlayScreen, backToStartScreen, infoArea, gameArea, playWithSoundBtn, playWithoutSoundBtn, playerNameInput, errorMessageElement } from './start_menu.js';
 import { weightedPentominoSelection } from './pentominoes.js';
 import { controls } from './controls.js';
 
 // Board
 const gameCanvas = document.getElementById('board'); // Grab the game canvas
 const context = gameCanvas.getContext('2d'); // Get the context of the canvas
-const screen = document.getElementById('screen');
+const myScreen = document.getElementById('screen');
 
 // Gameboard 
 let gameBoard;
@@ -13,8 +13,8 @@ const numberOfRows = 40;
 const numberOfColumns = 20;
 
 // Get the width and height of the #screen element
-const screenWidth = screen.clientWidth;
-const screenHeight = screen.clientHeight - infoArea.offsetHeight;
+const screenWidth = myScreen.clientWidth;
+const screenHeight = myScreen.clientHeight - infoArea.offsetHeight;
 
 // Calculate aspect ratio of the game board
 const gameBoardAspectRatio = numberOfColumns / numberOfRows;
@@ -648,7 +648,9 @@ Object.keys(controls).forEach(id => {
             e.preventDefault();
 
             if (window.getComputedStyle(startMenu).display === 'none' || !(controls[id] === 'ArrowUp' || controls[id] === 'ArrowDown' || controls[id] === 'Shift')) {
-                gameControlsUp[controls[id]] && gameControlsUp[controls[id]]();
+                if (gameControlsUp[controls[id]]) {
+                    gameControlsUp[controls[id]]();
+                }
             }
         });
     }
@@ -726,9 +728,9 @@ document.addEventListener('keydown', function (e) {
                     if (activeItem) activeItem.classList.remove('active-menu-item');
 
                     // Calculate the new index
-                    index = e.key === 'ArrowUp'
-                        ? index <= 0 ? menuItems.length - 1 : index - 1
-                        : index >= menuItems.length - 1 ? 0 : index + 1;
+                    index = e.key === 'ArrowUp' ?
+                        (index <= 0 ? menuItems.length - 1 : index - 1) :
+                        (index >= menuItems.length - 1 ? 0 : index + 1);
 
                     // Add the active class to the new active item
                     activeItem = menuItems[index];
