@@ -101,9 +101,9 @@ Weaknesses:
 <details>
 <summary><h4>Strategy Tradeoffs</h4></summary>
 
-![Synaptic Surge Tradeoff Table](assets/images/readme/uxd/strategy/pentifall_strategy-tradeoffs-table.png)
+![Pentifall Tradeoff Table](assets/images/readme/uxd/strategy/pentifall_strategy-tradeoffs-table.png)
 
-![Synaptic Surge Tradeoff_Graph](assets/images/readme/uxd/strategy/pentifall_strategy_tradeoffs_graph.png)
+![Pentifall Surge Tradeoff_Graph](assets/images/readme/uxd/strategy/pentifall_strategy_tradeoffs_graph.png)
 
 </details>
 
@@ -172,7 +172,7 @@ Weaknesses:
 
 Touchpoints - Responsive Website
 
-![Synaptic Surge Information Architecture](assets/images/readme/uxd/structure/pentifall-information-architecture.png)
+![Pentifall Surge Information Architecture](assets/images/readme/uxd/structure/pentifall-information-architecture.png)
 
 </details>
 
@@ -182,10 +182,10 @@ Touchpoints - Responsive Website
 
 <h4>Pentifall Wireframes</h4>
 
-![Start Screen](assets/images/readme/skeleton/pentifall-startscreen.png)
-![Game Screen](assets/images/readme/skeleton/pentifall-gamescreen.png)
-![How To Play Screen](assets/images/readme/skeleton/pentifall-how_to_play_screen.png)
-![Game Over Screen](assets/images/readme/skeleton/pentifall-game_over_screen.png)
+![Start Screen](assets/images/readme/uxd/skeleton/pentifall-startscreen.png)
+![Game Screen](assets/images/readme/uxd/skeleton/pentifall-gamescreen.png)
+![How To Play Screen](assets/images/readme/uxd/skeleton/pentifall-how_to_play_screen.png)
+![Game Over Screen](assets/images/readme/uxd/skeleton/pentifall-game_over_screen.png)
 
 </details>
 
@@ -383,16 +383,16 @@ I have deployed this website on GitHub Pages. To do this yourself, follow the st
 To make a clone of this repository, follow these steps:
 
 1. Login to your GitHub account.
-2. Go to the repository by visiting the link: [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
+2. Go to the repository by visiting the link: [Charlie McGoldrick Github - Pentifall Repo](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall).
 3. Click the "Code" button and then use the copy button next to the link to copy the link.
 4. In your IDE of choice, open a new terminal and use the following clone command:
-   `git clone <https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge.git>`.
+   `git clone <https://github.com/CharlieMcGoldrick/ci-ms2-pentifall>`.
 5. You will now have a copy of the repository in you local version.
 
 To fork this repository, follow these steps:
 
 1. Log in to your GitHub account.
-2. Go to the repository you want to fork, which is located at: [Charlie McGoldrick Github - Synaptic Surge Repo](https://github.com/CharlieMcGoldrick/ci-ms1-synaptic-surge).
+2. Go to the repository you want to fork, which is located at: [Charlie McGoldrick Github - Pentifall Repo](https://github.com/CharlieMcGoldrick/ci-ms2-pentifall).
 3. In the top-right corner of the repository page, click on the "Fork" button
 4. GitHub will prompt you to select where you want to fork the repository. Choose your personal account or organization.
 5. Wait for the forking process to complete. Once it's done, you will be redirected to your forked repository under your GitHub account.
