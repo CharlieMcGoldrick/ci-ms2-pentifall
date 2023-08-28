@@ -609,7 +609,6 @@ const gameControlsDown = {
     }
 };
 
-
 // Game control functions for button up events:
 const gameControlsUp = {
     'ArrowUp': function () {
@@ -637,8 +636,6 @@ Object.keys(controls).forEach(id => {
     if (btn) {
         btn.addEventListener('touchstart', function (e) {
             e.preventDefault();
-            console.log(`Button ${id} is pressed. Control is ${controls[id]}.`);
-            console.log(`startMenu defined: ${startMenu !== undefined}, startMenu display: ${window.getComputedStyle(startMenu).display}`);
 
             // If startMenu is displayed then use navigateMenu controls
             if (window.getComputedStyle(startMenu).display !== 'none' && (controls[id] === 'ArrowUp' || controls[id] === 'ArrowDown' || controls[id] === 'Shift')) {
