@@ -473,6 +473,7 @@ playWithSoundBtn.addEventListener('click', function () {
 playWithoutSoundBtn.addEventListener('click', function () {
     isSoundOn = false;
     startGame();
+    document.getElementById('sound-off').classList.remove('active');
 });
 
 // MOVEMENT
