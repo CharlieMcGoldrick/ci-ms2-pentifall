@@ -305,13 +305,13 @@ Display the controls based on screen size.
 
 <h3>Known Bugs</h3>
 
-- Unitended game over state - You can move a pentomino to the side of the board before it's showing and 'hook' it on one of the edges.
-- Pentomino ghost consistency - Pentomino ghost is a lighter colour for 1 game step and then becomes the consistent colour that I've set.
-- Pentomino preview - Pentomino preview display blocks at different sizes, this should be standardised.
-- Text glitch - When the select button is pressed there is an odd text glitch on the start button text.
-- Cycling through menu items with keys or d-pad is cycling through hidden buttons.
-- Pressed a button on the gameOverScreen plays the game over sound.
-- Left and Right sound isn't played for each movement when keys are held down.
+1. Unitended game over state - You can move a pentomino to the side of the board before it's showing and 'hook' it on one of the edges.
+2. Pentomino ghost consistency - Pentomino ghost is a lighter colour for 1 game step and then becomes the consistent colour that I've set.
+3. Pentomino preview - Pentomino preview display blocks at different sizes, this should be standardised.
+4. Text glitch - When the select button is pressed there is an odd text glitch on the start button text.
+5. Cycling through menu items with keys or d-pad is cycling through hidden buttons.
+6. Pressed a button on the gameOverScreen plays the game over sound.
+7. Left and Right sound isn't played for each movement when keys are held down, or pressing in quick succession. This is also the case when rotating the pentomino quickly.
 
 <h3>Fixed Bugs</h3>
 
@@ -339,7 +339,7 @@ Display the controls based on screen size.
 </details>
 
 <details>
-<summary><h2>Validation, Performance, Accessibility & Testing</h2></summary>
+<summary><h2>Validation, Performance & Accessibility</h2></summary>
 
 <h4>Validation</h4>
 
@@ -385,6 +385,202 @@ Lighthouse Mobile Navigation Test
 
 Lighthouse Mobile Snapshot Test (I added this so that I can test the site whilst the game is running)
 ![Google Lighthouse - During Game - Snapshot](assets/images/readme/google-lighthouse/google-lighthouse-snapshot.png)
+
+</details>
+</details>
+
+<!-- Application Testing -->
+<details>
+<summary><h2>Application Testing</h2></summary>
+
+<h3>All Screen Sizes</h3>
+<details>
+<summary><h3>Start Screen</h3></summary>
+
+Expected - When the site loads, the start screen should be presented. It should have an input, _Play with Sound_ button, _Play without Sound_ button & _How to Play_ Button displayed on the screen. At the bottom right of the screen should be a _sound off_ icon as the `isSoundOn` flag initially set to `False`. Below the screen should be the _physical_ buttons.
+Testing - Tested the feature by loading the app.
+Result - The feature responded as expected.
+
+Expected - Inputting a name shorter than 3 characters or using numbers should throw up a relevant error. If both errors are met, then both errors should be displayed and the game shouldn't start.
+Testing - Tested the feature by inputting a name shorter than 3 characters and inputting non-letters.
+Result - The feature responded as expected.
+
+</details>
+
+<h4>Game Over Screen</h4>
+
+Expected - Gameover screen should display the inputted name, _Final Score_, _Final Level_ and a _Start Screen_ button. In the background the gameboard should be displayed as it was before the user entered the gameover state.
+Testing - Tested the feature by hitting the top of the game board which triggers the gameover state.
+Result - The feature responded as expected.
+
+Expected - Keys shouldn't be active in this screen.
+Testing - Tested the feature by pressing/touching keys.
+Result - There is a bug related to sound (See Known Bug 6), so it seems like the keys are still _active_.
+
+</details>
+
+<details>
+<summary><h3>Desktop</h3></summary>
+
+Tested on a 2560x1440 screen.
+
+<h4>Start Screen</h4>
+Expected - Hovering the cursor over the buttons should change the colour.
+Testing - Tested the feature by using the cursor to hover over the buttons.
+Result - The feature responded as expected.
+
+Expected - Clicking the _Play with Sound_ button should start the game with sound and the _sound off_ icon should disappear.
+Testing - Tested the feature by clicking the _Play with Sound_ button.
+Result - The feature responded as expected.
+
+Expected - Clicking the _Play without Sound_ button should start the game without sound and the _sound off_ icon should disappear.
+Testing - Tested the feature by clicking the _Play without Sound_ button.
+Result - The feature responded as expected.
+
+Expected - Clicking the _How to Play_ button should display _How to play Screen_.
+Testing - Tested the feature by clicking the _How to Play_ button.
+Result - The feature responded as expected.
+
+<h4>How To Play Screen</h4>
+
+Expected - The desktop controls should be displayed.
+Testing - Tested the feature by clicking the _How to Play_ button.
+Result - The feature responded as expected.
+
+Expected - Clicking the _Start Screen_ button should return the user back to the start screen.
+Testing - Tested the feature by clicking the _Start Screen_ button.
+Result - The feature responded as expected.
+
+<h4>Game Screen</h4>
+
+Expected - Pressing the right and left arrow key should move the pentomino respectivly. A sound should be played if the sound is on.
+Testing - Tested the feature by pressing the right and left arrow key.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Holding the right and left arrow key should move the pentomino respectivly. A sound should be played if the sound is on.
+Testing - Tested the feature by pressing the right and left arrow key.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Pressing the up arrow key should rotate the pentomino counter-clockwise. A sound should be played if the sound is on.
+Testing - Tested the feature by pressing the up arrow key.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Pressing the down arrow key should rotate the pentomino clockwise. A sound should be played if the sound is on.
+Testing - Tested the feature by pressing the down arrow key.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Pressing the spacebar should speed up the pentomino fall.
+Testing - Tested the feature by pressing the spacebar.
+Result - The feature responded as expected.
+
+Expected - Holding the spacebar should speed up the pentomino fall.
+Testing - Tested the feature by holding the spacebar.
+Result - The feature responded as expected.
+
+Expected - Pressing the shift key should instantly place the pentomino.
+Testing - Tested the feature by pressing the shift key.
+Result - The feature responded as expected.
+
+Expected - Pressing the CTRL key should pause the game and the sound should stop.
+Testing - Tested the feature by pressing the CTRL key.
+Result - The feature responded as expected.
+
+Expected - Pressing the M key should mute the game. The relative sound icon should be displayed.
+Testing - Tested the feature by pressing M key.
+Result - The feature responded as expected.
+
+<h4>Game Screen</h4>
+
+Expected - The music should loop
+Testing - Tested the feature by playing the game.
+Result - The feature responded as expected.
+
+</details>
+
+<h4>Game Over Screen</h4>
+
+Expected - Clicking the _Start Screen_ button should return the user to the the _Start Screen_.
+Testing - Tested the feature by clicking the _Start Screen_ button.
+Result - The feature responded as expected.
+
+</details>
+
+<details>
+<summary><h3>Mobile</h3></summary>
+
+Tested on a Galaxy S8 screen.
+
+<h4>Start Screen</h4>
+
+Expected - Using the _dpad_ the cursor over the buttons should change the colour to signify what is currently selected.
+Testing - Tested the feature by using the dpad to select menu elements.
+Result - The feature technically works but there is a bug (See Known Bug 5).
+
+Expected - Pressing the _x_ button should start the game or show controls if the button is currently selected.
+Testing - Tested the feature by using the _dpad_ to select each button and then pressed _x_ to select that button.
+Result - The feature responded as expected.
+
+Expected - Touching the _Play with Sound_ button should start the game with sound and the _sound off_ icon should disappear.
+Testing - Tested the feature by touching the _Play with Sound_ button.
+Result - The feature responded as expected.
+
+Expected - Touching the _Play without Sound_ button should start the game without sound and the _sound off_ icon should disappear.
+Testing - Tested the feature by touching the _Play without Sound_ button.
+Result - The feature responded as expected.
+
+Expected - Touching the _How to Play_ button should display the _How to play Screen_.
+Testing - Tested the feature by touching the _How to Play_ button.
+Result - The feature responded as expected.
+
+<h4>How To Play Screen</h4>
+
+Expected - The mobile controls should be displayed.
+Testing - Tested the feature by clicking the _How to Play_ button.
+Result - The feature responded as expected.
+
+Expected - Touching the _Start Screen_ button should return the user back to the start screen.
+Testing - Tested the feature by touching the _Start Screen_ button.
+Result - The feature responded as expected.
+
+<h4>Game Screen</h4>
+
+Expected - Touching the right and left dpad should move the pentomino respectivly. A sound should be played if the sound is on.
+Testing - Tested the feature by touching the right and left arrow key.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Touching the up dpad should rotate the pentomino counter-clockwise. A sound should be played if the sound is on.
+Testing - Tested the feature by touching the dpad.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Touching the down dpad should rotate the pentomino clockwise. A sound should be played if the sound is on.
+Testing - Tested the feature by touching the down dpad.
+Result - The feature didn't respond as expected due to a bug related to sound (See Known Bug 7).
+
+Expected - Touching the Y action button should speed up the pentomino fall.
+Testing - Tested the feature by touching the Y action button.
+Result - The feature responded as expected.
+
+Expected - Continuously touching the Y action button should speed up the pentomino fall.
+Testing - Tested the feature by holding the Y action button.
+Result - The feature responded as expected.
+
+Expected - Touching the X action button should instantly place the pentomino.
+Testing - Tested the feature by touching the X action button.
+Result - The feature responded as expected.
+
+Expected - Touching the Start button should pause the game and the sound should stop.
+Testing - Tested the feature by touching the Start button.
+Result - The feature responded as expected.
+
+Expected - Touching the Select button should mute the game. The relative sound icon should be displayed.
+Testing - Tested the feature by touching the Select button.
+Result - The feature responded as expected.
+
+<h4>Game Over Screen</h4>
+
+Expected - Touching the _Start Screen_ button should return the user to the the _Start Screen_.
+Testing - Tested the feature by touching the _Start Screen_ button.
+Result - The feature responded as expected.
 
 </details>
 </details>
